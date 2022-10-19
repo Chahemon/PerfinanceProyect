@@ -84,7 +84,7 @@ namespace Dashboard
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnInicio_Leave(object sender, EventArgs e)
@@ -120,6 +120,17 @@ namespace Dashboard
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            login login = new login();
+            login.Show();
+        }
+
+        private void textBox1_TextSelected(object sender, EventArgs e)
+        {
+            textBox1.Text = ("");
         }
     }
 }
