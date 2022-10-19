@@ -19,3 +19,14 @@ C:\Users\hecto\OneDrive\Escritorio\Dashboard\Dashboard\obj\Debug\Dashboard.cspro
 C:\Users\hecto\OneDrive\Escritorio\Dashboard\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
 C:\Users\hecto\OneDrive\Escritorio\Dashboard\Dashboard\obj\Debug\Dashboard.exe
 C:\Users\hecto\OneDrive\Escritorio\Dashboard\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\bin\Debug\Dashboard.exe.config
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\bin\Debug\Dashboard.exe
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\bin\Debug\Dashboard.pdb
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.csproj.AssemblyReference.cache
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.login.resources
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Main.resources
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Properties.Resources.resources
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.csproj.GenerateResource.cache
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.exe
+C:\Users\danie\OneDrive\Documentos\Lamia\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.pdb
