@@ -8,13 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MongoDB.Driver;
+using Dashboard.Models;
 
 namespace Dashboard
 {
     public partial class login : Form
     {
+        
+        private static MongoClient client = new MongoClient("mongodb+srv://Hector:(contraseña)@cluster0.rv4yzet.mongodb.net/?retryWrites=true&w=majority");
+        private static IMongoDatabase database = client.GetDatabase("uptask");
+        private static IMongoCollection <Usuarios> usuariosDB = database.GetCollection<Usuarios>("usuarios");
+            
         public login()
-        {
+        {   
+         
             InitializeComponent();
         }
 
@@ -47,6 +55,28 @@ namespace Dashboard
         private void button3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            String email = textUsuario.Text;
+            String contraseña = textContra.Text;
+
+            List <Usuarios> lst = usuariosDB.Find( d => d.Email == email).ToList();
+
+
+            if (lst.Any()) {
+
+
+                if (BCrypt.Net.BCrypt.Equals(lst[0].Password, contraseña) )
+                    Console.WriteLine("Contraseña CORRECTA");
+                else
+                    Console.WriteLine("Contraseña INCORRECTA");
+
+            } else {
+                Console.WriteLine("NO SE ENCONTRO UNU");
+            } 
+
         }
     }
 }

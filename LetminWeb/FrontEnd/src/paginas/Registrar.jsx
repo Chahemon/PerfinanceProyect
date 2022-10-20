@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Alerta from '../components/Alerta'
+import axios from 'axios'
 
 const Registrar = () => {
 
@@ -7,6 +9,62 @@ const Registrar = () => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ repetirPassword, setRepetirPassword ] = useState('')
+  const [ alerta, setAlerta ] = useState({})
+
+  const handleSubmit = async e => {
+    e.preventDefault()
+
+    if ([nombre, email, password, repetirPassword].includes('')){
+        setAlerta({
+            msg: 'Todos los campos son obligatorios',
+            error: true
+        })
+        return
+    }
+
+    if ( password !== repetirPassword ) {
+      setAlerta({
+          msg: 'Los password no son iguales',
+          error: true
+        })
+        return
+    }
+
+    if ( password < 6 ) {
+      setAlerta({
+          msg: 'El Password es muy corto, agrega minimo 6 caracteres',
+          error: true
+        })
+        return
+    }
+    
+    setAlerta({})
+    // Crear el usuario en la API
+
+    try {
+      const { data } = await axios.post('http://localhost:4000/api/usuarios',
+      {nombre, email, password} )
+
+      setAlerta({
+        msg: data.msg,
+        error: false
+      })
+
+      setNombre('')
+      setEmail('')
+      setPassword('')
+      setRepetirPassword('')
+
+    } catch ( error ) {
+      setAlerta( {
+        msg: error.response.data.msg,
+        error: true
+      })
+    }
+
+  }
+
+  const { msg } = alerta
 
   return (
     <>
@@ -14,7 +72,12 @@ const Registrar = () => {
       Administra tus<span className="text-orange-600" > Finanzas</span>
       </h1>
 
-      <form className="my-10 bg-white shadow rounded-lg p-10">
+      { msg && <Alerta alerta={alerta} /> }
+
+      <form 
+        className="my-10 bg-white shadow rounded-lg p-10"
+        onSubmit={handleSubmit}
+      >
         <div className="my-5">
           <label 
               className="uppercase text-gray-600 block text-xl font-bold"
