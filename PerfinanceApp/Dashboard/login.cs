@@ -16,8 +16,8 @@ namespace Dashboard
     public partial class login : Form
     {
         
-        private static MongoClient client = new MongoClient("mongodb+srv://Hector:(contraseña)@cluster0.rv4yzet.mongodb.net/?retryWrites=true&w=majority");
-        private static IMongoDatabase database = client.GetDatabase("uptask");
+        private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@cluster.kxymtdq.mongodb.net/?retryWrites=true&w=majority");
+        private static IMongoDatabase database = client.GetDatabase("test");
         private static IMongoCollection <Usuarios> usuariosDB = database.GetCollection<Usuarios>("usuarios");
             
         public login()
@@ -59,22 +59,24 @@ namespace Dashboard
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
+            // (El pa) Hacer mejoras en el login ( Visuales )  
+
             String email = textUsuario.Text;
             String contraseña = textContra.Text;
 
             List <Usuarios> lst = usuariosDB.Find( d => d.Email == email).ToList();
-
-
+            
             if (lst.Any()) {
-
-
-                if (BCrypt.Net.BCrypt.Equals(lst[0].Password, contraseña) )
-                    Console.WriteLine("Contraseña CORRECTA");
-                else
-                    Console.WriteLine("Contraseña INCORRECTA");
-
+                if (BCrypt.Net.BCrypt.Verify(contraseña , lst[0].Password)) {
+                    Main main = new Main( lst[0].Id );
+                    this.Hide();
+                    main.ShowDialog();
+                    this.Close();
+                } else {
+                    Console.WriteLine("Contraseña INCORRECTA"); // (El pa) Hacer que esto se muestre en el login
+                }
             } else {
-                Console.WriteLine("NO SE ENCONTRO UNU");
+                Console.WriteLine("NO EXISTE UNA CUENTA REGISTRADA CON ESE GMAIL"); // (El pa) Hacer que esto se muestre en el login
             } 
 
         }

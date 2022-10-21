@@ -223,6 +223,7 @@ namespace Dashboard
             this.label2.Size = new System.Drawing.Size(54, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "User data";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -231,7 +232,7 @@ namespace Dashboard
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(52, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 16);
+            this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "User name";
             // 
@@ -252,7 +253,7 @@ namespace Dashboard
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label3.Location = new System.Drawing.Point(220, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 32);
+            this.label3.Size = new System.Drawing.Size(87, 32);
             this.label3.TabIndex = 1;
             this.label3.Text = "Inicio";
             // 
@@ -311,7 +312,7 @@ namespace Dashboard
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(86, 58);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 32);
+            this.label5.Size = new System.Drawing.Size(99, 32);
             this.label5.TabIndex = 1;
             this.label5.Text = "$1982";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -366,7 +367,7 @@ namespace Dashboard
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(0)))));
             this.label7.Location = new System.Drawing.Point(86, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 32);
+            this.label7.Size = new System.Drawing.Size(116, 32);
             this.label7.TabIndex = 1;
             this.label7.Text = "+$1282";
             this.label7.Click += new System.EventHandler(this.label5_Click);

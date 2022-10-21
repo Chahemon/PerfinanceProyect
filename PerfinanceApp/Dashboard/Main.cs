@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Dashboard.Models;
 
 namespace Dashboard
 {
     public partial class Main : Form
     {
+        private string usuarioId;
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -24,15 +27,18 @@ namespace Dashboard
               int nWidthEllipse,
                  int nHeightEllipse
 
+
           );
-        public Main()
+        public Main( string UsuarioID )
         {
+            this.usuarioId = UsuarioID;
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
             btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+
         }
 
         private void btnInicio_Click(object sender, EventArgs e)
@@ -41,6 +47,7 @@ namespace Dashboard
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
             btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+
         }
 
         private void btnIngresos_Click(object sender, EventArgs e)
@@ -132,5 +139,12 @@ namespace Dashboard
         {
             textBox1.Text = ("");
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
