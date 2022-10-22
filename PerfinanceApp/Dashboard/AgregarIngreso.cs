@@ -30,11 +30,32 @@ namespace Dashboard
         private void button1_Click(object sender, EventArgs e)
         {
             IMongoCollection <Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
-            var ingreso = new Ingreso() { CreatedAt = DateTime.Now, Valor = 10f,  Categoria = "Sueldo", UsuarioId = this.usuarioId };
 
+            // Obtenemos la informacion y la guardamos
+            
+            float valor = float.Parse(txtBoxCantidad.Text);
+            string categoria = comboBoxCategoria.SelectedText;
+
+            // Creamos un Objeto con la información
+            var ingreso = new Ingreso() { CreatedAt = DateTime.Now, Valor = valor,  Categoria = categoria, UsuarioId = this.usuarioId };
+            // La almacenamos en la base de datos
             ingresosDB.InsertOne( ingreso );
 
+            this.Close();
         }
 
+        private void txtBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -66,6 +66,7 @@ namespace Dashboard
 
         private void btnEgresos_Click(object sender, EventArgs e)
         {
+            abrirFormHija(new Egresos( usuarioId ));
             panNav.Height = btnEgresos.Height;
             panNav.Top = btnEgresos.Top;
             //panNav.Left = btnEgresos.Left;

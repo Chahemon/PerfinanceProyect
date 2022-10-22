@@ -149,11 +149,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarEgreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarEgreso.Designer.cs">
+      <DependentUpon>AgregarEgreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AgregarIngreso.Designer.cs">
       <DependentUpon>AgregarIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Egresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egresos.Designer.cs">
+      <DependentUpon>Egresos.cs</DependentUpon>
     </Compile>
     <Compile Include="Ingresos.cs">
       <SubType>Form</SubType>
@@ -183,8 +195,14 @@
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarEgreso.resx">
+      <DependentUpon>AgregarEgreso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AgregarIngreso.resx">
       <DependentUpon>AgregarIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Egresos.resx">
+      <DependentUpon>Egresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ingresos.resx">
       <DependentUpon>Ingresos.cs</DependentUpon>
