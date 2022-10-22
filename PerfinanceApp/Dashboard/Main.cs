@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Dashboard.Models;
+using MongoDB.Driver;
 
 namespace Dashboard
 {
     public partial class Main : Form
     {
         private string usuarioId;
+        private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
+        private static IMongoDatabase database = client.GetDatabase("test");
+        private static IMongoCollection<Usuarios> usuariosDB = database.GetCollection<Usuarios>("ingresos");
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -29,9 +33,9 @@ namespace Dashboard
 
 
           );
-        public Main( string UsuarioID )
+        public Main( string usuarioId )
         {
-            this.usuarioId = UsuarioID;
+            this.usuarioId = usuarioId;
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             panNav.Height = btnInicio.Height;
@@ -43,6 +47,7 @@ namespace Dashboard
 
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            abrirFormHija(new Inicio() );
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
@@ -52,6 +57,7 @@ namespace Dashboard
 
         private void btnIngresos_Click(object sender, EventArgs e)
         {
+            abrirFormHija( new Ingresos( usuarioId ) );
             panNav.Height = btnIngresos.Height;
             panNav.Top = btnIngresos.Top;
             //panNav.Left = btnIngresos.Left;
@@ -91,7 +97,7 @@ namespace Dashboard
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            btnInicio_Click(null, e);
         }
 
         private void btnInicio_Leave(object sender, EventArgs e)
@@ -131,8 +137,7 @@ namespace Dashboard
 
         private void button1_Click(object sender, EventArgs e)
         {
-            login login = new login();
-            login.Show();
+            this.Close();
         }
 
         private void textBox1_TextSelected(object sender, EventArgs e)
@@ -142,6 +147,20 @@ namespace Dashboard
 
         private void label2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void abrirFormHija ( object formhija )
+        {
+            if ( this.panelControlador.Controls.Count > 0 )
+                this.panelControlador.Controls.RemoveAt( 0 );
+
+            Form fh = formhija as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panelControlador.Controls.Add(fh);
+            this.panelControlador.Tag = fh;
+            fh.Show();
 
         }
 

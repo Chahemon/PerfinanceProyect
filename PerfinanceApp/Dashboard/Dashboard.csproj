@@ -149,6 +149,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarIngreso.Designer.cs">
+      <DependentUpon>AgregarIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ingresos.Designer.cs">
+      <DependentUpon>Ingresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,9 +179,19 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ingreso.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarIngreso.resx">
+      <DependentUpon>AgregarIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ingresos.resx">
+      <DependentUpon>Ingresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>

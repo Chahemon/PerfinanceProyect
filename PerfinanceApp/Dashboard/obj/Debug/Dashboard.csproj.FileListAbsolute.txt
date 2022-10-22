@@ -81,3 +81,6 @@ C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj
 C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.pdb
 C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\bin\Debug\BCrypt.Net-Next.dll
 C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Ingresos.resources
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Inicio.resources
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.AgregarIngreso.resources

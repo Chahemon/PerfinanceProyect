@@ -16,7 +16,7 @@ namespace Dashboard
     public partial class login : Form
     {
         
-        private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@cluster.kxymtdq.mongodb.net/?retryWrites=true&w=majority");
+        private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         private static IMongoCollection <Usuarios> usuariosDB = database.GetCollection<Usuarios>("usuarios");
             
@@ -80,5 +80,6 @@ namespace Dashboard
             } 
 
         }
+
     }
 }
