@@ -99,6 +99,7 @@ namespace Dashboard
 
         private void btnCalendario_Click(object sender, EventArgs e)
         {
+            abrirFormHija(new Calendario());
             panNav.Height = btnCalendario.Height;
             panNav.Top = btnCalendario.Top;
             //panNav.Left = btnCalendario.Left;

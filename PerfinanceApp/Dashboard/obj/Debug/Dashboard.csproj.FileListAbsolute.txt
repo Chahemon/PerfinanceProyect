@@ -142,3 +142,6 @@ E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Das
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.csproj.CopyComplete
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.exe
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Calendario.resources
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.UserControlBlank.resources
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.UserControlDays.resources
