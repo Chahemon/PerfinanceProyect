@@ -61,6 +61,9 @@ namespace Dashboard
             // 
             // comboBoxCategoria
             // 
+            this.comboBoxCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBoxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCategoria.ForeColor = System.Drawing.Color.Silver;
             this.comboBoxCategoria.FormattingEnabled = true;
             this.comboBoxCategoria.Items.AddRange(new object[] {
             "Sueldo",
@@ -71,9 +74,14 @@ namespace Dashboard
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(200, 21);
             this.comboBoxCategoria.TabIndex = 2;
+            this.comboBoxCategoria.Enter += new System.EventHandler(this.categoriaPlaceholder_mouseEnter);
+            this.comboBoxCategoria.Leave += new System.EventHandler(this.categoriaPlaceholder_mouseLeave);
             // 
             // txtBoxCantidad
             // 
+            this.txtBoxCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.txtBoxCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBoxCantidad.ForeColor = System.Drawing.Color.Silver;
             this.txtBoxCantidad.Location = new System.Drawing.Point(47, 42);
             this.txtBoxCantidad.Name = "txtBoxCantidad";
             this.txtBoxCantidad.Size = new System.Drawing.Size(100, 20);

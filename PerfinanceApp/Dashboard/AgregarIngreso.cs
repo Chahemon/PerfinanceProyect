@@ -64,7 +64,7 @@ namespace Dashboard
             // Obtenemos la informacion y la guardamos
             
             float valor = float.Parse(txtBoxCantidad.Text);
-            string categoria = comboBoxCategoria.SelectedText;
+            string categoria = comboBoxCategoria.SelectedItem.ToString();
 
             // Creamos un Objeto con la información
             var ingreso = new Ingreso() { CreatedAt = DateTime.Now, Valor = valor,  Categoria = categoria, UsuarioId = this.usuarioId };
@@ -93,6 +93,23 @@ namespace Dashboard
         {
             this.Dispose(); //Simplemente cierra el form
         }
-    }
 
+        private void categoriaPlaceholder_mouseEnter (object sender, EventArgs e)
+        {
+            if (comboBoxCategoria.Text == "SELECCIONE O ESCRIBA UNA")
+            {
+                comboBoxCategoria.Text = "";
+                comboBoxCategoria.ForeColor = Color.White;
+            }
+        }
+
+        private void categoriaPlaceholder_mouseLeave(object sender, EventArgs e)
+        {
+            if (comboBoxCategoria.Text == "")
+            {
+                comboBoxCategoria.Text = "SELECCIONE O ESCRIBA UNA";
+                comboBoxCategoria.ForeColor = Color.Silver;
+            }
+        }
+    }
 }
