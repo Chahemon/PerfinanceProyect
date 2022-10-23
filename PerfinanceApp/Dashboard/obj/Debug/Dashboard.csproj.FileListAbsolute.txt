@@ -145,3 +145,6 @@ E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Das
 C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Calendario.resources
 C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.UserControlBlank.resources
 C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.UserControlDays.resources
+E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Calendario.resources
+E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.UserControlBlank.resources
+E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.UserControlDays.resources
