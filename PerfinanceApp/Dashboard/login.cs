@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Runtime.InteropServices;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Dashboard
 {
@@ -18,9 +20,28 @@ namespace Dashboard
             
         public login()
         {   
-         
             InitializeComponent();
+            //Bordes para el form main
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            //Bordeado de los textBox
+            textContra.BorderStyle = BorderStyle.FixedSingle;
+            textContra.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, textContra.Width, textContra.Height, 6, 6));
+            textUsuario.BorderStyle = BorderStyle.FixedSingle;
+            textUsuario.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, textUsuario.Width, textUsuario.Height, 6, 6));
         }
+
+        //------------------------------- Propiedades del bordeado del form ------------------------------------
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+              int nLeftRect,
+              int nTopRect,
+              int nRightRect,
+              int nBottomRect,
+              int nWidthEllipse,
+              int nHeightEllipse
+          );
+        //------------------------------------------------------------------------------------------------------
 
         //---------------------------- Propiedades que permiten el mover el form ---------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -85,7 +106,7 @@ namespace Dashboard
         {
             if (textUsuario.Text == "") {
                 textUsuario.Text = "USUARIO";
-                textUsuario.ForeColor = Color.Silver;
+                textUsuario.ForeColor = Color.FromArgb(64,64,64);
             }
         }
 
@@ -103,7 +124,7 @@ namespace Dashboard
             if (textContra.Text == "")
             {
                 textContra.Text = "CONTRASEÑA";
-                textContra.ForeColor = Color.Silver;
+                textContra.ForeColor = Color.FromArgb(64, 64, 64);
             }
         }
     }
