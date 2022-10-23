@@ -59,9 +59,11 @@ namespace Dashboard
             this.textUsuario.Location = new System.Drawing.Point(331, 78);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(380, 29);
-            this.textUsuario.TabIndex = 1;
+            this.textUsuario.TabIndex = 2;
             this.textUsuario.Text = "USUARIO";
-            this.textUsuario.Click += new System.EventHandler(this.textUsuario_Click);
+            this.textUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textUsuario.Enter += new System.EventHandler(this.textUsuario_Enter);
+            this.textUsuario.Leave += new System.EventHandler(this.textUsuario_Leave);
             // 
             // textContra
             // 
@@ -72,9 +74,11 @@ namespace Dashboard
             this.textContra.Location = new System.Drawing.Point(331, 155);
             this.textContra.Name = "textContra";
             this.textContra.Size = new System.Drawing.Size(380, 29);
-            this.textContra.TabIndex = 1;
+            this.textContra.TabIndex = 3;
             this.textContra.Text = "CONTRASEÑA";
-            this.textContra.Click += new System.EventHandler(this.textContra_Click);
+            this.textContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textContra.Enter += new System.EventHandler(this.textContra_Enter);
+            this.textContra.Leave += new System.EventHandler(this.textContra_Leave);
             // 
             // btnAcceder
             // 
@@ -88,7 +92,7 @@ namespace Dashboard
             this.btnAcceder.Location = new System.Drawing.Point(331, 234);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(380, 37);
-            this.btnAcceder.TabIndex = 2;
+            this.btnAcceder.TabIndex = 1;
             this.btnAcceder.Text = "ACCEDER";
             this.btnAcceder.UseVisualStyleBackColor = false;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
@@ -101,7 +105,7 @@ namespace Dashboard
             this.label1.Location = new System.Drawing.Point(238, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 37);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 0;
             this.label1.Text = "LOGIN";
             // 
             // linkLabel1
@@ -150,7 +154,7 @@ namespace Dashboard
             this.button2.Location = new System.Drawing.Point(502, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(28, 32);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 6;
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);

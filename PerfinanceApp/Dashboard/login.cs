@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
+﻿using Dashboard.Models;
 using MongoDB.Driver;
-using Dashboard.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace Dashboard
 {
@@ -26,32 +22,27 @@ namespace Dashboard
             InitializeComponent();
         }
 
+        //---------------------------- Propiedades que permiten el mover el form ---------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
 
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        private void textUsuario_Click(object sender, EventArgs e)
-        {
-            textUsuario.Text = ("");
-        }
-
-        private void textContra_Click(object sender, EventArgs e)
-        {
-            textContra.Text = ("");
-        }
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        //--------------------------------------------------------------------------------------------------
 
+        //Evento para el boton 'X' (cierra el form main)
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Evento para el boton '-' (Minimiza el form main)
         private void button3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -78,8 +69,42 @@ namespace Dashboard
             } else {
                 Console.WriteLine("NO EXISTE UNA CUENTA REGISTRADA CON ESE GMAIL"); // (El pa) Hacer que esto se muestre en el login
             } 
-
         }
 
+        //-------------------- Metodos para simular un placeholder en los textBox del Login -------------------------
+        private void textUsuario_Enter(object sender, EventArgs e)
+        {
+            if (textUsuario.Text == "USUARIO")
+            {
+                textUsuario.Text = "";
+                textUsuario.ForeColor = Color.White;
+            }
+        }
+
+        private void textUsuario_Leave(object sender, EventArgs e)
+        {
+            if (textUsuario.Text == "") {
+                textUsuario.Text = "USUARIO";
+                textUsuario.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textContra_Enter(object sender, EventArgs e)
+        {
+            if (textContra.Text == "CONTRASEÑA")
+            {
+                textContra.Text = "";
+                textContra.ForeColor = Color.White;
+            }
+        }
+
+        private void textContra_Leave(object sender, EventArgs e)
+        {
+            if (textContra.Text == "")
+            {
+                textContra.Text = "CONTRASEÑA";
+                textContra.ForeColor = Color.Silver;
+            }
+        }
     }
 }
