@@ -19,7 +19,9 @@ namespace Dashboard
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         //private static IMongoCollection<Usuarios> usuariosDB = database.GetCollection<Usuarios>("ingresos");
+
         private string usuarioId;
+        private DataGridView tabla;
 
         //------------------------------ Propiedades del bordeado del form --------------------------------
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -48,13 +50,31 @@ namespace Dashboard
         }
         //-------------------------------------------------------------------------------------------------
 
-        public AgregarIngreso( string usuarioId )
+        public AgregarIngreso( string usuarioId, DataGridView tabla)
         {
             this.usuarioId = usuarioId;
+            this.tabla = tabla;
+
             InitializeComponent();
             //traza los bordes en el formulario
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             
+        }
+
+        public void CargarTabla()
+        {
+            IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
+            List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
+            tabla.Rows.Clear();
+
+            foreach (var list in lstIngresos)
+            {
+                DataGridViewRow row = (DataGridViewRow)tabla.Rows[0].Clone();
+                row.Cells[0].Value = list.Categoria;     // Categoria
+                row.Cells[1].Value = list.CreatedAt;      // Fecha
+                row.Cells[2].Value = list.Valor;        // Cantidad
+                tabla.Rows.Add(row);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,7 +90,10 @@ namespace Dashboard
             // La almacenamos en la base de datos
             ingresosDB.InsertOne( ingreso );
 
+            CargarTabla();
+
             this.Close();
+
         }
 
         private void txtBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -116,5 +139,6 @@ namespace Dashboard
         {
             e.Handled = true;
         }
+
     }
 }

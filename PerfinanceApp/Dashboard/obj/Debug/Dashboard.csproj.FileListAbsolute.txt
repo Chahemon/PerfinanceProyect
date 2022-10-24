@@ -148,3 +148,4 @@ E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\bin\Debug\Sys
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.csproj.CopyComplete
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.exe
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.pdb
+C:\Users\hecto\OneDrive\Escritorio\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Analisis.resources

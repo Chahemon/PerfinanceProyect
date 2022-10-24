@@ -161,6 +161,12 @@
     <Compile Include="AgregarIngreso.Designer.cs">
       <DependentUpon>AgregarIngreso.cs</DependentUpon>
     </Compile>
+    <Compile Include="Analisis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Analisis.Designer.cs">
+      <DependentUpon>Analisis.cs</DependentUpon>
+    </Compile>
     <Compile Include="BotonCircular.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -200,6 +206,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Egreso.cs" />
     <Compile Include="Models\Ingreso.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Program.cs" />
@@ -221,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarIngreso.resx">
       <DependentUpon>AgregarIngreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analisis.resx">
+      <DependentUpon>Analisis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Calendario.resx">
       <DependentUpon>Calendario.cs</DependentUpon>

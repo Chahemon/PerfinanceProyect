@@ -64,6 +64,7 @@ namespace Dashboard
         private void btnInicio_Click(object sender, EventArgs e)
         {
             abrirFormHija(new Inicio() );
+            labelTItulo.Text = "Inicio";
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
@@ -73,6 +74,7 @@ namespace Dashboard
 
         private void btnIngresos_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "Ingresos";
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
             List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
@@ -86,7 +88,11 @@ namespace Dashboard
 
         private void btnEgresos_Click(object sender, EventArgs e)
         {
-            abrirFormHija(new Egresos( usuarioId ));
+            labelTItulo.Text = "Egresos";
+            IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
+            List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
+
+            abrirFormHija(new Egresos( usuarioId, lstEgresos ));
             panNav.Height = btnEgresos.Height;
             panNav.Top = btnEgresos.Top;
             //panNav.Left = btnEgresos.Left;
@@ -95,6 +101,10 @@ namespace Dashboard
 
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "Analisis";
+
+            abrirFormHija(new Analisis());
+
             panNav.Height = btnAnalisis.Height;
             panNav.Top = btnAnalisis.Top;
            //panNav.Left = btnAnalisis.Left;
@@ -103,6 +113,8 @@ namespace Dashboard
 
         private void btnCalendario_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "Calendario";
+
             abrirFormHija(new Calendario());
             panNav.Height = btnCalendario.Height;
             panNav.Top = btnCalendario.Top;

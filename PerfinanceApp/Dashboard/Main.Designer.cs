@@ -41,7 +41,7 @@ namespace Dashboard
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelTItulo = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panelControlador = new System.Windows.Forms.Panel();
@@ -227,16 +227,16 @@ namespace Dashboard
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label3
+            // labelTItulo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label3.Location = new System.Drawing.Point(220, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 32);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Inicio";
+            this.labelTItulo.AutoSize = true;
+            this.labelTItulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+            this.labelTItulo.Location = new System.Drawing.Point(220, 17);
+            this.labelTItulo.Name = "labelTItulo";
+            this.labelTItulo.Size = new System.Drawing.Size(87, 32);
+            this.labelTItulo.TabIndex = 1;
+            this.labelTItulo.Text = "Inicio";
             // 
             // textBox1
             // 
@@ -281,7 +281,7 @@ namespace Dashboard
             this.Controls.Add(this.panelControlador);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelTItulo);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
@@ -313,7 +313,7 @@ namespace Dashboard
         private System.Windows.Forms.Button btnOpciones;
         private System.Windows.Forms.Button btnCalendario;
         private System.Windows.Forms.Panel panNav;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTItulo;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelControlador;

@@ -35,12 +35,11 @@ namespace Dashboard
         //Evento del boton
         private void botonCircular1_Click(object sender, EventArgs e)
         {
-            AgregarIngreso ventana = new AgregarIngreso(usuarioId);
+            AgregarIngreso ventana = new AgregarIngreso(usuarioId, this.dataGridView );
             ventana.ShowDialog();
         }
 
-        //Evento para cargar la tabla actual de ingresos
-        private void Ingresos_Load(object sender, EventArgs e)
+        public void CargarTabla()
         {
             foreach (var list in lstIngresos)
             {
@@ -50,6 +49,12 @@ namespace Dashboard
                 row.Cells[2].Value = list.Valor;        // Cantidad
                 dataGridView.Rows.Add(row);
             }
+        }
+
+        //Evento para cargar la tabla actual de ingresos
+        private void Ingresos_Load(object sender, EventArgs e)
+        {
+            CargarTabla();
         }
     }
 }
