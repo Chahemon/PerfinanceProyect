@@ -19,8 +19,12 @@ namespace Dashboard
         {
             this.usuarioId = usuarioId;
             InitializeComponent();
+            //Muestra un tip de lo que hace al posicionar el mouse en el boton
+            ToolTip tooltip = new System.Windows.Forms.ToolTip();
+            tooltip.SetToolTip(botonCircular1, "Agregar egreso");
         }
 
+        //Evento del boton
         private void button1_Click(object sender, EventArgs e)
         {
             AgregarEgreso ventana = new AgregarEgreso( usuarioId );

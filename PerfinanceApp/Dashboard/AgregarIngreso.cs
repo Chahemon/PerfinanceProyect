@@ -53,8 +53,9 @@ namespace Dashboard
         {
             this.usuarioId = usuarioId;
             InitializeComponent();
-            //traza los bordes en el formu
+            //traza los bordes en el formulario
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,7 +97,7 @@ namespace Dashboard
 
         private void categoriaPlaceholder_mouseEnter (object sender, EventArgs e)
         {
-            if (comboBoxCategoria.Text == "SELECCIONE O ESCRIBA UNA")
+            if (comboBoxCategoria.Text == "-- SELECCIONE UNA --")
             {
                 comboBoxCategoria.Text = "";
                 comboBoxCategoria.ForeColor = Color.White;
@@ -107,9 +108,15 @@ namespace Dashboard
         {
             if (comboBoxCategoria.Text == "")
             {
-                comboBoxCategoria.Text = "SELECCIONE O ESCRIBA UNA";
+                comboBoxCategoria.Text = "-- SELECCIONE UNA --";
                 comboBoxCategoria.ForeColor = Color.Silver;
             }
+        }
+
+        //Evita que el comboBox sea editado
+        private void comboBoxCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

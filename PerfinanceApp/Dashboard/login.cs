@@ -6,7 +6,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Dashboard
@@ -28,6 +27,8 @@ namespace Dashboard
             textContra.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, textContra.Width, textContra.Height, 6, 6));
             textUsuario.BorderStyle = BorderStyle.FixedSingle;
             textUsuario.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, textUsuario.Width, textUsuario.Height, 6, 6));
+            //Bordeado para el boton
+            btnAcceder.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, btnAcceder.Width, btnAcceder.Height, 6, 6));
         }
 
         //------------------------------- Propiedades del bordeado del form ------------------------------------
@@ -116,6 +117,7 @@ namespace Dashboard
             {
                 textContra.Text = "";
                 textContra.ForeColor = Color.White;
+                textContra.UseSystemPasswordChar = true; 
             }
         }
 
@@ -125,7 +127,14 @@ namespace Dashboard
             {
                 textContra.Text = "CONTRASEÑA";
                 textContra.ForeColor = Color.FromArgb(64, 64, 64);
+                textContra.UseSystemPasswordChar = false;
             }
+        }
+        //---------------------------------------------------------------------------------------------------------
+
+        private void recoverPasswordLabel_Click(object sender, EventArgs e)
+        {
+            //Implementar la reedireccion a la pagina web con el proposito de recuperar la contraseña
         }
     }
 }

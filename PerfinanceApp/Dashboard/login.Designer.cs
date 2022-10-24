@@ -34,7 +34,7 @@ namespace Dashboard
             this.textContra = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.recoverPasswordLabel = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -45,7 +45,7 @@ namespace Dashboard
             // 
             // textUsuario
             // 
-            this.textUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(120)))));
+            this.textUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(100)))));
             this.textUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textUsuario.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -60,7 +60,7 @@ namespace Dashboard
             // 
             // textContra
             // 
-            this.textContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(120)))));
+            this.textContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(100)))));
             this.textContra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textContra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -101,18 +101,19 @@ namespace Dashboard
             this.label1.TabIndex = 0;
             this.label1.Text = "LOGIN";
             // 
-            // linkLabel1
+            // recoverPasswordLabel
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(177, 334);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(119, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Recuperar contraseña";
+            this.recoverPasswordLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.recoverPasswordLabel.AutoSize = true;
+            this.recoverPasswordLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recoverPasswordLabel.LinkColor = System.Drawing.Color.DimGray;
+            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 334);
+            this.recoverPasswordLabel.Name = "recoverPasswordLabel";
+            this.recoverPasswordLabel.Size = new System.Drawing.Size(119, 13);
+            this.recoverPasswordLabel.TabIndex = 4;
+            this.recoverPasswordLabel.TabStop = true;
+            this.recoverPasswordLabel.Text = "Recuperar contraseña";
+            this.recoverPasswordLabel.Click += new System.EventHandler(this.recoverPasswordLabel_Click);
             // 
             // panel2
             // 
@@ -168,7 +169,7 @@ namespace Dashboard
             this.ClientSize = new System.Drawing.Size(372, 478);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.recoverPasswordLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAcceder);
             this.Controls.Add(this.textContra);
@@ -176,9 +177,10 @@ namespace Dashboard
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "login";
-            this.Opacity = 0.9D;
+            this.Opacity = 0.85D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Perfinance Login";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -191,7 +193,7 @@ namespace Dashboard
         private System.Windows.Forms.TextBox textContra;
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel recoverPasswordLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

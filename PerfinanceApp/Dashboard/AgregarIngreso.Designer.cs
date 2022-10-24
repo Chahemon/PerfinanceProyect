@@ -41,7 +41,7 @@ namespace Dashboard
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(47, 159);
+            this.btnAgregar.Location = new System.Drawing.Point(47, 152);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 0;
@@ -51,7 +51,7 @@ namespace Dashboard
             // 
             // botonSalirIngresos
             // 
-            this.botonSalirIngresos.Location = new System.Drawing.Point(172, 159);
+            this.botonSalirIngresos.Location = new System.Drawing.Point(172, 152);
             this.botonSalirIngresos.Name = "botonSalirIngresos";
             this.botonSalirIngresos.Size = new System.Drawing.Size(75, 23);
             this.botonSalirIngresos.TabIndex = 1;
@@ -74,7 +74,9 @@ namespace Dashboard
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(200, 21);
             this.comboBoxCategoria.TabIndex = 2;
+            this.comboBoxCategoria.Text = "-- SELECCIONE UNA --";
             this.comboBoxCategoria.Enter += new System.EventHandler(this.categoriaPlaceholder_mouseEnter);
+            this.comboBoxCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCategoria_KeyPress);
             this.comboBoxCategoria.Leave += new System.EventHandler(this.categoriaPlaceholder_mouseLeave);
             // 
             // txtBoxCantidad
@@ -113,7 +115,7 @@ namespace Dashboard
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(305, 218);
+            this.ClientSize = new System.Drawing.Size(305, 201);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBoxCantidad);

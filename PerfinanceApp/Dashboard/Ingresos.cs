@@ -23,11 +23,18 @@ namespace Dashboard
             this.usuarioId = usuarioId;
             this.lstIngresos = lstIngreso;
             InitializeComponent();
+            //Muestra un tip de lo que hace al posicionar el mouse en el boton
+            ToolTip tooltip = new System.Windows.Forms.ToolTip();
+            tooltip.SetToolTip(botonCircular1, "Agregar Ingreso ");
+
+
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //Evento del boton
+        private void botonCircular1_Click(object sender, EventArgs e)
         {
-            AgregarIngreso ventana = new AgregarIngreso( usuarioId );
+            AgregarIngreso ventana = new AgregarIngreso(usuarioId);
             ventana.ShowDialog();
         }
 
