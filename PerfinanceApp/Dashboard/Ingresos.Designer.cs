@@ -28,18 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.botonCircular1 = new Dashboard.BotonCircular();
             this.SuspendLayout();
             // 
-            // button1
+            // botonCircular1
             // 
-            this.button1.Location = new System.Drawing.Point(672, 448);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.botonCircular1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.botonCircular1.FlatAppearance.BorderSize = 0;
+            this.botonCircular1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonCircular1.Image = global::Dashboard.Properties.Resources.add_plus_create_new_icon_64px;
+            this.botonCircular1.Location = new System.Drawing.Point(672, 438);
+            this.botonCircular1.Name = "botonCircular1";
+            this.botonCircular1.Size = new System.Drawing.Size(63, 63);
+            this.botonCircular1.TabIndex = 0;
+            this.botonCircular1.UseVisualStyleBackColor = false;
+            this.botonCircular1.Click += new System.EventHandler(this.botonCircular1_Click);
             // 
             // Ingresos
             // 
@@ -47,7 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(747, 513);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.botonCircular1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ingresos";
             this.Text = "Ingresos";
@@ -57,6 +60,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private BotonCircular botonCircular1;
     }
 }

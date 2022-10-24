@@ -161,6 +161,9 @@
     <Compile Include="AgregarIngreso.Designer.cs">
       <DependentUpon>AgregarIngreso.cs</DependentUpon>
     </Compile>
+    <Compile Include="BotonCircular.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Calendario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +325,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="mongocrypt.dll" />
+    <Content Include="Resources\370092_add_plus_create_new_icon.png" />
+    <Content Include="Resources\add_plus_create_new_icon_64px.png" />
     <None Include="Resources\ProyectoLogo.png" />
   </ItemGroup>
   <ItemGroup />
