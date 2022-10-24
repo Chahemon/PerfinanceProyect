@@ -16,7 +16,6 @@ namespace Dashboard
 {
     public partial class AgregarIngreso : Form
     {
-
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         //private static IMongoCollection<Usuarios> usuariosDB = database.GetCollection<Usuarios>("ingresos");
@@ -63,7 +62,6 @@ namespace Dashboard
             IMongoCollection <Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
 
             // Obtenemos la informacion y la guardamos
-            
             float valor = float.Parse(txtBoxCantidad.Text);
             string categoria = comboBoxCategoria.SelectedItem.ToString();
 

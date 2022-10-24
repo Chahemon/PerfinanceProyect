@@ -183,9 +183,6 @@ namespace Dashboard
             this.panelControlador.Controls.Add(fh);
             this.panelControlador.Tag = fh;
             fh.Show();
-
         }
-
-
     }
 }
