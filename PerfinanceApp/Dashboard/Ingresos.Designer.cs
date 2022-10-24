@@ -90,6 +90,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ingresos";
             this.Text = "Ingresos";
+            this.Load += new System.EventHandler(this.Ingresos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

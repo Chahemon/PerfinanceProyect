@@ -46,9 +46,6 @@ namespace Dashboard
                 row.Cells[2].Value = list.Valor;        // Cantidad
                 dataGridView.Rows.Add(row);
             }
-
         }
-
-
     }
 }
