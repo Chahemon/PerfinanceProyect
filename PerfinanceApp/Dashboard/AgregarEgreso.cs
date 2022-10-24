@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dashboard.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -55,6 +56,11 @@ namespace Dashboard
         private void botonCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -73,11 +73,15 @@ namespace Dashboard
 
         private void btnIngresos_Click(object sender, EventArgs e)
         {
-            abrirFormHija( new Ingresos( usuarioId ) );
+            IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
+            List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
+
+            abrirFormHija( new Ingresos( usuarioId, lstIngresos ));
             panNav.Height = btnIngresos.Height;
             panNav.Top = btnIngresos.Top;
             //panNav.Left = btnIngresos.Left;
             btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
+
         }
 
         private void btnEgresos_Click(object sender, EventArgs e)
