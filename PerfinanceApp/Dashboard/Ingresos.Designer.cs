@@ -28,40 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-=======
             this.botonCircular1 = new Dashboard.BotonCircular();
->>>>>>> dbbe4d435a302e5d8a4e699303d2d19fb008610b
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // botonCircular1
-            // 
-<<<<<<< HEAD
-            this.button1.Location = new System.Drawing.Point(700, 468);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-=======
-            this.botonCircular1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.botonCircular1.FlatAppearance.BorderSize = 0;
-            this.botonCircular1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonCircular1.Image = global::Dashboard.Properties.Resources.add_plus_create_new_icon_64px;
-            this.botonCircular1.Location = new System.Drawing.Point(672, 438);
-            this.botonCircular1.Name = "botonCircular1";
-            this.botonCircular1.Size = new System.Drawing.Size(63, 63);
-            this.botonCircular1.TabIndex = 0;
-            this.botonCircular1.UseVisualStyleBackColor = false;
-            this.botonCircular1.Click += new System.EventHandler(this.botonCircular1_Click);
->>>>>>> dbbe4d435a302e5d8a4e699303d2d19fb008610b
             // 
             // dataGridView
             // 
@@ -72,7 +45,7 @@
             this.Cantidad});
             this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(723, 438);
+            this.dataGridView.Size = new System.Drawing.Size(723, 420);
             this.dataGridView.TabIndex = 1;
             // 
             // Categoria
@@ -93,37 +66,40 @@
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.Name = "Cantidad";
             // 
+            // botonCircular1
+            // 
+            this.botonCircular1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.botonCircular1.FlatAppearance.BorderSize = 0;
+            this.botonCircular1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonCircular1.Image = global::Dashboard.Properties.Resources.add_plus_create_new_icon_64px;
+            this.botonCircular1.Location = new System.Drawing.Point(672, 438);
+            this.botonCircular1.Name = "botonCircular1";
+            this.botonCircular1.Size = new System.Drawing.Size(63, 63);
+            this.botonCircular1.TabIndex = 3;
+            this.botonCircular1.UseVisualStyleBackColor = false;
+            this.botonCircular1.Click += new System.EventHandler(this.botonCircular1_Click);
+            // 
             // Ingresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(747, 513);
-<<<<<<< HEAD
-            this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.button1);
-=======
             this.Controls.Add(this.botonCircular1);
->>>>>>> dbbe4d435a302e5d8a4e699303d2d19fb008610b
+            this.Controls.Add(this.dataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ingresos";
             this.Text = "Ingresos";
-            this.Load += new System.EventHandler(this.Ingresos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-<<<<<<< HEAD
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
-=======
         private BotonCircular botonCircular1;
->>>>>>> dbbe4d435a302e5d8a4e699303d2d19fb008610b
     }
 }

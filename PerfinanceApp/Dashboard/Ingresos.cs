@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Dashboard
 {
-    
+
     public partial class Ingresos : Form
     {
 
         private string usuarioId;
         private List<Ingreso> lstIngresos;
 
-        public Ingresos( string usuarioId, List <Ingreso> lstIngreso)
+        public Ingresos(string usuarioId, List<Ingreso> lstIngreso)
         {
             this.usuarioId = usuarioId;
             this.lstIngresos = lstIngreso;
@@ -26,9 +26,6 @@ namespace Dashboard
             //Muestra un tip de lo que hace al posicionar el mouse en el boton
             ToolTip tooltip = new System.Windows.Forms.ToolTip();
             tooltip.SetToolTip(botonCircular1, "Agregar Ingreso ");
-
-
-
         }
 
         //Evento del boton
@@ -38,6 +35,7 @@ namespace Dashboard
             ventana.ShowDialog();
         }
 
+        //Evento para cargar la tabla actual de ingresos
         private void Ingresos_Load(object sender, EventArgs e)
         {
             foreach (var list in lstIngresos)
@@ -48,9 +46,9 @@ namespace Dashboard
                 row.Cells[2].Value = list.Valor;        // Cantidad
                 dataGridView.Rows.Add(row);
             }
-            
+
         }
 
-        
+
     }
 }
