@@ -69,12 +69,11 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Location = new System.Drawing.Point(16, 15);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.Size = new System.Drawing.Size(964, 517);
+            this.dataGridView.Size = new System.Drawing.Size(723, 420);
             this.dataGridView.TabIndex = 1;
             // 
             // botonCircular1
@@ -83,59 +82,61 @@
             this.botonCircular1.FlatAppearance.BorderSize = 0;
             this.botonCircular1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCircular1.Image = global::Dashboard.Properties.Resources.add_plus_create_new_icon_64px;
-            this.botonCircular1.Location = new System.Drawing.Point(896, 539);
-            this.botonCircular1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.botonCircular1.Location = new System.Drawing.Point(672, 438);
             this.botonCircular1.Name = "botonCircular1";
-            this.botonCircular1.Size = new System.Drawing.Size(84, 78);
+            this.botonCircular1.Size = new System.Drawing.Size(63, 63);
             this.botonCircular1.TabIndex = 3;
             this.botonCircular1.UseVisualStyleBackColor = false;
             this.botonCircular1.Click += new System.EventHandler(this.botonCircular1_Click);
             // 
             // Cuenta
             // 
+            this.Cuenta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Cuenta.HeaderText = "Cuenta";
             this.Cuenta.MinimumWidth = 6;
             this.Cuenta.Name = "Cuenta";
-            this.Cuenta.Width = 94;
+            this.Cuenta.Width = 81;
             // 
             // Categoria
             // 
-            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Categoria.HeaderText = "Categoria";
             this.Categoria.MinimumWidth = 6;
             this.Categoria.Name = "Categoria";
+            this.Categoria.Width = 98;
             // 
             // Cantidad
             // 
-            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Cantidad.HeaderText = "Cantidad";
             this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
+            this.Cantidad.Width = 93;
             // 
             // Descripcion
             // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.MinimumWidth = 6;
             this.Descripcion.Name = "Descripcion";
-            this.Descripcion.Width = 561;
             // 
             // Fecha
             // 
-            this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Fecha.HeaderText = "Fecha";
             this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
+            this.Fecha.Width = 75;
             // 
             // Ingresos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(996, 631);
+            this.ClientSize = new System.Drawing.Size(747, 513);
             this.Controls.Add(this.botonCircular1);
             this.Controls.Add(this.dataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Ingresos";
             this.Text = "Ingresos";
             this.Load += new System.EventHandler(this.Ingresos_Load);
