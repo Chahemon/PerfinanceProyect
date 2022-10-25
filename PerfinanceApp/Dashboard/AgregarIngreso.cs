@@ -15,13 +15,13 @@ using System.Windows.Forms;
 namespace Dashboard
 {
     public partial class AgregarIngreso : Form
-    {
+    {   
+        //--------------------------------------- Declaracion de Variables -----------------------------------------------
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
-        //private static IMongoCollection<Usuarios> usuariosDB = database.GetCollection<Usuarios>("ingresos");
-
         private string usuarioId;
         private DataGridView tabla;
+        //----------------------------------------------------------------------------------------------------------------
 
         //------------------------------ Propiedades del bordeado del form --------------------------------
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -56,11 +56,12 @@ namespace Dashboard
             this.tabla = tabla;
 
             InitializeComponent();
-            //traza los bordes en el formulario
+            //traza los bordes en el formulario para que se vea redondito
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             
         }
 
+        //------------------------------- Metodo para cargar la tabla de ingresos ----------------------------------------
         public void CargarTabla()
         {
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
@@ -78,13 +79,16 @@ namespace Dashboard
                 tabla.Rows.Add(row);
             }
         }
+        //----------------------------------------------------------------------------------------------------------------
 
+        //--------------------------------- Evento para el boton "Agregar" -----------------------------------------------
         private void button1_Click(object sender, EventArgs e)
         {
             IMongoCollection <Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
 
             // Obtenemos la informacion y la guardamos
-            string cuenta = txtBoxCuenta.Text;
+            //string cuenta = txtBoxCuenta.Text;
+            string cuenta = comboBoxCuenta.SelectedItem.ToString();
             string categoria = comboBoxCategoria.SelectedItem.ToString();
             float valor = float.Parse(txtBoxCantidad.Text);
             string descripcion = txtBoxDescripcion.Text;
@@ -101,11 +105,11 @@ namespace Dashboard
             ingresosDB.InsertOne( ingreso );
 
             CargarTabla();
-
             this.Close();
-
         }
-
+        //----------------------------------------------------------------------------------------------------------------
+        
+        //----------- Evento para el txtBox "Cantidad", aqui se define que solo se puede usar un solo "." ----------------
         private void txtBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -119,36 +123,63 @@ namespace Dashboard
                 e.Handled = true;
             }
         }
-
-        //Evento para el boton cerrar
+        //----------------------------------------------------------------------------------------------------------------
+        
+        //------------------------------------ Evento para el boton cerrar -----------------------------------------------
         private void botonSalirIngresos_Click(object sender, EventArgs e)
         {
             this.Dispose(); //Simplemente cierra el form
         }
+        //----------------------------------------------------------------------------------------------------------------
 
+        //---------------------------------- Eventos para simular un placeholder -----------------------------------------
         private void categoriaPlaceholder_mouseEnter (object sender, EventArgs e)
         {
+            //Condicional para el comboBox de "Categorias"
             if (comboBoxCategoria.Text == "-- SELECCIONE UNA --")
             {
                 comboBoxCategoria.Text = "";
                 comboBoxCategoria.ForeColor = Color.White;
             }
         }
-
         private void categoriaPlaceholder_mouseLeave(object sender, EventArgs e)
         {
+            //Condicional para el comboBox de "Categoria"
             if (comboBoxCategoria.Text == "")
             {
                 comboBoxCategoria.Text = "-- SELECCIONE UNA --";
                 comboBoxCategoria.ForeColor = Color.Silver;
             }
         }
+        private void cuentaPlaceholder_mouseEnter(object sender, EventArgs e)
+        {
+            //Condicional para el comboBox de "Cuenta"
+            if (comboBoxCuenta.Text == "-- SELECCIONE UNA --")
+            {
+                comboBoxCuenta.Text = "";
+                comboBoxCuenta.ForeColor = Color.White;
+            }
+        }
+        private void cuentaPlaceholder_mouseLeave(object sender, EventArgs e)
+        {
+            //Condicion para comboBox llamado "comboBoxCuenta"
+            if (comboBoxCuenta.Text == "")
+            {
+                comboBoxCuenta.Text = "-- SELECCIONE UNA --";
+                comboBoxCuenta.ForeColor = Color.Silver;
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------------
 
-        //Evita que el comboBox sea editado
+        //--------------------------------------- Evita que los comboBox sean editados -----------------------------------
         private void comboBoxCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
         }
-
+        private void comboBoxCuenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        //----------------------------------------------------------------------------------------------------------------
     }
 }
