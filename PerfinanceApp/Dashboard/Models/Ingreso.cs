@@ -14,17 +14,23 @@ namespace Dashboard.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("createdAt")]
-        public DateTime CreatedAt { get; set; }
+        [BsonElement("usuarioId")]
+        public string UsuarioId { get; set; }
 
-        [BsonElement("valor")]
-        public float Valor { get; set; }
+        [BsonElement("cuenta")]
+        public string Cuenta { get; set; }
 
         [BsonElement("categoria")]
         public string Categoria { get; set; }
 
-        [BsonElement("usuarioId")]
-        public string UsuarioId { get; set; }
+        [BsonElement("valor")]
+        public float Valor { get; set; }
+
+        [BsonElement("descripcion")]
+        public string Descripcion { get; set; }
+
+        [BsonElement("createdAt")]
+        public DateTime CreatedAt { get; set; }
 
     }
 }

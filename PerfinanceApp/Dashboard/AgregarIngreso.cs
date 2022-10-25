@@ -70,9 +70,11 @@ namespace Dashboard
             foreach (var list in lstIngresos)
             {
                 DataGridViewRow row = (DataGridViewRow)tabla.Rows[0].Clone();
-                row.Cells[0].Value = list.Categoria;     // Categoria
-                row.Cells[1].Value = list.CreatedAt;      // Fecha
+                row.Cells[0].Value = list.Cuenta;       // Cuenta
+                row.Cells[1].Value = list.Categoria;    // Categoria
                 row.Cells[2].Value = list.Valor;        // Cantidad
+                row.Cells[3].Value = list.Descripcion;  // Descripción
+                row.Cells[4].Value = list.CreatedAt;    // Fecha
                 tabla.Rows.Add(row);
             }
         }
@@ -82,11 +84,19 @@ namespace Dashboard
             IMongoCollection <Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
 
             // Obtenemos la informacion y la guardamos
-            float valor = float.Parse(txtBoxCantidad.Text);
+            string cuenta = txtBoxCuenta.Text;
             string categoria = comboBoxCategoria.SelectedItem.ToString();
+            float valor = float.Parse(txtBoxCantidad.Text);
+            string descripcion = txtBoxDescripcion.Text;
+            DateTime fecha = dateTimePicker.Value;
 
             // Creamos un Objeto con la información
-            var ingreso = new Ingreso() { CreatedAt = DateTime.Now, Valor = valor,  Categoria = categoria, UsuarioId = this.usuarioId };
+            var ingreso = new Ingreso() { UsuarioId = this.usuarioId,
+                                          Cuenta = cuenta,
+                                          Categoria = categoria,
+                                          Valor = valor,
+                                          Descripcion = descripcion,
+                                          CreatedAt = fecha };
             // La almacenamos en la base de datos
             ingresosDB.InsertOne( ingreso );
 

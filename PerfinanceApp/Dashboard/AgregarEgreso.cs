@@ -67,11 +67,11 @@ namespace Dashboard
             foreach (var list in lstEgresos)
             {
                 DataGridViewRow row = (DataGridViewRow)tabla.Rows[0].Clone();
-                row.Cells[0].Value = list.Cuenta;        // Cuenta
-                row.Cells[1].Value = list.Categoria;     // Categoria
-                row.Cells[2].Value = list.Valor;         // Cantidad
-                row.Cells[3].Value = list.Descripcion;   // Cantidad
-                row.Cells[4].Value = list.CreatedAt;         // Cantidad
+                row.Cells[0].Value = list.Cuenta;       // Cuenta
+                row.Cells[1].Value = list.Categoria;    // Categoria
+                row.Cells[2].Value = list.Valor;        // Cantidad
+                row.Cells[3].Value = list.Descripcion;  // Descripción
+                row.Cells[4].Value = list.CreatedAt;    // Fecha
                 tabla.Rows.Add(row);
             }
         }
