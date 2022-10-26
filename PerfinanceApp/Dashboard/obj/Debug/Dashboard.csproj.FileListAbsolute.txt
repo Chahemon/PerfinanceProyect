@@ -210,3 +210,4 @@ D:\Tec\7mo Semestre\Gestión de Proyectos de Software\PerfinanceProyect\Perfinan
 D:\Tec\7mo Semestre\Gestión de Proyectos de Software\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.exe
 D:\Tec\7mo Semestre\Gestión de Proyectos de Software\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.pdb
 E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Analisis.resources
+E:\Documents\gitProjects\PerfinanceProyect\PerfinanceApp\Dashboard\obj\Debug\Dashboard.Opciones.resources

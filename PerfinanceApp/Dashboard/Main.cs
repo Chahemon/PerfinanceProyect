@@ -128,6 +128,7 @@ namespace Dashboard
 
         private void btnOpciones_Click(object sender, EventArgs e)
         {
+            abrirFormHija(new Opciones());
             panNav.Height = btnOpciones.Height;
             panNav.Top = btnOpciones.Top;
             //panNav.Left = btnOpciones.Left;
