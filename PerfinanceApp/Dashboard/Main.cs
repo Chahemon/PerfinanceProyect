@@ -92,7 +92,7 @@ namespace Dashboard
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
-            abrirFormHija(new Egresos( usuarioId, lstEgresos ));
+            abrirFormHija( new Egresos( usuarioId, lstEgresos ) );
             panNav.Height = btnEgresos.Height;
             panNav.Top = btnEgresos.Top;
             //panNav.Left = btnEgresos.Left;
@@ -102,8 +102,13 @@ namespace Dashboard
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
             labelTItulo.Text = "Analisis";
+            IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
+            List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
-            abrirFormHija(new Analisis());
+            IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
+            List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
+
+            abrirFormHija( new Analisis( usuarioId, lstEgresos, lstIngresos ) );
 
             panNav.Height = btnAnalisis.Height;
             panNav.Top = btnAnalisis.Top;

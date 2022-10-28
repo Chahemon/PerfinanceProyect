@@ -90,11 +90,19 @@ namespace Dashboard
             IMongoCollection<Egreso> egresoDB = database.GetCollection<Egreso>("egresos");
 
             // Obtenemos la informacion y la guardamos
+            string cuenta = txtBoxCuenta.Text;
+            string categoria = comboBoxCategoria.SelectedItem.ToString();
+            float valor = float.Parse(txtBoxCantidad.Text);
+            string descripcion = txtBoxDescripcion.Text;
+            DateTime fecha = dateTimePicker.Value;
 
             // Creamos un Objeto con la información
             var egreso = new Egreso() { UsuarioId = this.usuarioId,
-                                        Cuenta = "Efectivo", Categoria = "Comida", Valor = 550,
-                                        Descripcion = "Comida del dia", CreatedAt = DateTime.Today };
+                                        Cuenta = cuenta, 
+                                        Categoria = categoria, 
+                                        Valor = valor,
+                                        Descripcion = descripcion, 
+                                        CreatedAt = fecha };
             // La almacenamos en la base de datos
             egresoDB.InsertOne(egreso);
 
