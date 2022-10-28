@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace Dashboard
 {
-
     public partial class Ingresos : Form
     {
         private string usuarioId;

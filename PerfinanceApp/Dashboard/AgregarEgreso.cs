@@ -10,18 +10,21 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+//Se los juro, agregarIngreso y agregarEgreso no son la misma clase
+//se los prometo >~<
 
 namespace Dashboard
 {
     public partial class AgregarEgreso : Form
     {
+        //----------------------------------- Declaracion de variables --------------------------------------------------
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
-
         private string usuarioId;
         private DataGridView tabla;
+        //----------------------------------------------------------------------------------------------------------------
 
-        //------------------------------- Propiedades del bordeado del form ------------------------------------
+        //------------------------------- Propiedades del bordeado del form ----------------------------------------------
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
          (
@@ -32,9 +35,9 @@ namespace Dashboard
               int nWidthEllipse,
               int nHeightEllipse
           );
-        //------------------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------------------------
 
-        //----------------------- Propiedades que nos permiten arrastrar el form -------------------------------
+        //----------------------- Propiedades que nos permiten arrastrar el form -----------------------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -47,17 +50,18 @@ namespace Dashboard
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        //-----------------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------------------------
 
         public AgregarEgreso( string usuarioId, DataGridView tabla )
         {
             this.usuarioId = usuarioId;
             this.tabla = tabla;
             InitializeComponent();
-            //Hace realidad de que tu form tenga bordes muy suaves
+            //Hace realidad de que tu form tenga bordes muy suaves...
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }
 
+        //------------------------------- Metodo para cargar la tabla ingresos -------------------------------------------
         public void CargarTabla()
         {
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
@@ -75,13 +79,16 @@ namespace Dashboard
                 tabla.Rows.Add(row);
             }
         }
+        //----------------------------------------------------------------------------------------------------------------
 
-        //Evento para cerrar el form
+        //-------------------------------------- Evento para cerrar el formulario ----------------------------------------
         private void botonCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Dispose(); //Parece magia, pero es programacion
         }
+        //----------------------------------------------------------------------------------------------------------------
 
+        //-------------------------------------- Metodo para el boton agregar --------------------------------------------
         private void button1_Click(object sender, EventArgs e)
         {
             // Agregar Egreso 
@@ -110,5 +117,72 @@ namespace Dashboard
 
             this.Dispose();
         }
+        //----------------------------------------------------------------------------------------------------------------
+
+        //----------- Evento para el txtBox "Cantidad", aqui se define que solo se puede usar un solo "." ----------------
+        private void txtBoxCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------------
+
+        //---------------------------------- Eventos para simular un placeholder -----------------------------------------
+        private void categoriaPlaceholder_mouseEnter(object sender, EventArgs e)
+        {
+            //Condicional para el comboBox de "Categorias"
+            if (comboBoxCategoria.Text == "-- SELECCIONE UNA --")
+            {
+                comboBoxCategoria.Text = "";
+                comboBoxCategoria.ForeColor = Color.White;
+            }
+        }
+        private void categoriaPlaceholder_mouseLeave(object sender, EventArgs e)
+        {
+            //Condicional para el comboBox de "Categoria"
+            if (comboBoxCategoria.Text == "")
+            {
+                comboBoxCategoria.Text = "-- SELECCIONE UNA --";
+                comboBoxCategoria.ForeColor = Color.Silver;
+            }
+        }
+        private void cuentaPlaceholder_mouseEnter(object sender, EventArgs e)
+        {
+            //Condicional para el comboBox de "Cuenta"
+            if (comboBoxCuenta.Text == "-- SELECCIONE UNA --")
+            {
+                comboBoxCuenta.Text = "";
+                comboBoxCuenta.ForeColor = Color.White;
+            }
+        }
+        private void cuentaPlaceholder_mouseLeave(object sender, EventArgs e)
+        {
+            //Condicion para comboBox llamado "comboBoxCuenta"
+            if (comboBoxCuenta.Text == "")
+            {
+                comboBoxCuenta.Text = "-- SELECCIONE UNA --";
+                comboBoxCuenta.ForeColor = Color.Silver;
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------------
+
+        //--------------------------------------- Evita que los comboBox sean editados -----------------------------------
+        private void comboBoxCategoria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        private void comboBoxCuenta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        //----------------------------------------------------------------------------------------------------------------
     }
 }

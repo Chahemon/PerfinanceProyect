@@ -28,6 +28,11 @@ namespace Dashboard
             //Muestra un tip de lo que hace al posicionar el mouse en el boton
             ToolTip tooltip = new System.Windows.Forms.ToolTip();
             tooltip.SetToolTip(botonCircular1, "Agregar egreso");
+            //Con esto se cambia el color de los headers del DataGridView (las tablas pues xd)
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73); //Estoy seguro de que es gris
+            dataGridView.EnableHeadersVisualStyles = false;
+            //Cambia el color de los bordes de las celdas
+            dataGridView.GridColor = Color.FromArgb(46, 51, 73);
         }
 
         //Evento del boton

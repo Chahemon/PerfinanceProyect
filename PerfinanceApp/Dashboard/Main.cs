@@ -83,6 +83,7 @@ namespace Dashboard
             panNav.Top = btnIngresos.Top;
             //panNav.Left = btnIngresos.Left;
             btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
+            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
 
         }
 
@@ -97,6 +98,7 @@ namespace Dashboard
             panNav.Top = btnEgresos.Top;
             //panNav.Left = btnEgresos.Left;
             btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
+            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnAnalisis_Click(object sender, EventArgs e)
@@ -114,6 +116,7 @@ namespace Dashboard
             panNav.Top = btnAnalisis.Top;
            //panNav.Left = btnAnalisis.Left;
             btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
+            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnCalendario_Click(object sender, EventArgs e)
@@ -125,14 +128,17 @@ namespace Dashboard
             panNav.Top = btnCalendario.Top;
             //panNav.Left = btnCalendario.Left;
             btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
+            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void btnOpciones_Click(object sender, EventArgs e)
         {
+            abrirFormHija(new Opciones());
             panNav.Height = btnOpciones.Height;
             panNav.Top = btnOpciones.Top;
             //panNav.Left = btnOpciones.Left;
             btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
+            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
