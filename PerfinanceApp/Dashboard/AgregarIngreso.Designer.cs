@@ -42,7 +42,7 @@ namespace Dashboard
             this.txtBoxDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxCuenta = new System.Windows.Forms.ComboBox();
+            this.comboBoxCuentaIngreso = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnAgregar
@@ -131,7 +131,7 @@ namespace Dashboard
             // 
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dateTimePicker.Location = new System.Drawing.Point(31, 213);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 15;
@@ -168,25 +168,25 @@ namespace Dashboard
             this.label4.TabIndex = 12;
             this.label4.Text = "Descripción";
             // 
-            // comboBoxCuenta
+            // comboBoxCuentaIngreso
             // 
-            this.comboBoxCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.comboBoxCuenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxCuenta.ForeColor = System.Drawing.Color.Silver;
-            this.comboBoxCuenta.FormattingEnabled = true;
-            this.comboBoxCuenta.Items.AddRange(new object[] {
+            this.comboBoxCuentaIngreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBoxCuentaIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCuentaIngreso.ForeColor = System.Drawing.Color.Silver;
+            this.comboBoxCuentaIngreso.FormattingEnabled = true;
+            this.comboBoxCuentaIngreso.Items.AddRange(new object[] {
             "Efectivo",
             "Debito",
             "Credito",
             "Otros"});
-            this.comboBoxCuenta.Location = new System.Drawing.Point(35, 25);
-            this.comboBoxCuenta.Name = "comboBoxCuenta";
-            this.comboBoxCuenta.Size = new System.Drawing.Size(200, 21);
-            this.comboBoxCuenta.TabIndex = 16;
-            this.comboBoxCuenta.Text = "-- SELECCIONE UNA --";
-            this.comboBoxCuenta.Enter += new System.EventHandler(this.cuentaPlaceholder_mouseEnter);
-            this.comboBoxCuenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCuenta_KeyPress);
-            this.comboBoxCuenta.Leave += new System.EventHandler(this.cuentaPlaceholder_mouseLeave);
+            this.comboBoxCuentaIngreso.Location = new System.Drawing.Point(35, 25);
+            this.comboBoxCuentaIngreso.Name = "comboBoxCuentaIngreso";
+            this.comboBoxCuentaIngreso.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxCuentaIngreso.TabIndex = 16;
+            this.comboBoxCuentaIngreso.Text = "-- SELECCIONE UNA --";
+            this.comboBoxCuentaIngreso.Enter += new System.EventHandler(this.cuentaPlaceholder_mouseEnter);
+            this.comboBoxCuentaIngreso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCuenta_KeyPress);
+            this.comboBoxCuentaIngreso.Leave += new System.EventHandler(this.cuentaPlaceholder_mouseLeave);
             // 
             // AgregarIngreso
             // 
@@ -194,7 +194,7 @@ namespace Dashboard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(347, 279);
-            this.Controls.Add(this.comboBoxCuenta);
+            this.Controls.Add(this.comboBoxCuentaIngreso);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.txtBoxDescripcion);
             this.Controls.Add(this.label5);
@@ -230,6 +230,6 @@ namespace Dashboard
         private TextBox txtBoxDescripcion;
         private Label label5;
         private Label label4;
-        private ComboBox comboBoxCuenta;
+        private ComboBox comboBoxCuentaIngreso;
     }
 }
