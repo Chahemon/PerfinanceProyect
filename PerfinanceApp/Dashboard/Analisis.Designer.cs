@@ -43,8 +43,10 @@
             // 
             // grafic1
             // 
+            this.grafic1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             chartArea1.Name = "ChartArea1";
             this.grafic1.ChartAreas.Add(chartArea1);
+            this.grafic1.DataSource = this.grafic1.Images;
             legend1.Name = "Legend1";
             this.grafic1.Legends.Add(legend1);
             this.grafic1.Location = new System.Drawing.Point(36, 12);
@@ -59,9 +61,13 @@
             title1.Name = "Title1";
             title1.Text = "Ingresos";
             this.grafic1.Titles.Add(title1);
+            this.grafic1.UseWaitCursor = true;
             // 
             // graficpastel
             // 
+            this.graficpastel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.graficpastel.BorderlineColor = System.Drawing.Color.Empty;
+            this.graficpastel.CausesValidation = false;
             chartArea2.Name = "ChartArea1";
             this.graficpastel.ChartAreas.Add(chartArea2);
             this.graficpastel.Cursor = System.Windows.Forms.Cursors.Arrow;

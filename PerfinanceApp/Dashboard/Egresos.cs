@@ -44,7 +44,6 @@ namespace Dashboard
 
         public void CargarTabla()
         {
-            
             foreach (var list in lstEgresos)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
@@ -55,6 +54,8 @@ namespace Dashboard
                 row.Cells[4].Value = list.CreatedAt;         // Cantidad
                 dataGridView.Rows.Add(row);
             }
+
+            this.dataGridView.AllowUserToAddRows = false;
         }
 
         private void Egresos_Load(object sender, EventArgs e)

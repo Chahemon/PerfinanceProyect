@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Dashboard
 {
@@ -50,6 +51,8 @@ namespace Dashboard
                 row.Cells[4].Value = list.CreatedAt;    // Fecha             
                 dataGridView.Rows.Add(row);
             }
+
+            this.dataGridView.AllowUserToAddRows = false;
         }
 
         //Evento para cargar la tabla actual de ingresos
