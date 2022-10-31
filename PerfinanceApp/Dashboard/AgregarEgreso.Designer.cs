@@ -40,6 +40,7 @@
             this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.comboBoxCuenta = new System.Windows.Forms.ComboBox();
+            this.comboBoxCuentaEgreso = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
@@ -126,20 +127,6 @@
             this.txtBoxCantidad.Name = "txtBoxCantidad";
             this.txtBoxCantidad.Size = new System.Drawing.Size(100, 20);
             this.txtBoxCantidad.TabIndex = 7;
-<<<<<<< HEAD
-            // 
-            // txtBoxCuenta
-            // 
-            this.txtBoxCuenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.txtBoxCuenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxCuenta.ForeColor = System.Drawing.Color.Silver;
-            this.txtBoxCuenta.Location = new System.Drawing.Point(33, 24);
-            this.txtBoxCuenta.Name = "txtBoxCuenta";
-            this.txtBoxCuenta.Size = new System.Drawing.Size(100, 20);
-            this.txtBoxCuenta.TabIndex = 8;
-=======
-            this.txtBoxCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxCantidad_KeyPress);
->>>>>>> a587f481a069d8558e31bd654df5c244105b9daf
             // 
             // txtBoxDescripcion
             // 
@@ -158,17 +145,10 @@
             this.comboBoxCategoria.ForeColor = System.Drawing.Color.Silver;
             this.comboBoxCategoria.FormattingEnabled = true;
             this.comboBoxCategoria.Items.AddRange(new object[] {
-<<<<<<< HEAD
             "Comida",
             "Salud",
             "Educacion",
             "Transporte"});
-=======
-            "Sueldo",
-            "Bonos",
-            "Pensión",
-            "Otro"});
->>>>>>> a587f481a069d8558e31bd654df5c244105b9daf
             this.comboBoxCategoria.Location = new System.Drawing.Point(33, 69);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(200, 21);
@@ -182,7 +162,7 @@
             // 
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.dateTimePicker.Location = new System.Drawing.Point(33, 212);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 11;
@@ -207,16 +187,30 @@
             this.comboBoxCuenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCuenta_KeyPress);
             this.comboBoxCuenta.Leave += new System.EventHandler(this.cuentaPlaceholder_mouseLeave);
             // 
+            // comboBoxCuentaEgreso
+            // 
+            this.comboBoxCuentaEgreso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.comboBoxCuentaEgreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxCuentaEgreso.ForeColor = System.Drawing.Color.Silver;
+            this.comboBoxCuentaEgreso.FormattingEnabled = true;
+            this.comboBoxCuentaEgreso.Items.AddRange(new object[] {
+            "Efectivo",
+            "Debito",
+            "Credito",
+            "Otros"});
+            this.comboBoxCuentaEgreso.Location = new System.Drawing.Point(33, 23);
+            this.comboBoxCuentaEgreso.Name = "comboBoxCuentaEgreso";
+            this.comboBoxCuentaEgreso.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxCuentaEgreso.TabIndex = 12;
+            this.comboBoxCuentaEgreso.Text = "-- SELECCIONE UNA --";
+            // 
             // AgregarEgreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(347, 279);
-<<<<<<< HEAD
-=======
-            this.Controls.Add(this.comboBoxCuenta);
->>>>>>> a587f481a069d8558e31bd654df5c244105b9daf
+            this.Controls.Add(this.comboBoxCuentaEgreso);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.comboBoxCategoria);
             this.Controls.Add(this.txtBoxDescripcion);
@@ -252,5 +246,6 @@
         private System.Windows.Forms.ComboBox comboBoxCategoria;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ComboBox comboBoxCuenta;
+        private System.Windows.Forms.ComboBox comboBoxCuentaEgreso;
     }
 }

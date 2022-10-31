@@ -50,7 +50,6 @@
             this.grafic1.Location = new System.Drawing.Point(36, 12);
             this.grafic1.Name = "grafic1";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.grafic1.Series.Add(series1);

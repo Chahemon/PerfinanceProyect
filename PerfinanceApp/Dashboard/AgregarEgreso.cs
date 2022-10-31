@@ -97,7 +97,7 @@ namespace Dashboard
             IMongoCollection<Egreso> egresoDB = database.GetCollection<Egreso>("egresos");
 
             // Obtenemos la informacion y la guardamos
-            string cuenta = txtBoxCuenta.Text;
+            string cuenta = comboBoxCuentaEgreso.SelectedItem.ToString();
             string categoria = comboBoxCategoria.SelectedItem.ToString();
             float valor = float.Parse(txtBoxCantidad.Text);
             string descripcion = txtBoxDescripcion.Text;

@@ -88,7 +88,7 @@ namespace Dashboard
 
             // Obtenemos la informacion y la guardamos
             //string cuenta = txtBoxCuenta.Text;
-            string cuenta = comboBoxCuenta.SelectedItem.ToString();
+            string cuenta = comboBoxCuentaIngreso.SelectedItem.ToString();
             string categoria = comboBoxCategoria.SelectedItem.ToString();
             float valor = float.Parse(txtBoxCantidad.Text);
             string descripcion = txtBoxDescripcion.Text;
@@ -154,19 +154,19 @@ namespace Dashboard
         private void cuentaPlaceholder_mouseEnter(object sender, EventArgs e)
         {
             //Condicional para el comboBox de "Cuenta"
-            if (comboBoxCuenta.Text == "-- SELECCIONE UNA --")
+            if (comboBoxCuentaIngreso.Text == "-- SELECCIONE UNA --")
             {
-                comboBoxCuenta.Text = "";
-                comboBoxCuenta.ForeColor = Color.White;
+                comboBoxCuentaIngreso.Text = "";
+                comboBoxCuentaIngreso.ForeColor = Color.White;
             }
         }
         private void cuentaPlaceholder_mouseLeave(object sender, EventArgs e)
         {
             //Condicion para comboBox llamado "comboBoxCuenta"
-            if (comboBoxCuenta.Text == "")
+            if (comboBoxCuentaIngreso.Text == "")
             {
-                comboBoxCuenta.Text = "-- SELECCIONE UNA --";
-                comboBoxCuenta.ForeColor = Color.Silver;
+                comboBoxCuentaIngreso.Text = "-- SELECCIONE UNA --";
+                comboBoxCuentaIngreso.ForeColor = Color.Silver;
             }
         }
         //----------------------------------------------------------------------------------------------------------------
