@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//Hector, dice jorge que eres un pendejo xd
+
 namespace Dashboard
 {
     public partial class Inicio : Form

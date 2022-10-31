@@ -39,6 +39,8 @@ namespace Dashboard
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.EtiquetaInfo = new System.Windows.Forms.Label();
+            this.EtiquetaInfo2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +51,14 @@ namespace Dashboard
             this.textUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textUsuario.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textUsuario.Location = new System.Drawing.Point(77, 247);
+            this.textUsuario.Location = new System.Drawing.Point(77, 270);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(219, 29);
             this.textUsuario.TabIndex = 2;
             this.textUsuario.Text = "USUARIO";
             this.textUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textUsuario.Enter += new System.EventHandler(this.textUsuario_Enter);
+            this.textUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textContra_KeyDown);
             this.textUsuario.Leave += new System.EventHandler(this.textUsuario_Leave);
             // 
             // textContra
@@ -64,13 +67,14 @@ namespace Dashboard
             this.textContra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textContra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textContra.Location = new System.Drawing.Point(77, 300);
+            this.textContra.Location = new System.Drawing.Point(77, 323);
             this.textContra.Name = "textContra";
             this.textContra.Size = new System.Drawing.Size(219, 29);
             this.textContra.TabIndex = 3;
             this.textContra.Text = "CONTRASEÑA";
             this.textContra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textContra.Enter += new System.EventHandler(this.textContra_Enter);
+            this.textContra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textContra_KeyDown);
             this.textContra.Leave += new System.EventHandler(this.textContra_Leave);
             // 
             // btnAcceder
@@ -82,7 +86,7 @@ namespace Dashboard
             this.btnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcceder.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcceder.ForeColor = System.Drawing.Color.LightGray;
-            this.btnAcceder.Location = new System.Drawing.Point(77, 385);
+            this.btnAcceder.Location = new System.Drawing.Point(77, 397);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(219, 37);
             this.btnAcceder.TabIndex = 1;
@@ -107,7 +111,7 @@ namespace Dashboard
             this.recoverPasswordLabel.AutoSize = true;
             this.recoverPasswordLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recoverPasswordLabel.LinkColor = System.Drawing.Color.DimGray;
-            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 334);
+            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 357);
             this.recoverPasswordLabel.Name = "recoverPasswordLabel";
             this.recoverPasswordLabel.Size = new System.Drawing.Size(119, 13);
             this.recoverPasswordLabel.TabIndex = 4;
@@ -129,20 +133,23 @@ namespace Dashboard
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(306, 3);
+            this.button3.Location = new System.Drawing.Point(313, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(28, 32);
             this.button3.TabIndex = 5;
             this.button3.Text = "-";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.buttonMinimizePointed);
+            this.button3.MouseLeave += new System.EventHandler(this.buttonMinimizeDisapointed);
             // 
             // button2
             // 
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(340, 3);
             this.button2.Name = "button2";
@@ -151,6 +158,8 @@ namespace Dashboard
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.buttonClosePointed);
+            this.button2.MouseLeave += new System.EventHandler(this.buttonCloseDisapointed);
             // 
             // pictureBox1
             // 
@@ -161,12 +170,37 @@ namespace Dashboard
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // EtiquetaInfo
+            // 
+            this.EtiquetaInfo.AutoSize = true;
+            this.EtiquetaInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EtiquetaInfo.ForeColor = System.Drawing.Color.Red;
+            this.EtiquetaInfo.Location = new System.Drawing.Point(79, 245);
+            this.EtiquetaInfo.Name = "EtiquetaInfo";
+            this.EtiquetaInfo.Size = new System.Drawing.Size(214, 13);
+            this.EtiquetaInfo.TabIndex = 0;
+            this.EtiquetaInfo.Text = "LA CONTRASEÑA ES INCORRECTA";
+            this.EtiquetaInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // EtiquetaInfo2
+            // 
+            this.EtiquetaInfo2.AutoSize = true;
+            this.EtiquetaInfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EtiquetaInfo2.ForeColor = System.Drawing.Color.Red;
+            this.EtiquetaInfo2.Location = new System.Drawing.Point(74, 245);
+            this.EtiquetaInfo2.Name = "EtiquetaInfo2";
+            this.EtiquetaInfo2.Size = new System.Drawing.Size(229, 13);
+            this.EtiquetaInfo2.TabIndex = 7;
+            this.EtiquetaInfo2.Text = "EL USUARIO INGRESADO NO EXISTE";
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(372, 478);
+            this.Controls.Add(this.EtiquetaInfo2);
+            this.Controls.Add(this.EtiquetaInfo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.recoverPasswordLabel);
@@ -198,5 +232,7 @@ namespace Dashboard
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label EtiquetaInfo;
+        private System.Windows.Forms.Label EtiquetaInfo2;
     }
 }
