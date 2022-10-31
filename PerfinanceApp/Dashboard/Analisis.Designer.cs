@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -19,9 +18,7 @@
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -47,7 +44,6 @@
             // 
             // grafic1
             // 
-<<<<<<< HEAD
             this.grafic1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             chartArea1.AxisX.IsMarginVisible = false;
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Silver;
@@ -71,15 +67,9 @@
             legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             legend1.ForeColor = System.Drawing.Color.Gainsboro;
             legend1.IsTextAutoFit = false;
-=======
-            this.grafic1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            chartArea1.Name = "ChartArea1";
-            this.grafic1.ChartAreas.Add(chartArea1);
-            this.grafic1.DataSource = this.grafic1.Images;
->>>>>>> 069e4e4c85666e6559f228d742c80d995975d385
             legend1.Name = "Legend1";
             this.grafic1.Legends.Add(legend1);
-            this.grafic1.Location = new System.Drawing.Point(3, 3);
+            this.grafic1.Location = new System.Drawing.Point(6, 0);
             this.grafic1.Name = "grafic1";
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
             series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))));
@@ -100,18 +90,11 @@
             title1.Name = "Title1";
             title1.Text = "Ingresos";
             this.grafic1.Titles.Add(title1);
-            this.grafic1.UseWaitCursor = true;
             // 
             // graficpastel
             // 
-<<<<<<< HEAD
             this.graficpastel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-=======
-            this.graficpastel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.graficpastel.BorderlineColor = System.Drawing.Color.Empty;
-            this.graficpastel.CausesValidation = false;
->>>>>>> 069e4e4c85666e6559f228d742c80d995975d385
             chartArea2.Name = "ChartArea1";
             this.graficpastel.ChartAreas.Add(chartArea2);
             this.graficpastel.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -119,7 +102,7 @@
             legend2.ForeColor = System.Drawing.Color.Gainsboro;
             legend2.Name = "Legend1";
             this.graficpastel.Legends.Add(legend2);
-            this.graficpastel.Location = new System.Drawing.Point(3, 3);
+            this.graficpastel.Location = new System.Drawing.Point(3, 1);
             this.graficpastel.Name = "graficpastel";
             this.graficpastel.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.graficpastel.PaletteCustomColors = new System.Drawing.Color[] {
@@ -181,7 +164,6 @@
             this.ResumeLayout(false);
 
         }
-
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart grafic1;
