@@ -47,6 +47,7 @@
             // 
             // grafic1
             // 
+<<<<<<< HEAD
             this.grafic1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             chartArea1.AxisX.IsMarginVisible = false;
             chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Silver;
@@ -70,6 +71,12 @@
             legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             legend1.ForeColor = System.Drawing.Color.Gainsboro;
             legend1.IsTextAutoFit = false;
+=======
+            this.grafic1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            chartArea1.Name = "ChartArea1";
+            this.grafic1.ChartAreas.Add(chartArea1);
+            this.grafic1.DataSource = this.grafic1.Images;
+>>>>>>> 069e4e4c85666e6559f228d742c80d995975d385
             legend1.Name = "Legend1";
             this.grafic1.Legends.Add(legend1);
             this.grafic1.Location = new System.Drawing.Point(3, 3);
@@ -93,11 +100,18 @@
             title1.Name = "Title1";
             title1.Text = "Ingresos";
             this.grafic1.Titles.Add(title1);
+            this.grafic1.UseWaitCursor = true;
             // 
             // graficpastel
             // 
+<<<<<<< HEAD
             this.graficpastel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
             chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+=======
+            this.graficpastel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.graficpastel.BorderlineColor = System.Drawing.Color.Empty;
+            this.graficpastel.CausesValidation = false;
+>>>>>>> 069e4e4c85666e6559f228d742c80d995975d385
             chartArea2.Name = "ChartArea1";
             this.graficpastel.ChartAreas.Add(chartArea2);
             this.graficpastel.Cursor = System.Windows.Forms.Cursors.Arrow;

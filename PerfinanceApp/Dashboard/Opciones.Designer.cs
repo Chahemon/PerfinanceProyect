@@ -28,23 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.BotonCambiarTema = new CustomControls.Controls.ToggleButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(327, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tipo de tema";
             // 
             // BotonCambiarTema
             // 
             this.BotonCambiarTema.AutoSize = true;
-            this.BotonCambiarTema.Location = new System.Drawing.Point(341, 141);
+            this.BotonCambiarTema.Location = new System.Drawing.Point(240, 39);
             this.BotonCambiarTema.MinimumSize = new System.Drawing.Size(45, 22);
             this.BotonCambiarTema.Name = "BotonCambiarTema";
             this.BotonCambiarTema.OffBackColor = System.Drawing.Color.Gray;
@@ -56,13 +47,23 @@
             this.BotonCambiarTema.UseVisualStyleBackColor = true;
             this.BotonCambiarTema.CheckedChanged += new System.EventHandler(this.BotonCambiarTema_CheckedChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(46, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(177, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cambiar tema de la app";
+            // 
             // Opciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(747, 513);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BotonCambiarTema);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Opciones";
@@ -75,6 +76,6 @@
         #endregion
 
         private CustomControls.Controls.ToggleButton BotonCambiarTema;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

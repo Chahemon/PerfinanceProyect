@@ -68,6 +68,8 @@ namespace Dashboard
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
             tabla.Rows.Clear();
 
+            this.tabla.AllowUserToAddRows = true;
+
             foreach (var list in lstEgresos)
             {
                 DataGridViewRow row = (DataGridViewRow)tabla.Rows[0].Clone();
@@ -78,6 +80,8 @@ namespace Dashboard
                 row.Cells[4].Value = list.CreatedAt;    // Fecha
                 tabla.Rows.Add(row);
             }
+
+            this.tabla.AllowUserToAddRows = false;
         }
         //----------------------------------------------------------------------------------------------------------------
 

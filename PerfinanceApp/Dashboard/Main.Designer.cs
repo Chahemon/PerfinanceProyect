@@ -204,7 +204,6 @@ namespace Dashboard
             this.label2.Size = new System.Drawing.Size(54, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "User data";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -244,7 +243,7 @@ namespace Dashboard
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox1.Location = new System.Drawing.Point(607, 22);
+            this.textBox1.Location = new System.Drawing.Point(598, 22);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(292, 20);
@@ -256,6 +255,7 @@ namespace Dashboard
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(922, 3);
             this.button1.Name = "button1";
@@ -264,6 +264,8 @@ namespace Dashboard
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseEnter += new System.EventHandler(this.buttonClosePointed);
+            this.button1.MouseLeave += new System.EventHandler(this.buttonCloseDisapointed);
             // 
             // panelControlador
             // 

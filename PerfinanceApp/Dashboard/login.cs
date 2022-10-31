@@ -7,12 +7,14 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading;
+using System.Reflection.Emit;
 
 namespace Dashboard
 {
     public partial class login : Form
     {
-        
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         private static IMongoCollection <Usuarios> usuariosDB = database.GetCollection<Usuarios>("usuarios");
@@ -29,6 +31,8 @@ namespace Dashboard
             textUsuario.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, textUsuario.Width, textUsuario.Height, 6, 6));
             //Bordeado para el boton
             btnAcceder.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, btnAcceder.Width, btnAcceder.Height, 6, 6));
+            EtiquetaInfo.Hide();
+            EtiquetaInfo2.Hide();
         }
 
         //------------------------------- Propiedades del bordeado del form ------------------------------------
@@ -44,7 +48,7 @@ namespace Dashboard
           );
         //------------------------------------------------------------------------------------------------------
 
-        //---------------------------- Propiedades que permiten el mover el form ---------------------------
+        //---------------------------- Propiedades que permiten el mover el form --------------------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -56,20 +60,9 @@ namespace Dashboard
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        //--------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------
 
-        //Evento para el boton 'X' (cierra el form main)
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //Evento para el boton '-' (Minimiza el form main)
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
+        //----------------------------- Metodo del boton "Acceder" ------------------------------------------------------
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             // (El pa) Hacer mejoras en el login ( Visuales )  
@@ -86,14 +79,17 @@ namespace Dashboard
                     main.ShowDialog();
                     this.Close();
                 } else {
-                    Console.WriteLine("Contraseña INCORRECTA"); // (El pa) Hacer que esto se muestre en el login
+                    EtiquetaInfo2.Hide();
+                    EtiquetaInfo.Show();
                 }
             } else {
-                Console.WriteLine("NO EXISTE UNA CUENTA REGISTRADA CON ESE GMAIL"); // (El pa) Hacer que esto se muestre en el login
-            } 
+                EtiquetaInfo.Hide();
+                EtiquetaInfo2.Show();
+            }
         }
+        //---------------------------------------------------------------------------------------------------------------
 
-        //-------------------- Metodos para simular un placeholder en los textBox del Login -------------------------
+        //-------------------- Metodos para simular un placeholder en los textBox del Login -----------------------------
         private void textUsuario_Enter(object sender, EventArgs e)
         {
             if (textUsuario.Text == "USUARIO")
@@ -109,6 +105,8 @@ namespace Dashboard
                 textUsuario.Text = "USUARIO";
                 textUsuario.ForeColor = Color.FromArgb(64,64,64);
             }
+            EtiquetaInfo.Hide();
+            EtiquetaInfo2.Hide();
         }
 
         private void textContra_Enter(object sender, EventArgs e)
@@ -129,6 +127,8 @@ namespace Dashboard
                 textContra.ForeColor = Color.FromArgb(64, 64, 64);
                 textContra.UseSystemPasswordChar = false;
             }
+            EtiquetaInfo.Hide();
+            EtiquetaInfo2.Hide();
         }
         //---------------------------------------------------------------------------------------------------------
 
@@ -136,5 +136,45 @@ namespace Dashboard
         {
             //Implementar la reedireccion a la pagina web con el proposito de recuperar la contraseña
         }
+
+        //---------------------------------- Evento que detecta cuando se presiona enter --------------------------------
+        private void textContra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                btnAcceder_Click(sender, e);
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------
+
+        //----------------------------- Eventos para el boton de cierre del form ----------------------------------------
+        private void buttonClosePointed(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.Red;  //Al pasar el mouse por el boton se vuelve rojo
+        }
+        private void buttonCloseDisapointed(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.White;  //Al quitar el mouse vuelve al color blanco
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();  //Evento para el boton 'X' (cierra el form main)
+        }
+        //---------------------------------------------------------------------------------------------------------------
+
+        //---------------------------- Eventos para boton minimizar -----------------------------------------------------
+        private void buttonMinimizePointed(object sender, EventArgs e)
+        {
+            button3.ForeColor = Color.Gray;
+        }
+        private void buttonMinimizeDisapointed(object sender, EventArgs e)
+        {
+            button3.ForeColor = Color.White;
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;  //Evento para el boton '-' (Minimiza el form main)
+        }
+        //---------------------------------------------------------------------------------------------------------------
     }
 }

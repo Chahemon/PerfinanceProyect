@@ -58,9 +58,9 @@ namespace Dashboard
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
             btnInicio.BackColor = Color.FromArgb(46, 51, 73);
-
         }
 
+        //------------------------------------ Evento del boton inicio -------------------------------------------------
         private void btnInicio_Click(object sender, EventArgs e)
         {
             abrirFormHija(new Inicio() );
@@ -69,9 +69,10 @@ namespace Dashboard
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
             btnInicio.BackColor = Color.FromArgb(46, 51, 73);
-
         }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //------------------------------------ Evento del boton Ingresos -----------------------------------------------
         private void btnIngresos_Click(object sender, EventArgs e)
         {
             labelTItulo.Text = "Ingresos";
@@ -81,12 +82,13 @@ namespace Dashboard
             abrirFormHija( new Ingresos( usuarioId, lstIngresos ));
             panNav.Height = btnIngresos.Height;
             panNav.Top = btnIngresos.Top;
-            //panNav.Left = btnIngresos.Left;
             btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
             btnInicio.BackColor = Color.FromArgb(24, 30, 54);
 
         }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //---------------------------------------- Evento del boton Egresos --------------------------------------------
         private void btnEgresos_Click(object sender, EventArgs e)
         {
             labelTItulo.Text = "Egresos";
@@ -96,11 +98,12 @@ namespace Dashboard
             abrirFormHija( new Egresos( usuarioId, lstEgresos ) );
             panNav.Height = btnEgresos.Height;
             panNav.Top = btnEgresos.Top;
-            //panNav.Left = btnEgresos.Left;
             btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
             btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //---------------------------------------- Evento del boton Analisis -------------------------------------------
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
             labelTItulo.Text = "Analisis";
@@ -114,11 +117,12 @@ namespace Dashboard
 
             panNav.Height = btnAnalisis.Height;
             panNav.Top = btnAnalisis.Top;
-           //panNav.Left = btnAnalisis.Left;
             btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
             btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //----------------------------------------- Evento del boton Calendario ----------------------------------------
         private void btnCalendario_Click(object sender, EventArgs e)
         {
             labelTItulo.Text = "Calendario";
@@ -130,9 +134,13 @@ namespace Dashboard
             btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
             btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //----------------------------------------- Evento del boton Opciones ------------------------------------------
         private void btnOpciones_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "Opciones";
+
             abrirFormHija(new Opciones());
             panNav.Height = btnOpciones.Height;
             panNav.Top = btnOpciones.Top;
@@ -140,61 +148,50 @@ namespace Dashboard
             btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
             btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
+        //--------------------------------------------------------------------------------------------------------------
+
+        //------------------------ Evento que selecciona el boton inicio al comenzar el programa -----------------------
         private void Form1_Load(object sender, EventArgs e)
         {
             btnInicio_Click(null, e);
         }
+        //--------------------------------------------------------------------------------------------------------------
 
+        //----------------------------------- Eventos leave para los botones (Estetica) --------------------------------
         private void btnInicio_Leave(object sender, EventArgs e)
         {
             btnInicio.BackColor = Color.FromArgb(24, 30, 54);
         }
-
         private void btnIngresos_Leave(object sender, EventArgs e)
         {
             btnIngresos.BackColor = Color.FromArgb(24, 30, 54);
         }
-
         private void btnEgresos_Leave(object sender, EventArgs e)
         {
             btnEgresos.BackColor = Color.FromArgb(24, 30, 54);
         }
-
         private void btnAnalisis_Leave(object sender, EventArgs e)
         {
             btnAnalisis.BackColor = Color.FromArgb(24, 30, 54);
         }
-
         private void btnCalendario_Leave(object sender, EventArgs e)
         {
             btnCalendario.BackColor = Color.FromArgb(24, 30, 54);
         }
-
         private void btnOpciones_Leave(object sender, EventArgs e)
         {
             btnOpciones.BackColor = Color.FromArgb(24, 30, 54);
         }
+        //--------------------------------------------------------------------------------------------------------------
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        //-------------------------- Evento para barra busqueda (necesita ser mejorado) --------------------------------
         private void textBox1_TextSelected(object sender, EventArgs e)
         {
             textBox1.Text = ("");
         }
+        //--------------------------------------------------------------------------------------------------------------
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        //------ Evento que nos permite abrir los form externos a este, util para no estar ocultando cosas -------------
         private void abrirFormHija ( object formhija )
         {
             if ( this.panelControlador.Controls.Count > 0 )
@@ -207,5 +204,21 @@ namespace Dashboard
             this.panelControlador.Tag = fh;
             fh.Show();
         }
+        //--------------------------------------------------------------------------------------------------------------
+
+        //----------------------------- Eventos para el boton de cierre del form ----------------------------------------
+        private void buttonClosePointed(object sender, EventArgs e)
+        {
+            button1.ForeColor = Color.Red;  //Al pasar el mouse por el boton se vuelve rojo
+        }
+        private void buttonCloseDisapointed(object sender, EventArgs e)
+        {
+            button1.ForeColor = Color.White;  //Al quitar el mouse vuelve al color blanco
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //---------------------------------------------------------------------------------------------------------------  
     }
 }
