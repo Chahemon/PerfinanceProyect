@@ -1,4 +1,5 @@
 ﻿using Dashboard.Models;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,8 +40,56 @@ namespace Dashboard
             ventana.ShowDialog();
         }
 
+        private void botonCircular2_Click(object sender, EventArgs e)
+        {
+            int row = dataGridView.CurrentCell.RowIndex;
+            Ingreso ingresoEliminar = new Ingreso();
+             
+            ingresoEliminar.Cuenta      = (string)   dataGridView.Rows[row].Cells[0].Value;          // Cuenta
+            ingresoEliminar.Categoria   = (string)   dataGridView.Rows[row].Cells[1].Value;          // Categoria
+            ingresoEliminar.Valor       = (float)    dataGridView.Rows[row].Cells[2].Value;          // Cantidad
+            ingresoEliminar.Descripcion = (string)   dataGridView.Rows[row].Cells[3].Value;          // Descripción
+            ingresoEliminar.CreatedAt   = (DateTime) dataGridView.Rows[row].Cells[4].Value;          // Fecha
+
+            string Id = "";
+
+            foreach ( var list in lstIngresos )
+            {
+                if (list.Cuenta == ingresoEliminar.Cuenta &&
+                     list.Categoria == ingresoEliminar.Categoria &&
+                     list.Valor == ingresoEliminar.Valor &&
+                     list.Descripcion == ingresoEliminar.Descripcion &&
+                     list.CreatedAt == ingresoEliminar.CreatedAt)
+                    Id = list.Id;
+            }
+
+            MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
+            IMongoDatabase database = client.GetDatabase("test");
+            IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
+
+            try
+            {
+                ingresosDB.DeleteOne( d => d.Id == Id );
+            } 
+            catch ( Exception ex )
+            {
+                Console.WriteLine(ex);
+            }
+            
+
+
+            List<Ingreso> lstIngresosNueva = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
+            this.lstIngresos = lstIngresosNueva;
+
+            dataGridView.Rows.Clear();
+            CargarTabla();
+
+        }
+
         public void CargarTabla()
         {
+            this.dataGridView.AllowUserToAddRows = true;
+
             foreach (var list in lstIngresos)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
@@ -60,5 +109,6 @@ namespace Dashboard
         {
             CargarTabla();
         }
+
     }
 }

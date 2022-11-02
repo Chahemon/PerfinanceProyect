@@ -22,9 +22,18 @@ namespace Dashboard
 
         }
 
-        public void days( int numday )
+        public void days( int numday, float balance )
         {
             labelDays.Text = numday.ToString();
+            labelBalance.Text = balance.ToString();
+            
+            if( balance > 0)
+            {
+                labelBalance.ForeColor = Color.Green;
+                labelBalance.Text = "+" + labelBalance.Text;
+            } else if ( balance < 0)
+                labelBalance.ForeColor = Color.Red;
+
         }
 
     }

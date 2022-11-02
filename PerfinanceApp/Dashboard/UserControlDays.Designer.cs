@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.labelDays = new System.Windows.Forms.Label();
+            this.labelBalance = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelDays
@@ -42,11 +43,23 @@
             this.labelDays.TabIndex = 0;
             this.labelDays.Text = "00";
             // 
+            // labelBalance
+            // 
+            this.labelBalance.AutoSize = true;
+            this.labelBalance.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBalance.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.labelBalance.Location = new System.Drawing.Point(34, 24);
+            this.labelBalance.Name = "labelBalance";
+            this.labelBalance.Size = new System.Drawing.Size(27, 30);
+            this.labelBalance.TabIndex = 1;
+            this.labelBalance.Text = "0";
+            // 
             // UserControlDays
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.Controls.Add(this.labelBalance);
             this.Controls.Add(this.labelDays);
             this.Name = "UserControlDays";
             this.Size = new System.Drawing.Size(97, 58);
@@ -59,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.Label labelDays;
+        private System.Windows.Forms.Label labelBalance;
     }
 }

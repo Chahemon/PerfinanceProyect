@@ -14,14 +14,14 @@ namespace Dashboard
 {
     public partial class Opciones : Form
     {
-        public Opciones()
+        public Opciones( ref bool temaOscuro )
         {
             InitializeComponent();
         }
 
         private void BotonCambiarTema_CheckedChanged(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
+            
         }
     }
 

@@ -16,6 +16,7 @@ namespace Dashboard
     public partial class Main : Form
     {
         private string usuarioId;
+        private bool temaOscuro = true;
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         private static IMongoCollection<Usuarios> usuariosDB = database.GetCollection<Usuarios>("ingresos");
@@ -69,6 +70,7 @@ namespace Dashboard
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
             btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+            Console.WriteLine(this.temaOscuro);
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -127,7 +129,7 @@ namespace Dashboard
         {
             labelTItulo.Text = "Calendario";
 
-            abrirFormHija(new Calendario());
+            abrirFormHija(new Calendario( this.usuarioId ));
             panNav.Height = btnCalendario.Height;
             panNav.Top = btnCalendario.Top;
             //panNav.Left = btnCalendario.Left;
@@ -141,7 +143,7 @@ namespace Dashboard
         {
             labelTItulo.Text = "Opciones";
 
-            abrirFormHija(new Opciones());
+            abrirFormHija(new Opciones( ref this.temaOscuro ));
             panNav.Height = btnOpciones.Height;
             panNav.Top = btnOpciones.Top;
             //panNav.Left = btnOpciones.Left;
