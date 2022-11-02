@@ -1,2 +1,11 @@
 .vs
+.vs/*
 .vscode/*
+.vscode
+.suo
+.cache
+.sass_cache
+.DS_store
+.dat
+.exe
+/debug
