@@ -25,7 +25,8 @@ namespace Dashboard
             InitializeComponent();
             //Muestra un tip de lo que hace al posicionar el mouse en el boton
             ToolTip tooltip = new System.Windows.Forms.ToolTip();
-            tooltip.SetToolTip(botonCircular1, "Agregar Ingreso ");
+            tooltip.SetToolTip(botonCircular1, "Agregar Ingreso");
+            tooltip.SetToolTip(botonCircular2, "Eliminar Ingreso");
             //Cambia el color de los headers de la tabla (dataGridView)
             dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73); //color gris... eso creo
             dataGridView.EnableHeadersVisualStyles = false;

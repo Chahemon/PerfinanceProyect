@@ -83,6 +83,16 @@ namespace Dashboard.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_plus_create_new_icon_64px___copia {
+            get {
+                object obj = ResourceManager.GetObject("add_plus_create_new_icon_64px - copia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap analisis__1_ {
             get {
                 object obj = ResourceManager.GetObject("analisis (1)", resourceCulture);

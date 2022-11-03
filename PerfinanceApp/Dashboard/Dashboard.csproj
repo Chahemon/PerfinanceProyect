@@ -349,6 +349,7 @@
   <ItemGroup>
     <Content Include="mongocrypt.dll" />
     <Content Include="Resources\370092_add_plus_create_new_icon.png" />
+    <Content Include="Resources\add_plus_create_new_icon_64px - copia.png" />
     <Content Include="Resources\add_plus_create_new_icon_64px.png" />
     <None Include="Resources\ProyectoLogo.png" />
   </ItemGroup>

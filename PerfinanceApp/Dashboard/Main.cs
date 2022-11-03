@@ -186,13 +186,6 @@ namespace Dashboard
         }
         //--------------------------------------------------------------------------------------------------------------
 
-        //-------------------------- Evento para barra busqueda (necesita ser mejorado) --------------------------------
-        private void textBox1_TextSelected(object sender, EventArgs e)
-        {
-            textBox1.Text = ("");
-        }
-        //--------------------------------------------------------------------------------------------------------------
-
         //------ Evento que nos permite abrir los form externos a este, util para no estar ocultando cosas -------------
         private void abrirFormHija ( object formhija )
         {
@@ -220,6 +213,11 @@ namespace Dashboard
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextSelected(object sender, EventArgs e)
+        {
+
         }
         //---------------------------------------------------------------------------------------------------------------  
     }

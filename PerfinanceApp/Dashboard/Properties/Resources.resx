@@ -136,6 +136,9 @@
   <data name="icone-utilisateur-orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icone-utilisateur-orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="add_plus_create_new_icon_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_plus_create_new_icon_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="nomina (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nomina (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,7 +178,7 @@
   <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add_plus_create_new_icon_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add_plus_create_new_icon_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add_plus_create_new_icon_64px - copia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add_plus_create_new_icon_64px - copia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

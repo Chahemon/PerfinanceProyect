@@ -42,7 +42,6 @@ namespace Dashboard
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTItulo = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.panelControlador = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -237,20 +236,6 @@ namespace Dashboard
             this.labelTItulo.TabIndex = 1;
             this.labelTItulo.Text = "Inicio";
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(79)))), ((int)(((byte)(99)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Nirmala UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.textBox1.Location = new System.Drawing.Point(598, 22);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Buscar";
-            this.textBox1.Click += new System.EventHandler(this.textBox1_TextSelected);
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -282,14 +267,13 @@ namespace Dashboard
             this.ClientSize = new System.Drawing.Size(951, 577);
             this.Controls.Add(this.panelControlador);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.labelTItulo);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Perfinance";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.arrastrarFormMain_MouseDown);
             this.panel1.ResumeLayout(false);
@@ -316,7 +300,6 @@ namespace Dashboard
         private System.Windows.Forms.Button btnCalendario;
         private System.Windows.Forms.Panel panNav;
         private System.Windows.Forms.Label labelTItulo;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelControlador;
     }

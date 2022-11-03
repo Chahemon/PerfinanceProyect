@@ -28,6 +28,7 @@ namespace Dashboard
             //Muestra un tip de lo que hace al posicionar el mouse en el boton
             ToolTip tooltip = new System.Windows.Forms.ToolTip();
             tooltip.SetToolTip(botonCircular1, "Agregar egreso");
+            tooltip.SetToolTip(botonCircular2, "Eliminar egreso");
             //Con esto se cambia el color de los headers del DataGridView (las tablas pues xd)
             dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73); //Estoy seguro de que es gris
             dataGridView.EnableHeadersVisualStyles = false;
@@ -44,6 +45,8 @@ namespace Dashboard
 
         public void CargarTabla()
         {
+            this.dataGridView.AllowUserToAddRows = true;
+
             foreach (var list in lstEgresos)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
@@ -60,6 +63,50 @@ namespace Dashboard
 
         private void Egresos_Load(object sender, EventArgs e)
         {
+            CargarTabla();
+        }
+
+        private void botonCircular2_Click(object sender, EventArgs e)
+        {
+            int row = dataGridView.CurrentCell.RowIndex;
+            Egreso egresoEliminar = new Egreso();
+
+            egresoEliminar.Cuenta = (string)dataGridView.Rows[row].Cells[0].Value;          // Cuenta
+            egresoEliminar.Categoria = (string)dataGridView.Rows[row].Cells[1].Value;       // Categoria
+            egresoEliminar.Valor = (float)dataGridView.Rows[row].Cells[2].Value;            // Cantidad
+            egresoEliminar.Descripcion = (string)dataGridView.Rows[row].Cells[3].Value;     // Descripción
+            egresoEliminar.CreatedAt = (DateTime)dataGridView.Rows[row].Cells[4].Value;     // Fecha
+
+            string Id = "";
+
+            foreach (var list in lstEgresos)
+            {
+                if (list.Cuenta == egresoEliminar.Cuenta &&
+                     list.Categoria == egresoEliminar.Categoria &&
+                     list.Valor == egresoEliminar.Valor &&
+                     list.Descripcion == egresoEliminar.Descripcion &&
+                     list.CreatedAt == egresoEliminar.CreatedAt)
+                     Id = list.Id;
+            }
+
+            MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
+            IMongoDatabase database = client.GetDatabase("test");
+            IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
+
+            try
+            {
+                egresosDB.DeleteOne(d => d.Id == Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+
+            List<Egreso> lstEgresosNueva = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
+            this.lstEgresos = lstEgresosNueva;
+
+            dataGridView.Rows.Clear();
             CargarTabla();
         }
     }

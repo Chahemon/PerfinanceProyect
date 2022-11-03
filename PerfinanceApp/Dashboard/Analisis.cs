@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,6 +24,7 @@ namespace Dashboard
             this.usuarioId = usuarioId; 
             this.lstEgresos = lstEgreso;    
             this.lstIngresos = lstIngreso;
+            //Decidi retirar el bordeado de los dataGridView porque le ponia algo negro en los bordes y quedaba feo
             InitializeComponent();
         }
 
