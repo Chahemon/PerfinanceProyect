@@ -230,7 +230,7 @@ namespace Dashboard
             this.labelTItulo.AutoSize = true;
             this.labelTItulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.labelTItulo.Location = new System.Drawing.Point(220, 17);
+            this.labelTItulo.Location = new System.Drawing.Point(219, 12);
             this.labelTItulo.Name = "labelTItulo";
             this.labelTItulo.Size = new System.Drawing.Size(87, 32);
             this.labelTItulo.TabIndex = 1;
