@@ -18,14 +18,16 @@ namespace Dashboard
     {
         int month, year;
         private string usuarioId;
+        private bool temaOscuro;
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         IMongoCollection <Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
         IMongoCollection <Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
 
-        public Calendario( string usuarioId )
+        public Calendario( string usuarioId, bool temaOscuro )
         {
             this.usuarioId = usuarioId;
+            this.temaOscuro = temaOscuro;
             InitializeComponent();
         }
 

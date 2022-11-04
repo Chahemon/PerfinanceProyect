@@ -72,12 +72,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView.Location = new System.Drawing.Point(16, 15);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.Size = new System.Drawing.Size(723, 420);
+            this.dataGridView.Size = new System.Drawing.Size(964, 517);
             this.dataGridView.TabIndex = 1;
             // 
             // Cuenta
@@ -87,7 +88,7 @@
             this.Cuenta.MinimumWidth = 6;
             this.Cuenta.Name = "Cuenta";
             this.Cuenta.ReadOnly = true;
-            this.Cuenta.Width = 81;
+            this.Cuenta.Width = 94;
             // 
             // Categoria
             // 
@@ -96,7 +97,7 @@
             this.Categoria.MinimumWidth = 6;
             this.Categoria.Name = "Categoria";
             this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 98;
+            this.Categoria.Width = 114;
             // 
             // Cantidad
             // 
@@ -105,7 +106,7 @@
             this.Cantidad.MinimumWidth = 6;
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
-            this.Cantidad.Width = 93;
+            this.Cantidad.Width = 107;
             // 
             // Descripcion
             // 
@@ -122,7 +123,7 @@
             this.Fecha.MinimumWidth = 6;
             this.Fecha.Name = "Fecha";
             this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 75;
+            this.Fecha.Width = 87;
             // 
             // botonCircular1
             // 
@@ -130,9 +131,10 @@
             this.botonCircular1.FlatAppearance.BorderSize = 0;
             this.botonCircular1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botonCircular1.Image = global::Dashboard.Properties.Resources.add_plus_create_new_icon_64px;
-            this.botonCircular1.Location = new System.Drawing.Point(672, 438);
+            this.botonCircular1.Location = new System.Drawing.Point(896, 539);
+            this.botonCircular1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonCircular1.Name = "botonCircular1";
-            this.botonCircular1.Size = new System.Drawing.Size(63, 63);
+            this.botonCircular1.Size = new System.Drawing.Size(84, 78);
             this.botonCircular1.TabIndex = 3;
             this.botonCircular1.UseVisualStyleBackColor = false;
             this.botonCircular1.Click += new System.EventHandler(this.botonCircular1_Click);
@@ -142,24 +144,26 @@
             this.botonCircular2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.botonCircular2.FlatAppearance.BorderSize = 0;
             this.botonCircular2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.botonCircular2.Image = global::Dashboard.Properties.Resources.add_plus_create_new_icon_64px___copia;
-            this.botonCircular2.Location = new System.Drawing.Point(603, 438);
+            this.botonCircular2.Image = global::Dashboard.Properties.Resources.minus_create_new_icon_64px1;
+            this.botonCircular2.Location = new System.Drawing.Point(804, 539);
+            this.botonCircular2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonCircular2.Name = "botonCircular2";
-            this.botonCircular2.Size = new System.Drawing.Size(63, 63);
+            this.botonCircular2.Size = new System.Drawing.Size(84, 78);
             this.botonCircular2.TabIndex = 4;
             this.botonCircular2.UseVisualStyleBackColor = false;
             this.botonCircular2.Click += new System.EventHandler(this.botonCircular2_Click);
             // 
             // Ingresos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(747, 513);
+            this.ClientSize = new System.Drawing.Size(996, 631);
             this.Controls.Add(this.botonCircular2);
             this.Controls.Add(this.botonCircular1);
             this.Controls.Add(this.dataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Ingresos";
             this.Text = "Ingresos";
             this.Load += new System.EventHandler(this.Ingresos_Load);

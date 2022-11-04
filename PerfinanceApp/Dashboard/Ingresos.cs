@@ -39,7 +39,7 @@ namespace Dashboard
         //Evento del boton
         private void botonCircular1_Click(object sender, EventArgs e)
         {
-            AgregarIngreso ventana = new AgregarIngreso(usuarioId, this.dataGridView );
+            AgregarIngreso ventana = new AgregarIngreso(usuarioId, this.dataGridView, temaOscuro);
             ventana.ShowDialog();
         }
 

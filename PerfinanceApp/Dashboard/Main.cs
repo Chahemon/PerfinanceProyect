@@ -65,7 +65,7 @@ namespace Dashboard
         private void btnInicio_Click(object sender, EventArgs e)
         {
             this.panelControlador.Visible = true;
-            abrirFormHija(new Inicio() );
+            abrirFormHija(new Inicio(temaOscuro) );
             labelTItulo.Text = "Inicio";
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
@@ -83,7 +83,7 @@ namespace Dashboard
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
             List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
-            abrirFormHija( new Ingresos( usuarioId, lstIngresos ));
+            abrirFormHija( new Ingresos( usuarioId, lstIngresos, temaOscuro ));
             panNav.Height = btnIngresos.Height;
             panNav.Top = btnIngresos.Top;
             btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
@@ -100,7 +100,7 @@ namespace Dashboard
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
-            abrirFormHija( new Egresos( usuarioId, lstEgresos ) );
+            abrirFormHija( new Egresos( usuarioId, lstEgresos, temaOscuro ) );
             panNav.Height = btnEgresos.Height;
             panNav.Top = btnEgresos.Top;
             btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
@@ -134,7 +134,7 @@ namespace Dashboard
             this.panelControlador.Visible = true;
             labelTItulo.Text = "Calendario";
 
-            abrirFormHija(new Calendario( this.usuarioId ));
+            abrirFormHija(new Calendario( this.usuarioId, temaOscuro));
             panNav.Height = btnCalendario.Height;
             panNav.Top = btnCalendario.Top;
             //panNav.Left = btnCalendario.Left;

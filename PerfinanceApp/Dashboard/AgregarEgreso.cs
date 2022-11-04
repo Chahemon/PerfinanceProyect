@@ -22,6 +22,7 @@ namespace Dashboard
         private static IMongoDatabase database = client.GetDatabase("test");
         private string usuarioId;
         private DataGridView tabla;
+        private bool temaOscuro;
         //----------------------------------------------------------------------------------------------------------------
 
         //------------------------------- Propiedades del bordeado del form ----------------------------------------------
@@ -52,11 +53,12 @@ namespace Dashboard
         }
         //----------------------------------------------------------------------------------------------------------------
 
-        public AgregarEgreso( string usuarioId, DataGridView tabla )
+        public AgregarEgreso( string usuarioId, DataGridView tabla, bool temaOscuro )
         {
             this.usuarioId = usuarioId;
             this.tabla = tabla;
             InitializeComponent();
+            this.temaOscuro = temaOscuro;
             //Hace realidad de que tu form tenga bordes muy suaves...
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
         }

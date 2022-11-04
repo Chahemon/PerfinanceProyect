@@ -21,6 +21,7 @@ namespace Dashboard
         private static IMongoDatabase database = client.GetDatabase("test");
         private string usuarioId;
         private DataGridView tabla;
+        private bool temaOscuro;
         //----------------------------------------------------------------------------------------------------------------
 
         //------------------------------ Propiedades del bordeado del form --------------------------------
@@ -50,7 +51,7 @@ namespace Dashboard
         }
         //-------------------------------------------------------------------------------------------------
 
-        public AgregarIngreso( string usuarioId, DataGridView tabla)
+        public AgregarIngreso( string usuarioId, DataGridView tabla, bool temaOscuro)
         {
             this.usuarioId = usuarioId;
             this.tabla = tabla;
@@ -58,7 +59,7 @@ namespace Dashboard
             InitializeComponent();
             //traza los bordes en el formulario para que se vea redondito
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            
+            this.temaOscuro = temaOscuro;
         }
 
         //------------------------------- Metodo para cargar la tabla de ingresos ----------------------------------------

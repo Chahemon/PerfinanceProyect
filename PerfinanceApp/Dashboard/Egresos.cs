@@ -41,7 +41,7 @@ namespace Dashboard
         //Evento del boton
         private void button1_Click(object sender, EventArgs e)
         {
-            AgregarEgreso ventana = new AgregarEgreso( usuarioId, this.dataGridView );
+            AgregarEgreso ventana = new AgregarEgreso( usuarioId, this.dataGridView, temaOscuro);
             ventana.ShowDialog();
         }
 
