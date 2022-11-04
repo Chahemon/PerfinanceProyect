@@ -14,12 +14,20 @@ namespace Dashboard
 {
     public partial class Inicio : Form
     {
-        public Inicio()
+        private bool temaOscuro;
+
+        public Inicio(bool temaOscuro)
         {
+            this.temaOscuro = temaOscuro;
             InitializeComponent();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
         }

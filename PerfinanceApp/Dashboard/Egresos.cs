@@ -17,9 +17,10 @@ namespace Dashboard
     public partial class Egresos : Form
     {
         private string usuarioId;
+        private bool temaOscuro;
         private List<Egreso> lstEgresos;
 
-        public Egresos( string usuarioId, List<Egreso> lstEgreso)
+        public Egresos( string usuarioId, List<Egreso> lstEgreso, bool temaOscuro)
         {
             this.usuarioId  = usuarioId;
             this.lstEgresos = lstEgreso;
@@ -34,6 +35,7 @@ namespace Dashboard
             dataGridView.EnableHeadersVisualStyles = false;
             //Cambia el color de los bordes de las celdas
             dataGridView.GridColor = Color.FromArgb(46, 51, 73);
+            this.temaOscuro = temaOscuro;
         }
 
         //Evento del boton

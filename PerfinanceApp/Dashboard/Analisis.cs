@@ -16,14 +16,16 @@ namespace Dashboard
     public partial class Analisis : Form
     {
         private string usuarioId;
+        private bool temaOscuro;
         private List<Egreso> lstEgresos;
         private List<Ingreso> lstIngresos;
 
-        public Analisis( string usuarioId, List<Egreso> lstEgreso, List<Ingreso> lstIngreso )
+        public Analisis( string usuarioId, List<Egreso> lstEgreso, List<Ingreso> lstIngreso, bool temaOscuro )
         {
             this.usuarioId = usuarioId; 
             this.lstEgresos = lstEgreso;    
             this.lstIngresos = lstIngreso;
+            this.temaOscuro = temaOscuro;
             //Decidi retirar el bordeado de los dataGridView porque le ponia algo negro en los bordes y quedaba feo
             InitializeComponent();
         }

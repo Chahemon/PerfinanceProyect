@@ -64,6 +64,7 @@ namespace Dashboard
         //------------------------------------ Evento del boton inicio -------------------------------------------------
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            this.panelControlador.Visible = true;
             abrirFormHija(new Inicio() );
             labelTItulo.Text = "Inicio";
             panNav.Height = btnInicio.Height;
@@ -77,6 +78,7 @@ namespace Dashboard
         //------------------------------------ Evento del boton Ingresos -----------------------------------------------
         private void btnIngresos_Click(object sender, EventArgs e)
         {
+            this.panelControlador.Visible = true;
             labelTItulo.Text = "Ingresos";
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
             List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
@@ -93,6 +95,7 @@ namespace Dashboard
         //---------------------------------------- Evento del boton Egresos --------------------------------------------
         private void btnEgresos_Click(object sender, EventArgs e)
         {
+            this.panelControlador.Visible = true;
             labelTItulo.Text = "Egresos";
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
@@ -108,6 +111,7 @@ namespace Dashboard
         //---------------------------------------- Evento del boton Analisis -------------------------------------------
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
+            this.panelControlador.Visible = true;
             labelTItulo.Text = "Analisis";
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
@@ -115,7 +119,7 @@ namespace Dashboard
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
             List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
-            abrirFormHija( new Analisis( usuarioId, lstEgresos, lstIngresos ) );
+            abrirFormHija( new Analisis( usuarioId, lstEgresos, lstIngresos, temaOscuro ) );
 
             panNav.Height = btnAnalisis.Height;
             panNav.Top = btnAnalisis.Top;
@@ -127,6 +131,7 @@ namespace Dashboard
         //----------------------------------------- Evento del boton Calendario ----------------------------------------
         private void btnCalendario_Click(object sender, EventArgs e)
         {
+            this.panelControlador.Visible = true;
             labelTItulo.Text = "Calendario";
 
             abrirFormHija(new Calendario( this.usuarioId ));
@@ -143,7 +148,8 @@ namespace Dashboard
         {
             labelTItulo.Text = "Opciones";
 
-            abrirFormHija(new Opciones( ref this.temaOscuro ));
+            //abrirFormHija(new Opciones( ref this.temaOscuro ));
+            this.panelControlador.Visible = false;
             panNav.Height = btnOpciones.Height;
             panNav.Top = btnOpciones.Top;
             //panNav.Left = btnOpciones.Left;
@@ -215,9 +221,25 @@ namespace Dashboard
             this.Close();
         }
 
-        private void textBox1_TextSelected(object sender, EventArgs e)
+        private void panelControlador_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void BotonCambiarTema_CheckedChanged(object sender, EventArgs e)
+        {
+            if ( this.BotonCambiarTema.Checked )
+            {
+                this.temaOscuro = false;
+                this.BackColor = Color.White;
+                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(206)))), ((int)(((byte)(222)))));
+            }
+            else
+            {
+                this.temaOscuro = true;
+                this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            }
         }
         //---------------------------------------------------------------------------------------------------------------  
     }

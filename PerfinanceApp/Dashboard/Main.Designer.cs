@@ -43,6 +43,7 @@ namespace Dashboard
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelTItulo = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.BotonCambiarTema = new CustomControls.Controls.ToggleButton();
             this.panelControlador = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -62,16 +63,18 @@ namespace Dashboard
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(186, 577);
+            this.panel1.Size = new System.Drawing.Size(248, 710);
             this.panel1.TabIndex = 0;
             // 
             // panNav
             // 
             this.panNav.BackColor = System.Drawing.Color.Coral;
-            this.panNav.Location = new System.Drawing.Point(0, 193);
+            this.panNav.Location = new System.Drawing.Point(0, 238);
+            this.panNav.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panNav.Name = "panNav";
-            this.panNav.Size = new System.Drawing.Size(3, 100);
+            this.panNav.Size = new System.Drawing.Size(4, 123);
             this.panNav.TabIndex = 2;
             // 
             // btnOpciones
@@ -82,9 +85,10 @@ namespace Dashboard
             this.btnOpciones.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnOpciones.Image = global::Dashboard.Properties.Resources.opciones;
-            this.btnOpciones.Location = new System.Drawing.Point(0, 535);
+            this.btnOpciones.Location = new System.Drawing.Point(0, 658);
+            this.btnOpciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOpciones.Name = "btnOpciones";
-            this.btnOpciones.Size = new System.Drawing.Size(186, 42);
+            this.btnOpciones.Size = new System.Drawing.Size(248, 52);
             this.btnOpciones.TabIndex = 1;
             this.btnOpciones.Text = "Opciones";
             this.btnOpciones.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -100,9 +104,10 @@ namespace Dashboard
             this.btnCalendario.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalendario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnCalendario.Image = global::Dashboard.Properties.Resources.calendario;
-            this.btnCalendario.Location = new System.Drawing.Point(0, 312);
+            this.btnCalendario.Location = new System.Drawing.Point(0, 385);
+            this.btnCalendario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCalendario.Name = "btnCalendario";
-            this.btnCalendario.Size = new System.Drawing.Size(186, 42);
+            this.btnCalendario.Size = new System.Drawing.Size(248, 52);
             this.btnCalendario.TabIndex = 1;
             this.btnCalendario.Text = "Calendario";
             this.btnCalendario.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -118,9 +123,10 @@ namespace Dashboard
             this.btnAnalisis.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAnalisis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnAnalisis.Image = global::Dashboard.Properties.Resources.analisis__1_;
-            this.btnAnalisis.Location = new System.Drawing.Point(0, 270);
+            this.btnAnalisis.Location = new System.Drawing.Point(0, 333);
+            this.btnAnalisis.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAnalisis.Name = "btnAnalisis";
-            this.btnAnalisis.Size = new System.Drawing.Size(186, 42);
+            this.btnAnalisis.Size = new System.Drawing.Size(248, 52);
             this.btnAnalisis.TabIndex = 1;
             this.btnAnalisis.Text = "Analisis";
             this.btnAnalisis.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -136,9 +142,10 @@ namespace Dashboard
             this.btnEgresos.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEgresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnEgresos.Image = global::Dashboard.Properties.Resources.ingresos_y_egresos__1_;
-            this.btnEgresos.Location = new System.Drawing.Point(0, 228);
+            this.btnEgresos.Location = new System.Drawing.Point(0, 281);
+            this.btnEgresos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEgresos.Name = "btnEgresos";
-            this.btnEgresos.Size = new System.Drawing.Size(186, 42);
+            this.btnEgresos.Size = new System.Drawing.Size(248, 52);
             this.btnEgresos.TabIndex = 1;
             this.btnEgresos.Text = "Egresos";
             this.btnEgresos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -154,9 +161,10 @@ namespace Dashboard
             this.btnIngresos.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnIngresos.Image = global::Dashboard.Properties.Resources.ingresos;
-            this.btnIngresos.Location = new System.Drawing.Point(0, 186);
+            this.btnIngresos.Location = new System.Drawing.Point(0, 229);
+            this.btnIngresos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngresos.Name = "btnIngresos";
-            this.btnIngresos.Size = new System.Drawing.Size(186, 42);
+            this.btnIngresos.Size = new System.Drawing.Size(248, 52);
             this.btnIngresos.TabIndex = 1;
             this.btnIngresos.Text = "Ingresos";
             this.btnIngresos.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -172,9 +180,10 @@ namespace Dashboard
             this.btnInicio.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnInicio.Image = global::Dashboard.Properties.Resources.home;
-            this.btnInicio.Location = new System.Drawing.Point(0, 144);
+            this.btnInicio.Location = new System.Drawing.Point(0, 177);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInicio.Name = "btnInicio";
-            this.btnInicio.Size = new System.Drawing.Size(186, 42);
+            this.btnInicio.Size = new System.Drawing.Size(248, 52);
             this.btnInicio.TabIndex = 1;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -189,8 +198,9 @@ namespace Dashboard
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 144);
+            this.panel2.Size = new System.Drawing.Size(248, 177);
             this.panel2.TabIndex = 0;
             // 
             // label2
@@ -198,9 +208,10 @@ namespace Dashboard
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.label2.Location = new System.Drawing.Point(64, 116);
+            this.label2.Location = new System.Drawing.Point(85, 143);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 12);
+            this.label2.Size = new System.Drawing.Size(69, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "User data";
             // 
@@ -209,18 +220,20 @@ namespace Dashboard
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(52, 97);
+            this.label1.Location = new System.Drawing.Point(69, 119);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "User name";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Dashboard.Properties.Resources.icone_utilisateur_orange;
-            this.pictureBox1.Location = new System.Drawing.Point(60, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(80, 27);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 63);
+            this.pictureBox1.Size = new System.Drawing.Size(84, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -230,9 +243,10 @@ namespace Dashboard
             this.labelTItulo.AutoSize = true;
             this.labelTItulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
-            this.labelTItulo.Location = new System.Drawing.Point(219, 12);
+            this.labelTItulo.Location = new System.Drawing.Point(292, 15);
+            this.labelTItulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTItulo.Name = "labelTItulo";
-            this.labelTItulo.Size = new System.Drawing.Size(87, 32);
+            this.labelTItulo.Size = new System.Drawing.Size(104, 39);
             this.labelTItulo.TabIndex = 1;
             this.labelTItulo.Text = "Inicio";
             // 
@@ -242,9 +256,10 @@ namespace Dashboard
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(922, 3);
+            this.button1.Location = new System.Drawing.Point(1229, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 25);
+            this.button1.Size = new System.Drawing.Size(33, 31);
             this.button1.TabIndex = 3;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
@@ -252,24 +267,43 @@ namespace Dashboard
             this.button1.MouseEnter += new System.EventHandler(this.buttonClosePointed);
             this.button1.MouseLeave += new System.EventHandler(this.buttonCloseDisapointed);
             // 
+            // BotonCambiarTema
+            // 
+            this.BotonCambiarTema.AutoSize = true;
+            this.BotonCambiarTema.Location = new System.Drawing.Point(715, 306);
+            this.BotonCambiarTema.Margin = new System.Windows.Forms.Padding(4);
+            this.BotonCambiarTema.MinimumSize = new System.Drawing.Size(60, 27);
+            this.BotonCambiarTema.Name = "BotonCambiarTema";
+            this.BotonCambiarTema.OffBackColor = System.Drawing.Color.Gray;
+            this.BotonCambiarTema.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.BotonCambiarTema.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BotonCambiarTema.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.BotonCambiarTema.Size = new System.Drawing.Size(60, 27);
+            this.BotonCambiarTema.TabIndex = 5;
+            this.BotonCambiarTema.UseVisualStyleBackColor = true;
+            this.BotonCambiarTema.CheckedChanged += new System.EventHandler(this.BotonCambiarTema_CheckedChanged);
+            // 
             // panelControlador
             // 
-            this.panelControlador.Location = new System.Drawing.Point(192, 52);
+            this.panelControlador.Location = new System.Drawing.Point(259, 66);
+            this.panelControlador.Margin = new System.Windows.Forms.Padding(4);
             this.panelControlador.Name = "panelControlador";
-            this.panelControlador.Size = new System.Drawing.Size(747, 513);
-            this.panelControlador.TabIndex = 4;
+            this.panelControlador.Size = new System.Drawing.Size(996, 631);
+            this.panelControlador.TabIndex = 7;
             // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(951, 577);
+            this.ClientSize = new System.Drawing.Size(1268, 710);
             this.Controls.Add(this.panelControlador);
+            this.Controls.Add(this.BotonCambiarTema);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelTItulo);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Main";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -301,6 +335,7 @@ namespace Dashboard
         private System.Windows.Forms.Panel panNav;
         private System.Windows.Forms.Label labelTItulo;
         private System.Windows.Forms.Button button1;
+        private CustomControls.Controls.ToggleButton BotonCambiarTema;
         private System.Windows.Forms.Panel panelControlador;
     }
 }
