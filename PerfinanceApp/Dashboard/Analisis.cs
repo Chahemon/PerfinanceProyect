@@ -76,12 +76,12 @@ namespace Dashboard
             for (int j = 0; j < lstIngresosMes.Count; j++)
                 ingresosDias[lstIngresosMes[j].CreatedAt.Day - 1] += lstIngresosMes[j].Valor;
 
-            grafic1.Series["Series1"].Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            grafic1.Series["Series1"].LabelForeColor = System.Drawing.Color.Gainsboro;
+            grafic1.Series["Ingresos"].Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            grafic1.Series["Ingresos"].LabelForeColor = System.Drawing.Color.Gainsboro;
 
             for (int i = 0; i < ingresosDias.Length; i++)
             {
-                grafic1.Series["Series1"].Points.AddXY(i+1, ingresosDias[i]);
+                grafic1.Series["Ingresos"].Points.AddXY(i+1, ingresosDias[i]);
             }
 
 

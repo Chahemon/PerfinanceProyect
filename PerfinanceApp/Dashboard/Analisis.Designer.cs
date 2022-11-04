@@ -80,7 +80,7 @@
             series1.Legend = "Legend1";
             series1.MarkerColor = System.Drawing.Color.MediumPurple;
             series1.MarkerSize = 10;
-            series1.Name = "Series1";
+            series1.Name = "Ingresos";
             this.grafic1.Series.Add(series1);
             this.grafic1.Size = new System.Drawing.Size(673, 186);
             this.grafic1.TabIndex = 0;
