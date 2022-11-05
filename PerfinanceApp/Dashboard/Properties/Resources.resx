@@ -145,6 +145,9 @@
   <data name="ingbal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ingbal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="minus_create_new_icon_64px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minus_create_new_icon_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user-286" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-286.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,7 +184,7 @@
   <data name="minus_create_new_icon_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minus_create_new_icon_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minus_create_new_icon_64px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minus_create_new_icon_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icone-utilisateur-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icone-utilisateur-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -33,7 +33,41 @@ namespace Dashboard
             dataGridView.EnableHeadersVisualStyles = false;
             //Cambia el color de los bordes de las celdas
             dataGridView.GridColor = Color.FromArgb(46, 51, 73);
+            // Cambiar el tema de la aplicación
             this.temaOscuro = temaOscuro;
+            if (temaOscuro == false)
+            {
+                this.BackColor = Color.White;
+                dataGridView.BackgroundColor = Color.White;
+                //Cambia el color de los botones
+                botonCircular1.BackColor = Color.White;
+                botonCircular2.BackColor = Color.White;
+                //Con esto se cambia el color de los headers del DataGridView (las tablas pues xd)
+                dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+                dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(46, 51, 73);
+                dataGridView.EnableHeadersVisualStyles = false;
+                //Cambia el color de las celdas
+                dataGridView.DefaultCellStyle.BackColor = Color.White;
+                dataGridView.DefaultCellStyle.ForeColor = Color.FromArgb(46, 51, 73);
+                //Cambia el color de los bordes de las celdas
+                dataGridView.GridColor = Color.FromArgb(46, 51, 73);
+            }
+            else
+            {
+                this.BackColor = Color.FromArgb(46, 51, 73);
+                dataGridView.BackgroundColor = Color.FromArgb(46, 51, 73);
+                //Cambia el color de los botones
+                botonCircular1.BackColor = Color.FromArgb(24, 30, 54);
+                botonCircular2.BackColor = Color.FromArgb(24, 30, 54);
+                //Con esto se cambia el color de los headers del DataGridView (las tablas pues xd)
+                dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73); //Estoy seguro de que es gris
+                dataGridView.EnableHeadersVisualStyles = false;
+                //Cambia el color de las celdas
+                dataGridView.DefaultCellStyle.BackColor = Color.FromArgb(24, 30, 54);
+                dataGridView.DefaultCellStyle.ForeColor = Color.White;
+                //Cambia el color de los bordes de las celdas
+                dataGridView.GridColor = Color.FromArgb(46, 51, 73);
+            }
         }
 
         //Evento del boton

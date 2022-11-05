@@ -58,7 +58,15 @@ namespace Dashboard
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
-            btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+
+            /*if (temaOscuro == false)
+            {
+                btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+            }
+            else
+            {
+                btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+            }*/
         }
 
         //------------------------------------ Evento del boton inicio -------------------------------------------------
@@ -76,7 +84,16 @@ namespace Dashboard
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
-            btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+            
+            //Color que indica que está seleccionado
+            if(temaOscuro == false)
+            {
+                btnInicio.BackColor = Color.FromArgb(255, 156, 56);
+            }
+            else
+            {
+                btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+            }
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -92,17 +109,15 @@ namespace Dashboard
             panNav.Height = btnIngresos.Height;
             panNav.Top = btnIngresos.Top;
 
-            if (this.temaOscuro)
+            //Color que indica que está seleccionado
+            if (temaOscuro == false)
             {
-                btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
-                btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+                btnIngresos.BackColor = Color.FromArgb(255, 156, 56);
             }
             else
             {
                 btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
-                btnInicio.BackColor = Color.FromArgb(24, 30, 54);
             }
-            
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -117,8 +132,16 @@ namespace Dashboard
             abrirFormHija( new Egresos( usuarioId, lstEgresos, temaOscuro ) );
             panNav.Height = btnEgresos.Height;
             panNav.Top = btnEgresos.Top;
-            btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
-            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+
+            //Color que indica que está seleccionado
+            if (temaOscuro == false)
+            {
+                btnEgresos.BackColor = Color.FromArgb(255, 156, 56);
+            }
+            else
+            {
+                btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
+            }
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -137,8 +160,16 @@ namespace Dashboard
 
             panNav.Height = btnAnalisis.Height;
             panNav.Top = btnAnalisis.Top;
-            btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
-            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+
+            //Color que indica que está seleccionado
+            if (temaOscuro == false)
+            {
+                btnAnalisis.BackColor = Color.FromArgb(255, 156, 56);
+            }
+            else
+            {
+                btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
+            }
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -151,9 +182,16 @@ namespace Dashboard
             abrirFormHija(new Calendario( this.usuarioId, temaOscuro));
             panNav.Height = btnCalendario.Height;
             panNav.Top = btnCalendario.Top;
-            //panNav.Left = btnCalendario.Left;
-            btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
-            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+
+            //Color que indica que está seleccionado
+            if (temaOscuro == false)
+            {
+                btnCalendario.BackColor = Color.FromArgb(255, 156, 56);
+            }
+            else
+            {
+                btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
+            }
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -167,8 +205,16 @@ namespace Dashboard
             panNav.Height = btnOpciones.Height;
             panNav.Top = btnOpciones.Top;
             //panNav.Left = btnOpciones.Left;
-            btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
-            btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+
+            //Color que indica que está seleccionado
+            if (temaOscuro == false)
+            {
+                btnOpciones.BackColor = Color.FromArgb(255, 156, 56);
+            }
+            else
+            {
+                btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
+            }
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -246,7 +292,14 @@ namespace Dashboard
         }
         private void buttonCloseDisapointed(object sender, EventArgs e)
         {
-            button1.ForeColor = Color.White;  //Al quitar el mouse vuelve al color blanco
+            if (temaOscuro == false)
+            {
+                button1.ForeColor = Color.Black; //Al quitar el mouse se vuelve color negro
+            }
+            else
+            {
+                button1.ForeColor = Color.White;  //Al quitar el mouse vuelve al color blanco
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -268,6 +321,13 @@ namespace Dashboard
                 this.panel1.ForeColor = Color.White;
 
                 // Cambio de Botones
+                this.btnInicio.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnIngresos.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnEgresos.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnAnalisis.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnCalendario.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnOpciones.BackColor = Color.FromArgb(255, 128, 0);
+
                 this.btnInicio.ForeColor     = Color.White;
                 this.btnIngresos.ForeColor   = Color.White;
                 this.btnEgresos.ForeColor    = Color.White;
@@ -275,9 +335,16 @@ namespace Dashboard
                 this.btnCalendario.ForeColor = Color.White;
                 this.btnOpciones.ForeColor   = Color.White;
 
+                //Cambio del color panNav
+                panNav.BackColor = Color.FromArgb(158, 161, 176);
+
+                //Cambio del icono de usuario
+                pictureBox1.Image = Dashboard.Properties.Resources.icone_utilisateur_white;
+
                 // Label Globales
                 this.labelTItulo.ForeColor = Color.Black;
-
+                this.label1.ForeColor = Color.Black;
+                this.label3.ForeColor = Color.Black;
             }
             else
             {
@@ -287,6 +354,13 @@ namespace Dashboard
                 this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
 
                 // Cambio de Botones
+                this.btnInicio.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
+
                 this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.btnIngresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.btnEgresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -294,9 +368,16 @@ namespace Dashboard
                 this.btnCalendario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.btnOpciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
 
-                // Label Globales
-                this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176))))); 
+                // Cambio del color panNav
+                panNav.BackColor = Color.Coral;
 
+                //Cambio del icono de usuario
+                pictureBox1.Image = Dashboard.Properties.Resources.icone_utilisateur_orange;
+
+                // Label Globales
+                this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+                this.label1.ForeColor = Color.FromArgb(255, 128, 0);
+                this.label3.ForeColor = Color.FromArgb(255, 128, 0);
             }
         }
         //---------------------------------------------------------------------------------------------------------------  

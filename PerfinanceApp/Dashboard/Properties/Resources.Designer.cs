@@ -133,6 +133,16 @@ namespace Dashboard.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icone_utilisateur_white {
+            get {
+                object obj = ResourceManager.GetObject("icone-utilisateur-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ingbal {
             get {
                 object obj = ResourceManager.GetObject("ingbal", resourceCulture);

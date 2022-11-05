@@ -45,9 +45,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(33, 245);
+            this.button1.Location = new System.Drawing.Point(44, 302);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
+            this.button1.Size = new System.Drawing.Size(116, 28);
             this.button1.TabIndex = 0;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
@@ -55,9 +56,10 @@
             // 
             // botonCerrar
             // 
-            this.botonCerrar.Location = new System.Drawing.Point(238, 245);
+            this.botonCerrar.Location = new System.Drawing.Point(317, 302);
+            this.botonCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.botonCerrar.Name = "botonCerrar";
-            this.botonCerrar.Size = new System.Drawing.Size(75, 23);
+            this.botonCerrar.Size = new System.Drawing.Size(100, 28);
             this.botonCerrar.TabIndex = 1;
             this.botonCerrar.Text = "Cerrar";
             this.botonCerrar.UseVisualStyleBackColor = true;
@@ -67,10 +69,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(31, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(41, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.Size = new System.Drawing.Size(49, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Cuenta";
             // 
@@ -78,10 +79,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(31, 53);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(41, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(66, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Categoría";
             // 
@@ -89,10 +89,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(31, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(41, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(61, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Cantidad";
             // 
@@ -100,10 +99,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(31, 151);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(41, 186);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.Size = new System.Drawing.Size(79, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "Descripción";
             // 
@@ -111,10 +109,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(31, 197);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(41, 242);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(45, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Fecha";
             // 
@@ -123,9 +120,10 @@
             this.txtBoxCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.txtBoxCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxCantidad.ForeColor = System.Drawing.Color.Silver;
-            this.txtBoxCantidad.Location = new System.Drawing.Point(33, 119);
+            this.txtBoxCantidad.Location = new System.Drawing.Point(44, 146);
+            this.txtBoxCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxCantidad.Name = "txtBoxCantidad";
-            this.txtBoxCantidad.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxCantidad.Size = new System.Drawing.Size(133, 22);
             this.txtBoxCantidad.TabIndex = 7;
             // 
             // txtBoxDescripcion
@@ -133,9 +131,10 @@
             this.txtBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.txtBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxDescripcion.ForeColor = System.Drawing.Color.Silver;
-            this.txtBoxDescripcion.Location = new System.Drawing.Point(33, 167);
+            this.txtBoxDescripcion.Location = new System.Drawing.Point(44, 206);
+            this.txtBoxDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBoxDescripcion.Name = "txtBoxDescripcion";
-            this.txtBoxDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtBoxDescripcion.Size = new System.Drawing.Size(133, 22);
             this.txtBoxDescripcion.TabIndex = 9;
             // 
             // comboBoxCategoria
@@ -148,10 +147,12 @@
             "Comida",
             "Salud",
             "Educacion",
-            "Transporte"});
-            this.comboBoxCategoria.Location = new System.Drawing.Point(33, 69);
+            "Transporte",
+            "Otro"});
+            this.comboBoxCategoria.Location = new System.Drawing.Point(44, 85);
+            this.comboBoxCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxCategoria.Size = new System.Drawing.Size(265, 24);
             this.comboBoxCategoria.TabIndex = 10;
             this.comboBoxCategoria.Text = "-- SELECCIONE UNA --";
             this.comboBoxCategoria.Enter += new System.EventHandler(this.categoriaPlaceholder_mouseEnter);
@@ -161,10 +162,10 @@
             // dateTimePicker
             // 
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.dateTimePicker.Location = new System.Drawing.Point(33, 212);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker.Location = new System.Drawing.Point(44, 261);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(265, 22);
             this.dateTimePicker.TabIndex = 11;
             // 
             // comboBoxCuenta
@@ -180,7 +181,7 @@
             "Otros"});
             this.comboBoxCuenta.Location = new System.Drawing.Point(34, 24);
             this.comboBoxCuenta.Name = "comboBoxCuenta";
-            this.comboBoxCuenta.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxCuenta.Size = new System.Drawing.Size(200, 24);
             this.comboBoxCuenta.TabIndex = 12;
             this.comboBoxCuenta.Text = "-- SELECCIONE UNA --";
             this.comboBoxCuenta.Enter += new System.EventHandler(this.cuentaPlaceholder_mouseEnter);
@@ -198,18 +199,19 @@
             "Debito",
             "Credito",
             "Otros"});
-            this.comboBoxCuentaEgreso.Location = new System.Drawing.Point(33, 23);
+            this.comboBoxCuentaEgreso.Location = new System.Drawing.Point(44, 28);
+            this.comboBoxCuentaEgreso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCuentaEgreso.Name = "comboBoxCuentaEgreso";
-            this.comboBoxCuentaEgreso.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxCuentaEgreso.Size = new System.Drawing.Size(265, 24);
             this.comboBoxCuentaEgreso.TabIndex = 12;
             this.comboBoxCuentaEgreso.Text = "-- SELECCIONE UNA --";
             // 
             // AgregarEgreso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(347, 279);
+            this.ClientSize = new System.Drawing.Size(463, 343);
             this.Controls.Add(this.comboBoxCuentaEgreso);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.comboBoxCategoria);
@@ -223,6 +225,7 @@
             this.Controls.Add(this.botonCerrar);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AgregarEgreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarEgreso";
