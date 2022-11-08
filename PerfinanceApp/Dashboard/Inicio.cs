@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 //Hector, dice jorge que eres un pendejo xd
 
@@ -28,10 +29,31 @@ namespace Dashboard
             this.lstEgresos = lstEgreso;
             this.lstIngresos = lstIngreso;  
             InitializeComponent();
+
+            if (temaOscuro == false)
+            {
+                this.BackColor = Color.White;
+                panel5.BackColor = Color.FromArgb(255, 128, 0);
+                this.graficInicio.BackColor = Color.FromArgb(255, 128, 0);
+
+                panel6.BackColor = Color.FromArgb(255, 128, 0);
+                label5.ForeColor = Color.White;
+
+                panel4.BackColor = Color.FromArgb(255, 128, 0);
+
+            }
+            else
+            {
+                this.BackColor = Color.FromArgb( 46, 51, 73 );
+                panel5.BackColor = Color.FromArgb( 37, 42, 64 );
+                this.graficInicio.BackColor = Color.FromArgb( 37, 42, 64 );
+            }
+
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            
             // Grafica de Barras
 
             DateTime now = DateTime.Now;
@@ -113,14 +135,5 @@ namespace Dashboard
 
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void grafic1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

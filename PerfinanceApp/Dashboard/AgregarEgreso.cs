@@ -102,11 +102,46 @@ namespace Dashboard
             // Conectamos a la tabla Egreso
             IMongoCollection<Egreso> egresoDB = database.GetCollection<Egreso>("egresos");
 
+            string cuenta = "";
+            string categoria = "";
+            float valor = 0f;
+            string descripcion = "";
+
             // Obtenemos la informacion y la guardamos
-            string cuenta = comboBoxCuentaEgreso.SelectedItem.ToString();
-            string categoria = comboBoxCategoria.SelectedItem.ToString();
-            float valor = float.Parse(txtBoxCantidad.Text);
-            string descripcion = txtBoxDescripcion.Text;
+            if ( comboBoxCuentaEgreso.SelectedIndex == -1 ) {
+                label6.Text = "Seleccione una Cuenta";
+                label6.Visible = true;
+            }
+            else {
+                cuenta = comboBoxCuentaEgreso.SelectedItem.ToString();
+            }
+
+            if ( comboBoxCategoria.SelectedIndex == -1 ) {
+                label6.Text = "Seleccione una Categoria";
+                label6.Visible = true;
+            } else {
+                categoria = comboBoxCategoria.SelectedItem.ToString();
+            }
+
+            if ( txtBoxCantidad.Text == "" )
+            {
+                label6.Text = "Ingrese un Monto $ ";
+                label6.Visible = true;
+            }
+            else
+            {
+                valor = float.Parse(txtBoxCantidad.Text);
+            }
+
+            if ( txtBoxDescripcion.Text == "" )
+            {
+                label6.Text = "Agrege una Descripción";
+                label6.Visible = true;
+            }
+            else
+            {
+                descripcion = txtBoxDescripcion.Text;
+            }
             DateTime fecha = dateTimePicker.Value;
 
             // Creamos un Objeto con la información
@@ -116,12 +151,21 @@ namespace Dashboard
                                         Valor = valor,
                                         Descripcion = descripcion, 
                                         CreatedAt = fecha };
-            // La almacenamos en la base de datos
-            egresoDB.InsertOne(egreso);
 
-            CargarTabla();
+            if ( egreso.Cuenta.Equals("") || egreso.Categoria.Equals("") || 
+                egreso.Valor.ToString().Equals("") || egreso.Descripcion.ToString().Equals("") )
+            {
+                label6.Visible = true;
+            }
+            else
+            {
+                // La almacenamos en la base de datos
+                egresoDB.InsertOne(egreso);
 
-            this.Dispose();
+                CargarTabla();
+
+                this.Dispose();
+            }
         }
         //----------------------------------------------------------------------------------------------------------------
 
@@ -188,6 +232,20 @@ namespace Dashboard
         private void comboBoxCuenta_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        // Validamos que solo puedas teclear numeros
+        private void txtBoxCantidad_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            // Solo 1 punto decimal
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
         //----------------------------------------------------------------------------------------------------------------
     }

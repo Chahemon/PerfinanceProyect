@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,10 +94,51 @@ namespace Dashboard
 
             // Obtenemos la informacion y la guardamos
             //string cuenta = txtBoxCuenta.Text;
-            string cuenta = comboBoxCuentaIngreso.SelectedItem.ToString();
-            string categoria = comboBoxCategoria.SelectedItem.ToString();
-            float valor = float.Parse(txtBoxCantidad.Text);
-            string descripcion = txtBoxDescripcion.Text;
+            string cuenta = "";
+            string categoria = "";
+            float valor = 0f;
+            string descripcion = "";
+
+            // Obtenemos la informacion y la guardamos
+            if (comboBoxCuentaIngreso.SelectedIndex == -1)
+            {
+                label6.Text = "Seleccione una Cuenta";
+                label6.Visible = true;
+            }
+            else
+            {
+                cuenta = comboBoxCuentaIngreso.SelectedItem.ToString();
+            }
+
+            if (comboBoxCategoria.SelectedIndex == -1)
+            {
+                label6.Text = "Seleccione una Categoria";
+                label6.Visible = true;
+            }
+            else
+            {
+                categoria = comboBoxCategoria.SelectedItem.ToString();
+            }
+
+            if (txtBoxCantidad.Text == "")
+            {
+                label6.Text = "Ingrese un Monto $ ";
+                label6.Visible = true;
+            }
+            else
+            {
+                valor = float.Parse(txtBoxCantidad.Text);
+            }
+
+            if (txtBoxDescripcion.Text == "")
+            {
+                label6.Text = "Agrege una Descripción";
+                label6.Visible = true;
+            }
+            else
+            {
+                descripcion = txtBoxDescripcion.Text;
+            }
             DateTime fecha = dateTimePicker.Value;
 
             // Creamos un Objeto con la información
@@ -106,11 +148,20 @@ namespace Dashboard
                                           Valor = valor,
                                           Descripcion = descripcion,
                                           CreatedAt = fecha };
-            // La almacenamos en la base de datos
-            ingresosDB.InsertOne( ingreso );
+            if (ingreso.Cuenta.Equals("") || ingreso.Categoria.Equals("") ||
+                ingreso.Valor.ToString().Equals("") || ingreso.Descripcion.ToString().Equals(""))
+            {
+                label6.Visible = true;
+            }
+            else
+            {
+                // La almacenamos en la base de datos
+                ingresosDB.InsertOne(ingreso);
 
-            CargarTabla();
-            this.Close();
+                CargarTabla();
+
+                this.Dispose();
+            }
         }
         //----------------------------------------------------------------------------------------------------------------
         

@@ -24,7 +24,7 @@
 
 ### vRealizeOrchestrator ###
 # Default Resource Elements
-Resources/Library/*
+# Resources/Library/*
 
 # Library Workflows
 Workflows/Library
@@ -42,10 +42,10 @@ Workflows/VCO@*
 Actions/test/*
 
 # All packages, resources, configurations, policies and Workflows
-**/Resources/
-**/Configurations/
-**/Workflows/
-**/Policy Templates/
+#**/Resources/
+#**/Configurations/
+#**/Workflows/
+#**/Policy Templates/
 
 ### vs ###
 ## Ignore Visual Studio temporary files, build results, and

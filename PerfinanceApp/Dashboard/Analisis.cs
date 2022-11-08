@@ -36,7 +36,8 @@ namespace Dashboard
             //----------------------------------------------------------------------------------------------------------
             graficpastel.Titles.Add("Gastos");
 
-            float nComida = 0, nSalud = 0, nEducacion = 0, nTransporte = 0;
+            float nComida = 0, nSalud = 0, nEducacion = 0, nTransporte = 0, nOtro = 0,
+                  nEntretenimiento = 0, nImpuestos = 0, nServicios = 0, nCuidado_Personal = 0;
             foreach (var list in this.lstEgresos)
             {
                 switch (list.Categoria)
@@ -45,18 +46,26 @@ namespace Dashboard
                     case "Salud": nSalud += list.Valor; break;
                     case "Educacion": nEducacion += list.Valor; break;
                     case "Transporte": nTransporte += list.Valor; break;
+                    case "Entretenimiento": nEntretenimiento += list.Valor; break;
+                    case "Impuestos": nImpuestos += list.Valor; break;
+                    case "Servicios": nServicios += list.Valor; break;
+                    case "Cuidado Personal": nCuidado_Personal += list.Valor; break;
+                    case "Otro": nOtro = list.Valor; break;
                 }
             }
 
-            string[] lstCategorias = { "Comida", "Salud", "Educacion", "Transporte" };
-            float[] lstValores = { nComida, nSalud, nEducacion, nTransporte };
+            string[] lstCategorias = { "Comida", "Salud", "Educacion", "Transporte", "Entretenimiento",
+                                       "Impuestos", "Servicios", "Cuidado Personal", "Otro" };
+            float[] lstValores = { nComida, nSalud, nEducacion, nTransporte, nEntretenimiento, nImpuestos,
+                                   nServicios, nCuidado_Personal, nOtro };
 
             graficpastel.Series["Series1"].Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             graficpastel.Series["Series1"].LabelForeColor = System.Drawing.Color.Gainsboro;
 
             for (int i = 0; i < lstCategorias.Length; i++)
             {
-                graficpastel.Series["Series1"].Points.AddXY(lstCategorias[i], lstValores[i]);
+                if (lstValores[i] > 0)
+                    graficpastel.Series["Series1"].Points.AddXY(lstCategorias[i], lstValores[i]);
             }
             //----------------------------------------------------------------------------------------------------------
 

@@ -43,13 +43,14 @@ namespace Dashboard
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxCuentaIngreso = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(31, 245);
+            this.btnAgregar.Location = new System.Drawing.Point(33, 280);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(86, 23);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -57,7 +58,7 @@ namespace Dashboard
             // 
             // botonSalirIngresos
             // 
-            this.botonSalirIngresos.Location = new System.Drawing.Point(226, 245);
+            this.botonSalirIngresos.Location = new System.Drawing.Point(238, 280);
             this.botonSalirIngresos.Name = "botonSalirIngresos";
             this.botonSalirIngresos.Size = new System.Drawing.Size(75, 23);
             this.botonSalirIngresos.TabIndex = 1;
@@ -188,12 +189,25 @@ namespace Dashboard
             this.comboBoxCuentaIngreso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCuenta_KeyPress);
             this.comboBoxCuentaIngreso.Leave += new System.EventHandler(this.cuentaPlaceholder_mouseLeave);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(34, 249);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(246, 19);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Todos los Campos son Obligatorios";
+            this.label6.Visible = false;
+            // 
             // AgregarIngreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(347, 279);
+            this.ClientSize = new System.Drawing.Size(347, 317);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxCuentaIngreso);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.txtBoxDescripcion);
@@ -231,5 +245,6 @@ namespace Dashboard
         private Label label5;
         private Label label4;
         private ComboBox comboBoxCuentaIngreso;
+        private Label label6;
     }
 }

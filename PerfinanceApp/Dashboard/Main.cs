@@ -15,7 +15,7 @@ namespace Dashboard
 {
     public partial class Main : Form
     {
-        private string usuarioId;
+        private string usuarioId, usuarioNombre, usuarioEmail;
         private bool temaOscuro = true;
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
@@ -49,15 +49,20 @@ namespace Dashboard
         }
         //-----------------------------------------------------------------------------------------------------
 
-        public Main( string usuarioId )
+        public Main( string usuarioId, string nombre, string email )
         {
             this.usuarioId = usuarioId;
+            this.usuarioNombre = nombre;
+            this.usuarioEmail = email;
             InitializeComponent();
             //Inicializa y traza los bordes en el form
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
+
+            label1.Text = nombre;
+            label2.Text = email;
 
             /*if (temaOscuro == false)
             {
@@ -354,11 +359,11 @@ namespace Dashboard
                 this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
 
                 // Cambio de Botones
-                this.btnInicio.BackColor = Color.FromArgb(46, 51, 73);
-                this.btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
-                this.btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
-                this.btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
-                this.btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnIngresos.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnEgresos.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnAnalisis.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnCalendario.BackColor = Color.FromArgb(24, 30, 54);
                 this.btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
 
                 this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));

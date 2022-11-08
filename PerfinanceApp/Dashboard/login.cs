@@ -73,8 +73,8 @@ namespace Dashboard
             List <Usuarios> lst = usuariosDB.Find( d => d.Email == email).ToList();
             
             if (lst.Any()) {
-                if (BCrypt.Net.BCrypt.Verify(contraseña , lst[0].Password)) {
-                    Main main = new Main( lst[0].Id );
+                if (BCrypt.Net.BCrypt.Verify(contraseña, lst[0].Password)) {
+                    Main main = new Main( lst[0].Id, lst[0].Nombre, lst[0].Email );
                     this.Hide();
                     main.ShowDialog();
                     this.Close();

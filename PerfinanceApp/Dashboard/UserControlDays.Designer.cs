@@ -45,14 +45,14 @@
             // 
             // labelBalance
             // 
-            this.labelBalance.AutoSize = true;
-            this.labelBalance.Font = new System.Drawing.Font("Microsoft YaHei", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBalance.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBalance.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelBalance.Location = new System.Drawing.Point(34, 24);
+            this.labelBalance.Location = new System.Drawing.Point(0, 24);
             this.labelBalance.Name = "labelBalance";
-            this.labelBalance.Size = new System.Drawing.Size(27, 30);
+            this.labelBalance.Size = new System.Drawing.Size(94, 34);
             this.labelBalance.TabIndex = 1;
             this.labelBalance.Text = "0";
+            this.labelBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UserControlDays
             // 

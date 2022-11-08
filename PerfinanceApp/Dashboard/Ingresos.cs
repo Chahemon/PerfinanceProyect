@@ -34,7 +34,6 @@ namespace Dashboard
             //Cambia el color de los bordes de las celdas
             dataGridView.GridColor = Color.FromArgb(46, 51, 73);
             // Cambiar el tema de la aplicación
-            this.temaOscuro = temaOscuro;
             if (temaOscuro == false)
             {
                 this.BackColor = Color.White;
