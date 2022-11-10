@@ -61,6 +61,8 @@ namespace Dashboard
             //traza los bordes en el formulario para que se vea redondito
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             this.temaOscuro = temaOscuro;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 25, 25));
         }
 
         //------------------------------- Metodo para cargar la tabla de ingresos ----------------------------------------
@@ -185,6 +187,10 @@ namespace Dashboard
         private void botonSalirIngresos_Click(object sender, EventArgs e)
         {
             this.Dispose(); //Simplemente cierra el form
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
         //----------------------------------------------------------------------------------------------------------------
 

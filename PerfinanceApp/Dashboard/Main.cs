@@ -311,6 +311,20 @@ namespace Dashboard
             this.Close();
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int currentVal = comboBox1.SelectedIndex;
+
+            switch (currentVal){
+                case 0:
+                    labelTItulo.Font = new Font("Microsoft Sans Serif",8);
+                    break;
+                case 1:
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 10);
+                    break;
+            }
+        }
+
         private void panelControlador_Paint(object sender, PaintEventArgs e)
         {
 

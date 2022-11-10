@@ -51,6 +51,11 @@ namespace Dashboard
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
         //----------------------------------------------------------------------------------------------------------------
 
         public AgregarEgreso( string usuarioId, DataGridView tabla, bool temaOscuro )
@@ -61,6 +66,8 @@ namespace Dashboard
             this.temaOscuro = temaOscuro;
             //Hace realidad de que tu form tenga bordes muy suaves...
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 25, 25));
         }
 
         //------------------------------- Metodo para cargar la tabla ingresos -------------------------------------------
@@ -91,6 +98,10 @@ namespace Dashboard
         private void botonCerrar_Click(object sender, EventArgs e)
         {
             this.Dispose(); //Parece magia, pero es programacion
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
         //----------------------------------------------------------------------------------------------------------------
 

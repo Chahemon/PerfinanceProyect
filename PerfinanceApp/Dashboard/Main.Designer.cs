@@ -29,6 +29,7 @@ namespace Dashboard
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panNav = new System.Windows.Forms.Panel();
             this.btnOpciones = new System.Windows.Forms.Button();
@@ -45,6 +46,8 @@ namespace Dashboard
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panelControlador = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.BotonCambiarTema = new CustomControls.Controls.ToggleButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -259,24 +262,49 @@ namespace Dashboard
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(224, 104);
+            this.label3.Location = new System.Drawing.Point(222, 68);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 17);
+            this.label3.Size = new System.Drawing.Size(194, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Cambiar tema";
+            this.label3.Text = "Cambiar tema de la aplicacion";
             // 
             // panelControlador
             // 
-            this.panelControlador.Location = new System.Drawing.Point(200, 54);
+            this.panelControlador.Location = new System.Drawing.Point(200, 52);
             this.panelControlador.Name = "panelControlador";
             this.panelControlador.Size = new System.Drawing.Size(747, 513);
             this.panelControlador.TabIndex = 8;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label4.Location = new System.Drawing.Point(222, 113);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(176, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Cambiar tamaño de la letra";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Pequeño",
+            "Mediano",
+            "Grande"});
+            this.comboBox1.Location = new System.Drawing.Point(403, 113);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 8;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // BotonCambiarTema
             // 
             this.BotonCambiarTema.AutoSize = true;
-            this.BotonCambiarTema.Location = new System.Drawing.Point(393, 104);
+            this.BotonCambiarTema.Location = new System.Drawing.Point(421, 67);
             this.BotonCambiarTema.MinimumSize = new System.Drawing.Size(45, 22);
             this.BotonCambiarTema.Name = "BotonCambiarTema";
             this.BotonCambiarTema.OffBackColor = System.Drawing.Color.Gray;
@@ -294,13 +322,16 @@ namespace Dashboard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(951, 577);
-            this.Controls.Add(this.panelControlador);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.BotonCambiarTema);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelTItulo);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelControlador);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.BotonCambiarTema);
+            this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -334,6 +365,8 @@ namespace Dashboard
         private CustomControls.Controls.ToggleButton BotonCambiarTema;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panelControlador;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
 
