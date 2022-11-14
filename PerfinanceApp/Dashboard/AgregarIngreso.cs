@@ -56,13 +56,34 @@ namespace Dashboard
         {
             this.usuarioId = usuarioId;
             this.tabla = tabla;
-
+            var ini = new INI("RanConfIniMelvin.ini");
             InitializeComponent();
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
             //traza los bordes en el formulario para que se vea redondito
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
-            this.temaOscuro = temaOscuro;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, panel1.Width, panel1.Height, 25, 25));
+
+            if(temaOscuro == false)
+            {
+                panel1.BackColor = Color.FromArgb(255,128,0);
+                comboBoxCuentaIngreso.BackColor = Color.FromArgb(255, 128, 0);
+                comboBoxCategoria.BackColor = Color.FromArgb(255, 128, 0);
+                txtBoxCantidad.BackColor = Color.FromArgb(255, 128, 0);
+                txtBoxDescripcion.BackColor = Color.FromArgb(255, 128, 0);
+                btnAgregar.BackColor = Color.FromArgb(255, 165, 0);
+                botonSalirIngresos.BackColor = Color.FromArgb(255, 165, 0);
+            }
+            else
+            {
+                panel1.BackColor = Color.FromArgb(24, 30, 54);
+                comboBoxCuentaIngreso.BackColor = Color.FromArgb(24, 30, 54);
+                comboBoxCategoria.BackColor = Color.FromArgb(24, 30, 54);
+                txtBoxCantidad.BackColor = Color.FromArgb(24, 30, 54);
+                txtBoxDescripcion.BackColor = Color.FromArgb(24, 30, 54);
+                btnAgregar.BackColor = Color.FromArgb(46, 51, 73);
+                botonSalirIngresos.BackColor = Color.FromArgb(46, 51, 73);
+            }
         }
 
         //------------------------------- Metodo para cargar la tabla de ingresos ----------------------------------------
@@ -243,5 +264,23 @@ namespace Dashboard
             e.Handled = true;
         }
         //----------------------------------------------------------------------------------------------------------------
+
+        //----------------------------- Eventos para el boton de cierre del form ----------------------------------------
+        private void buttonClosePointed(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.Red;  //Al pasar el mouse por el boton se vuelve rojo
+        }
+        private void buttonCloseDisapointed(object sender, EventArgs e)
+        {
+            if (temaOscuro == false)
+            {
+                button2.ForeColor = Color.Black; //Al quitar el mouse se vuelve color negro
+            }
+            else
+            {
+                button2.ForeColor = Color.White;  //Al quitar el mouse vuelve al color blanco
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------
     }
 }

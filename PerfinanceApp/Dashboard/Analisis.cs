@@ -20,22 +20,72 @@ namespace Dashboard
         private List<Egreso> lstEgresos;
         private List<Ingreso> lstIngresos;
 
+        //------------------------------- Propiedades para bordear ------------------------------------
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+              int nLeftRect,
+              int nTopRect,
+              int nRightRect,
+              int nBottomRect,
+              int nWidthEllipse,
+              int nHeightEllipse
+          );
+        //------------------------------------------------------------------------------------------------------
+
         public Analisis( string usuarioId, List<Egreso> lstEgreso, List<Ingreso> lstIngreso, bool temaOscuro )
         {
             this.usuarioId = usuarioId; 
             this.lstEgresos = lstEgreso;    
             this.lstIngresos = lstIngreso;
             this.temaOscuro = temaOscuro;
-            //Decidi retirar el bordeado de los dataGridView porque le ponia algo negro en los bordes y quedaba feo
             InitializeComponent();
         }
 
         private void Analisis_Load(object sender, EventArgs e)
         {
-            // Grafica Pastel funcionando (Necesitamos agregar mas categorias y hacerla mas bonita)
-            //----------------------------------------------------------------------------------------------------------
-            graficpastel.Titles.Add("Gastos");
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, panel1.Width, panel1.Height, 25, 25));
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, panel2.Width, panel2.Height, 25, 25));
 
+            graficpastel.Titles.Add("Gastos");
+            graficpastel.Titles[0].Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+
+            //Propiedades para cambiar de color dependiendo el tema
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+            if(temaOscuro == false)
+            {
+                this.BackColor = Color.White;
+                this.panel1.BackColor = Color.White;
+                this.panel2.BackColor = Color.White;
+                this.grafic1.BackColor = Color.FromArgb(255, 128, 0);
+                this.graficpastel.BackColor = Color.FromArgb(255, 128, 0);
+                this.graficpastel.Titles[0].ForeColor = Color.Black;
+                //Cambia el color de los charts dependiendo del tema
+                this.graficpastel.Legends[0].BackColor = Color.FromArgb(255, 128, 0);
+                this.graficpastel.ChartAreas[0].BackColor = Color.FromArgb(255, 128, 0);
+                this.grafic1.Legends[0].BackColor = Color.FromArgb(255, 128, 0);
+                this.grafic1.ChartAreas[0].BackColor = Color.FromArgb(255, 128, 0);
+            }
+            else
+            {
+                this.BackColor = Color.FromArgb(46, 51, 73);
+                this.panel1.BackColor = Color.FromArgb(37, 42, 64);
+                this.panel2.BackColor = Color.FromArgb(37, 42, 64);
+                this.grafic1.BackColor = Color.FromArgb(37, 42, 64);
+                this.graficpastel.BackColor = Color.FromArgb(37, 42, 64);
+                this.graficpastel.Titles[0].ForeColor = Color.White;
+                //Cambia el color de los charts usados por partes
+                this.graficpastel.Legends[0].BackColor = Color.FromArgb(37, 42, 64);
+                this.graficpastel.ChartAreas[0].BackColor = Color.FromArgb(37, 42, 64);
+                this.grafic1.Legends[0].BackColor = Color.FromArgb(37, 42, 64);
+                this.grafic1.ChartAreas[0].BackColor = Color.FromArgb(37, 42, 64);
+            }
+
+            // Grafica Pastel funcionando
+            //----------------------------------------------------------------------------------------------------------
             float nComida = 0, nSalud = 0, nEducacion = 0, nTransporte = 0, nOtro = 0,
                   nEntretenimiento = 0, nImpuestos = 0, nServicios = 0, nCuidado_Personal = 0;
             foreach (var list in this.lstEgresos)

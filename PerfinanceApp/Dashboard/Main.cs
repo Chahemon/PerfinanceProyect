@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Dashboard.Models;
@@ -16,7 +12,8 @@ namespace Dashboard
     public partial class Main : Form
     {
         private string usuarioId, usuarioNombre, usuarioEmail;
-        private bool temaOscuro = true;
+        private bool temaOscuro;
+        private int tamLetra;
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         private static IMongoCollection<Usuarios> usuariosDB = database.GetCollection<Usuarios>("ingresos");
@@ -51,32 +48,151 @@ namespace Dashboard
 
         public Main( string usuarioId, string nombre, string email )
         {
+            var ini = new INI("RanConfIniMelvin.ini"); //El archivo ini se lee desde donde se genera
             this.usuarioId = usuarioId;
             this.usuarioNombre = nombre;
             this.usuarioEmail = email;
             InitializeComponent();
+            //El archivo .ini necesita de esto para cargar tus preferencias al inicio
+            tamLetra = int.Parse(ini.Read("TamLetra","Letra"));
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro","Tema"));
             //Inicializa y traza los bordes en el form
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
-
+            //Redondea el boton para cerrar sesion
+            btnCloseSession.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, btnCloseSession.Width, btnCloseSession.Height, 6, 6));
+            comboBox1.SelectedIndex = int.Parse(ini.Read("TamLetra","Letra")); //Coloca el index del comboBox dependiendo del tamLetra guardado
+            //Establece nombre y correo en su respectivo lugar dependiendo del usuario
             label1.Text = nombre;
             label2.Text = email;
 
-            /*if (temaOscuro == false)
+            switch (tamLetra)
             {
-                btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+                case 0:
+                    //Casos para letra pequeña
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
+                    label1.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 6, FontStyle.Bold);
+                    btnInicio.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnEgresos.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnIngresos.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnAnalisis.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnCalendario.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnOpciones.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    break;
+                case 1:
+                    //Casos para letra mediana (Normal)
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 21, FontStyle.Bold);
+                    label1.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
+                    btnInicio.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnEgresos.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnIngresos.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnAnalisis.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnCalendario.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnOpciones.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    break;
+                case 2:
+                    //Casos para letra grande
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 25, FontStyle.Bold);
+                    label1.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                    btnInicio.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnEgresos.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnIngresos.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnAnalisis.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnCalendario.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnOpciones.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    break;
+            }
+
+            if (temaOscuro == false)
+            {
+                //Carga el tema dependiendo de lo que se lea en el .ini
+                //Condicion para tema claro
+                BotonCambiarTema.Checked = true;
+                this.BackColor = Color.White;
+                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                this.panel1.ForeColor = Color.White;
+
+                // Cambio de Botones
+                this.btnInicio.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnIngresos.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnEgresos.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnAnalisis.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnCalendario.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnOpciones.BackColor = Color.FromArgb(255, 128, 0);
+
+                this.btnInicio.ForeColor = Color.White;
+                this.btnIngresos.ForeColor = Color.White;
+                this.btnEgresos.ForeColor = Color.White;
+                this.btnAnalisis.ForeColor = Color.White;
+                this.btnCalendario.ForeColor = Color.White;
+                this.btnOpciones.ForeColor = Color.White;
+                this.button1.ForeColor = Color.Black;
+                this.comboBox1.ForeColor = Color.Black; //Color de la letra del comboBox
+                this.comboBox1.BackColor = Color.White; // Color del fondo del comboBox
+
+                //Cambio del color panNav
+                panNav.BackColor = Color.FromArgb(158, 161, 176);
+
+                //Cambio del icono de usuario
+                pictureBox1.Image = Dashboard.Properties.Resources.icone_utilisateur_white;
+
+                // Label Globales
+                this.labelTItulo.ForeColor = Color.Black;
+                this.label1.ForeColor = Color.Black;
+                this.label3.ForeColor = Color.Black;
+                this.label4.ForeColor = Color.Black;
             }
             else
             {
-                btnInicio.BackColor = Color.FromArgb(46, 51, 73);
-            }*/
+                //Condicion para tema oscuro
+                BotonCambiarTema.Checked = false;
+                this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+                this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+                this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+
+                // Cambio de Botones
+                this.btnInicio.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnIngresos.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnEgresos.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnAnalisis.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnCalendario.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnOpciones.BackColor = Color.FromArgb(24, 30, 54);
+                this.button1.ForeColor = Color.White;
+                this.comboBox1.ForeColor = Color.White; //Color de la letra del comboBox
+                this.comboBox1.BackColor = Color.FromArgb(46, 51, 73); // Color del fondo del comboBox
+
+                this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                this.btnIngresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                this.btnEgresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                this.btnAnalisis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                this.btnCalendario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                this.btnOpciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+
+                // Cambio del color panNav
+                panNav.BackColor = Color.Coral;
+
+                //Cambio del icono de usuario
+                pictureBox1.Image = Dashboard.Properties.Resources.icone_utilisateur_orange;
+
+                // Label Globales
+                this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
+                this.label1.ForeColor = Color.FromArgb(255, 128, 0);
+                this.label3.ForeColor = Color.FromArgb(255, 128, 0);
+                this.label4.ForeColor = Color.FromArgb(255, 128, 0);
+            }
         }
 
         //------------------------------------ Evento del boton inicio -------------------------------------------------
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
@@ -84,7 +200,7 @@ namespace Dashboard
             List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
             this.panelControlador.Visible = true;
-            abrirFormHija(new Inicio(lstEgresos, lstIngresos, temaOscuro, usuarioId) );
+            abrirFormHija(new Inicio(lstEgresos, lstIngresos, temaOscuro, usuarioId, tamLetra) );
             labelTItulo.Text = "Inicio";
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
@@ -99,12 +215,16 @@ namespace Dashboard
             {
                 btnInicio.BackColor = Color.FromArgb(46, 51, 73);
             }
+            btnOpciones_Leave(null, e);
         }
         //--------------------------------------------------------------------------------------------------------------
 
         //------------------------------------ Evento del boton Ingresos -----------------------------------------------
         private void btnIngresos_Click(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             this.panelControlador.Visible = true;
             labelTItulo.Text = "Ingresos";
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
@@ -123,12 +243,17 @@ namespace Dashboard
             {
                 btnIngresos.BackColor = Color.FromArgb(46, 51, 73);
             }
+            btnInicio_Leave(null, e);
+            btnOpciones_Leave(null, e);
         }
         //--------------------------------------------------------------------------------------------------------------
 
         //---------------------------------------- Evento del boton Egresos --------------------------------------------
         private void btnEgresos_Click(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             this.panelControlador.Visible = true;
             labelTItulo.Text = "Egresos";
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
@@ -147,12 +272,17 @@ namespace Dashboard
             {
                 btnEgresos.BackColor = Color.FromArgb(46, 51, 73);
             }
+            btnInicio_Leave(null, e);
+            btnOpciones_Leave(null, e);
         }
         //--------------------------------------------------------------------------------------------------------------
 
         //---------------------------------------- Evento del boton Analisis -------------------------------------------
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             this.panelControlador.Visible = true;
             labelTItulo.Text = "Analisis";
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
@@ -175,16 +305,21 @@ namespace Dashboard
             {
                 btnAnalisis.BackColor = Color.FromArgb(46, 51, 73);
             }
+            btnInicio_Leave(null, e);
+            btnOpciones_Leave(null, e);
         }
         //--------------------------------------------------------------------------------------------------------------
 
         //----------------------------------------- Evento del boton Calendario ----------------------------------------
         private void btnCalendario_Click(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             this.panelControlador.Visible = true;
             labelTItulo.Text = "Calendario";
 
-            abrirFormHija(new Calendario( this.usuarioId, temaOscuro));
+            abrirFormHija(new Calendario( this.usuarioId, temaOscuro, tamLetra));
             panNav.Height = btnCalendario.Height;
             panNav.Top = btnCalendario.Top;
 
@@ -197,12 +332,17 @@ namespace Dashboard
             {
                 btnCalendario.BackColor = Color.FromArgb(46, 51, 73);
             }
+            btnInicio_Leave(null, e);
+            btnOpciones_Leave(null, e);
         }
         //--------------------------------------------------------------------------------------------------------------
 
         //----------------------------------------- Evento del boton Opciones ------------------------------------------
         private void btnOpciones_Click(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             labelTItulo.Text = "Opciones";
 
             //abrirFormHija(new Opciones( ref this.temaOscuro ));
@@ -220,6 +360,7 @@ namespace Dashboard
             {
                 btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
             }
+            btnInicio_Leave(null, e);
         }
         //--------------------------------------------------------------------------------------------------------------
 
@@ -297,6 +438,9 @@ namespace Dashboard
         }
         private void buttonCloseDisapointed(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
             if (temaOscuro == false)
             {
                 button1.ForeColor = Color.Black; //Al quitar el mouse se vuelve color negro
@@ -311,30 +455,66 @@ namespace Dashboard
             this.Close();
         }
 
+        //---------------------------------------------------------------------------------------------------------------
+
+        //------------------------- Evento que controla los items seleccionados del comboBox ----------------------------
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int currentVal = comboBox1.SelectedIndex;
-
+            var ini = new INI("RanConfIniMelvin.ini"); //Archivo ini que se lee para guardar configuraciones
             switch (currentVal){
                 case 0:
-                    labelTItulo.Font = new Font("Microsoft Sans Serif",8);
+                    //Casos para letra pequeña
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
+                    label1.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 6, FontStyle.Bold);
+                    btnInicio.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnEgresos.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnIngresos.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnAnalisis.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnCalendario.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    btnOpciones.Font = new Font("Nirmala UI", 8, FontStyle.Bold);
+                    ini.Write("TamLetra","0","Letra");
                     break;
                 case 1:
-                    labelTItulo.Font = new Font("Microsoft Sans Serif", 10);
+                    //Casos para letra mediana (Normal)
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 21, FontStyle.Bold);
+                    label1.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
+                    btnInicio.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnEgresos.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnIngresos.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnAnalisis.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnCalendario.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    btnOpciones.Font = new Font("Nirmala UI", 10, FontStyle.Bold);
+                    ini.Write("TamLetra", "1","Letra");
+                    break;
+                case 2:
+                    //Casos para letra grande
+                    labelTItulo.Font = new Font("Microsoft Sans Serif", 25, FontStyle.Bold);
+                    label1.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                    btnInicio.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnEgresos.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnIngresos.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnAnalisis.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnCalendario.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    btnOpciones.Font = new Font("Nirmala UI", 12, FontStyle.Bold);
+                    ini.Write("TamLetra", "2","Letra");
                     break;
             }
         }
 
-        private void panelControlador_Paint(object sender, PaintEventArgs e)
-        {
+        //---------------------------------------------------------------------------------------------------------------
 
-        }
 
+        //--------------------------------- Eventos para el tema -----------------------------------------------------
         private void BotonCambiarTema_CheckedChanged(object sender, EventArgs e)
         {
+            var ini = new INI("RanConfIniMelvin.ini"); //Archivo ini que se lee para guardar configuraciones
             if ( this.BotonCambiarTema.Checked )
             {
-                this.temaOscuro = false;
+                ini.Write("TemaOscuro", "false","Tema"); //Propiedad que establece el tema en claro
                 this.BackColor = Color.White;
                 this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.panel1.ForeColor = Color.White;
@@ -346,6 +526,7 @@ namespace Dashboard
                 this.btnAnalisis.BackColor = Color.FromArgb(255, 128, 0);
                 this.btnCalendario.BackColor = Color.FromArgb(255, 128, 0);
                 this.btnOpciones.BackColor = Color.FromArgb(255, 128, 0);
+                btnCloseSession.BackColor = Color.FromArgb(255, 128, 0);
 
                 this.btnInicio.ForeColor     = Color.White;
                 this.btnIngresos.ForeColor   = Color.White;
@@ -353,6 +534,9 @@ namespace Dashboard
                 this.btnAnalisis.ForeColor   = Color.White;
                 this.btnCalendario.ForeColor = Color.White;
                 this.btnOpciones.ForeColor   = Color.White;
+                this.button1.ForeColor = Color.Black;
+                this.comboBox1.ForeColor = Color.Black; //Color de la letra del comboBox
+                this.comboBox1.BackColor = Color.White; // Color del fondo del comboBox
 
                 //Cambio del color panNav
                 panNav.BackColor = Color.FromArgb(158, 161, 176);
@@ -364,10 +548,11 @@ namespace Dashboard
                 this.labelTItulo.ForeColor = Color.Black;
                 this.label1.ForeColor = Color.Black;
                 this.label3.ForeColor = Color.Black;
+                this.label4.ForeColor = Color.Black;
             }
             else
             {
-                this.temaOscuro = true;
+                ini.Write("TemaOscuro", "true","Tema"); //Propiedad del ini que establece el tema en oscuro
                 this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
                 this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
                 this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -379,6 +564,7 @@ namespace Dashboard
                 this.btnAnalisis.BackColor = Color.FromArgb(24, 30, 54);
                 this.btnCalendario.BackColor = Color.FromArgb(24, 30, 54);
                 this.btnOpciones.BackColor = Color.FromArgb(46, 51, 73);
+                this.button1.ForeColor = Color.White;
 
                 this.btnInicio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.btnIngresos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -386,6 +572,9 @@ namespace Dashboard
                 this.btnAnalisis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.btnCalendario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 this.btnOpciones.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                btnCloseSession.BackColor = Color.FromArgb(24, 30, 54);
+                this.comboBox1.ForeColor = Color.White; //Color de la letra del comboBox
+                this.comboBox1.BackColor = Color.FromArgb(46, 51, 73); // Color del fondo del comboBox
 
                 // Cambio del color panNav
                 panNav.BackColor = Color.Coral;
@@ -397,8 +586,39 @@ namespace Dashboard
                 this.labelTItulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
                 this.label1.ForeColor = Color.FromArgb(255, 128, 0);
                 this.label3.ForeColor = Color.FromArgb(255, 128, 0);
+                this.label4.ForeColor = Color.FromArgb(255, 128, 0);
             }
         }
-        //---------------------------------------------------------------------------------------------------------------  
+
+        //---------------------------------- Evento para el boton cerrar sesion -----------------------------------------
+        private void btnCloseSession_Click(object sender, EventArgs e)
+        {
+
+        }
+        //---------------------------------------------------------------------------------------------------------------
+
+        //--------------------------------------------------------------------------------------------------------------- 
+
+        //------------------------------------ Eventos para el boton cerrar sesion --------------------------------------
+        private void btnCloseSession_MouseEnter(object sender, EventArgs e)
+        {
+            btnCloseSession.BackColor = Color.FromArgb(255,0,0); //Color rojo
+        }
+
+        private void btnCloseSession_MouseLeave(object sender, EventArgs e)
+        {
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
+            if (temaOscuro == true)
+            {
+                btnCloseSession.BackColor = Color.FromArgb(24, 30, 54); //Color tema oscuro
+            }
+            else
+            {
+                btnCloseSession.BackColor = Color.FromArgb(255, 128, 0); //Color tema claro
+            }
+        }
+        //---------------------------------------------------------------------------------------------------------------
     }
 }

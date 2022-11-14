@@ -49,6 +49,7 @@ namespace Dashboard
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.BotonCambiarTema = new CustomControls.Controls.ToggleButton();
+            this.btnCloseSession = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -271,7 +272,7 @@ namespace Dashboard
             // 
             // panelControlador
             // 
-            this.panelControlador.Location = new System.Drawing.Point(200, 52);
+            this.panelControlador.Location = new System.Drawing.Point(200, 47);
             this.panelControlador.Name = "panelControlador";
             this.panelControlador.Size = new System.Drawing.Size(747, 513);
             this.panelControlador.TabIndex = 8;
@@ -290,6 +291,9 @@ namespace Dashboard
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Pequeño",
@@ -307,14 +311,31 @@ namespace Dashboard
             this.BotonCambiarTema.Location = new System.Drawing.Point(421, 67);
             this.BotonCambiarTema.MinimumSize = new System.Drawing.Size(45, 22);
             this.BotonCambiarTema.Name = "BotonCambiarTema";
-            this.BotonCambiarTema.OffBackColor = System.Drawing.Color.Gray;
+            this.BotonCambiarTema.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.BotonCambiarTema.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.BotonCambiarTema.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BotonCambiarTema.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.BotonCambiarTema.OnToggleColor = System.Drawing.Color.WhiteSmoke;
             this.BotonCambiarTema.Size = new System.Drawing.Size(45, 22);
             this.BotonCambiarTema.TabIndex = 5;
             this.BotonCambiarTema.UseVisualStyleBackColor = true;
             this.BotonCambiarTema.CheckedChanged += new System.EventHandler(this.BotonCambiarTema_CheckedChanged);
+            // 
+            // btnCloseSession
+            // 
+            this.btnCloseSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.btnCloseSession.FlatAppearance.BorderSize = 0;
+            this.btnCloseSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCloseSession.ForeColor = System.Drawing.Color.White;
+            this.btnCloseSession.Location = new System.Drawing.Point(225, 516);
+            this.btnCloseSession.Name = "btnCloseSession";
+            this.btnCloseSession.Size = new System.Drawing.Size(118, 38);
+            this.btnCloseSession.TabIndex = 9;
+            this.btnCloseSession.Text = "Cerrar Sesion";
+            this.btnCloseSession.UseVisualStyleBackColor = false;
+            this.btnCloseSession.Click += new System.EventHandler(this.btnCloseSession_Click);
+            this.btnCloseSession.MouseEnter += new System.EventHandler(this.btnCloseSession_MouseEnter);
+            this.btnCloseSession.MouseLeave += new System.EventHandler(this.btnCloseSession_MouseLeave);
             // 
             // Main
             // 
@@ -330,6 +351,7 @@ namespace Dashboard
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BotonCambiarTema);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnCloseSession);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
@@ -367,6 +389,7 @@ namespace Dashboard
         private System.Windows.Forms.Panel panelControlador;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCloseSession;
     }
 }
 

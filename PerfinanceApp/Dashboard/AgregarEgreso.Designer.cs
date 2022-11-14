@@ -55,6 +55,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Default;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(17, 264);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 32);
@@ -68,6 +69,7 @@
             this.botonCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.botonCerrar.FlatAppearance.BorderSize = 0;
             this.botonCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonCerrar.ForeColor = System.Drawing.Color.White;
             this.botonCerrar.Location = new System.Drawing.Point(157, 264);
             this.botonCerrar.Name = "botonCerrar";
             this.botonCerrar.Size = new System.Drawing.Size(113, 32);
@@ -274,6 +276,8 @@
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.buttonClosePointed);
+            this.button2.MouseLeave += new System.EventHandler(this.buttonCloseDisapointed);
             // 
             // label7
             // 
@@ -297,6 +301,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AgregarEgreso";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Egreso";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.arrastrarFormEgreso_MouseDown);

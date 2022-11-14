@@ -7,10 +7,11 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; 
 
 namespace Dashboard
 {
@@ -18,18 +19,97 @@ namespace Dashboard
     {
         int month, year;
         private string usuarioId;
-        private bool temaOscuro;
         private static MongoClient client = new MongoClient("mongodb+srv://Admin:Panitasdel19@clusterpf.ot25ikt.mongodb.net/?retryWrites=true&w=majority");
         private static IMongoDatabase database = client.GetDatabase("test");
         IMongoCollection <Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
         IMongoCollection <Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
 
-        public Calendario( string usuarioId, bool temaOscuro )
+        //------------------------------- Propiedades del bordeado del form ------------------------------------
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+         (
+              int nLeftRect,
+              int nTopRect,
+              int nRightRect,
+              int nBottomRect,
+              int nWidthEllipse,
+              int nHeightEllipse
+          );
+        //------------------------------------------------------------------------------------------------------
+
+        //---------------------------- Constructor base de la clase Calendario ------------------------------------------
+        public Calendario( string usuarioId, bool temaOscuro, int tamLetra)
         {
+            var ini = new INI("RanConfIniMelvin.ini");
             this.usuarioId = usuarioId;
-            this.temaOscuro = temaOscuro;
             InitializeComponent();
+            tamLetra = int.Parse(ini.Read("TamLetra", "Letra"));
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+            btnAnterior.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, btnAnterior.Width, btnAnterior.Height, 6, 6));
+            btnSiguiente.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, btnSiguiente.Width, btnSiguiente.Height, 6, 6));
+            //Switch que maneja el tamaño de la letra de este form, controlado con la variable tamLetra
+            switch (tamLetra)
+            {
+                case 0:
+                    label1.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    label3.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    label4.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    label5.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    label6.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    label7.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    labelMA.Font = new Font("Century", 14, FontStyle.Bold);
+                    flowLayoutPanelDayContenedor.Font = new Font("Microsoft Sans Serif", 7);
+                    btnAnterior.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
+                    btnSiguiente.Font = new Font("Microsoft Sans Serif", 7, FontStyle.Bold);
+                    break;
+                case 1:
+                    label1.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label3.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label4.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label5.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label6.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    label7.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Bold);
+                    labelMA.Font = new Font("Century", 16, FontStyle.Bold);
+                    flowLayoutPanelDayContenedor.Font = new Font("Microsoft Sans Serif", 8);
+                    btnAnterior.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    btnSiguiente.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Bold);
+                    break;
+                case 2:
+                    label1.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label2.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label3.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label4.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label5.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label6.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    label7.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+                    labelMA.Font = new Font("Century", 18, FontStyle.Bold);
+                    flowLayoutPanelDayContenedor.Font = new Font("Microsoft Sans Serif", 8);
+                    btnAnterior.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                    btnSiguiente.Font = new Font("Microsoft Sans Serif", 9, FontStyle.Bold);
+                    break;
+            }
+
+            if(temaOscuro == false)
+            {
+                this.BackColor = Color.White;
+                this.labelMA.ForeColor = Color.Black;
+                this.flowLayoutPanelDayContenedor.BackColor = Color.White;
+                this.btnAnterior.BackColor = Color.FromArgb(255, 128, 0);
+                this.btnSiguiente.BackColor = Color.FromArgb(255, 128, 0);
+            } 
+            else
+            {
+                this.BackColor = Color.FromArgb(46, 51, 73);
+                this.labelMA.ForeColor = Color.White;
+                this.flowLayoutPanelDayContenedor.BackColor = Color.FromArgb(46, 51, 73);
+                this.btnAnterior.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnSiguiente.BackColor = Color.FromArgb(24, 30, 54);
+            }
         }
+        //--------------------------------------------------------------------------------------------------------------
+
 
         private void Calendario_Load(object sender, EventArgs e)
         {
@@ -174,6 +254,7 @@ namespace Dashboard
             }
         }
 
+        //----------------------------------- Evento para el boton click ANTERIOR ----------------------------------------
         private void btnAnterior_Click(object sender, EventArgs e)
         {
             flowLayoutPanelDayContenedor.Controls.Clear();
@@ -187,7 +268,6 @@ namespace Dashboard
                 year--;
                 month = 12;
             }
-                
 
             string monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             labelMA.Text = monthname + " " + year;
@@ -244,5 +324,6 @@ namespace Dashboard
                 flowLayoutPanelDayContenedor.Controls.Add(ucdays);
             }
         }
+        //---------------------------------------------------------------------------------------------------------------
     }
 }

@@ -189,6 +189,7 @@
     <Compile Include="Ingresos.Designer.cs">
       <DependentUpon>Ingresos.cs</DependentUpon>
     </Compile>
+    <Compile Include="INI.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>

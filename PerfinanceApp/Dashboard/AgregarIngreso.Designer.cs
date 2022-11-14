@@ -56,6 +56,7 @@ namespace Dashboard
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(17, 265);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(113, 32);
@@ -69,6 +70,7 @@ namespace Dashboard
             this.botonSalirIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.botonSalirIngresos.FlatAppearance.BorderSize = 0;
             this.botonSalirIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.botonSalirIngresos.ForeColor = System.Drawing.Color.White;
             this.botonSalirIngresos.Location = new System.Drawing.Point(157, 265);
             this.botonSalirIngresos.Name = "botonSalirIngresos";
             this.botonSalirIngresos.Size = new System.Drawing.Size(113, 32);
@@ -250,6 +252,8 @@ namespace Dashboard
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.buttonClosePointed);
+            this.button2.MouseLeave += new System.EventHandler(this.buttonCloseDisapointed);
             // 
             // label7
             // 

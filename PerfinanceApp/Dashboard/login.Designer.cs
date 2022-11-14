@@ -41,6 +41,7 @@ namespace Dashboard
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.EtiquetaInfo = new System.Windows.Forms.Label();
             this.EtiquetaInfo2 = new System.Windows.Forms.Label();
+            this.RegisterLinkedLabel = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@ namespace Dashboard
             this.textUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(100)))));
             this.textUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textUsuario.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.textUsuario.Location = new System.Drawing.Point(77, 270);
             this.textUsuario.Name = "textUsuario";
             this.textUsuario.Size = new System.Drawing.Size(219, 29);
@@ -66,8 +67,8 @@ namespace Dashboard
             this.textContra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(100)))));
             this.textContra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textContra.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textContra.Location = new System.Drawing.Point(77, 323);
+            this.textContra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.textContra.Location = new System.Drawing.Point(77, 317);
             this.textContra.Name = "textContra";
             this.textContra.Size = new System.Drawing.Size(219, 29);
             this.textContra.TabIndex = 3;
@@ -81,10 +82,8 @@ namespace Dashboard
             // 
             this.btnAcceder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.btnAcceder.FlatAppearance.BorderSize = 0;
-            this.btnAcceder.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(130)))));
-            this.btnAcceder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(90)))));
             this.btnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcceder.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcceder.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcceder.ForeColor = System.Drawing.Color.LightGray;
             this.btnAcceder.Location = new System.Drawing.Point(77, 397);
             this.btnAcceder.Name = "btnAcceder";
@@ -93,6 +92,8 @@ namespace Dashboard
             this.btnAcceder.Text = "ACCEDER";
             this.btnAcceder.UseVisualStyleBackColor = false;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
+            this.btnAcceder.MouseEnter += new System.EventHandler(this.btnAcceder_MouseEnter);
+            this.btnAcceder.MouseLeave += new System.EventHandler(this.btnAcceder_MouseLeave);
             // 
             // label1
             // 
@@ -111,7 +112,7 @@ namespace Dashboard
             this.recoverPasswordLabel.AutoSize = true;
             this.recoverPasswordLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recoverPasswordLabel.LinkColor = System.Drawing.Color.DimGray;
-            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 357);
+            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 351);
             this.recoverPasswordLabel.Name = "recoverPasswordLabel";
             this.recoverPasswordLabel.Size = new System.Drawing.Size(119, 13);
             this.recoverPasswordLabel.TabIndex = 4;
@@ -193,12 +194,26 @@ namespace Dashboard
             this.EtiquetaInfo2.TabIndex = 7;
             this.EtiquetaInfo2.Text = "EL USUARIO INGRESADO NO EXISTE";
             // 
+            // RegisterLinkedLabel
+            // 
+            this.RegisterLinkedLabel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.RegisterLinkedLabel.AutoSize = true;
+            this.RegisterLinkedLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterLinkedLabel.LinkColor = System.Drawing.Color.DimGray;
+            this.RegisterLinkedLabel.Location = new System.Drawing.Point(111, 372);
+            this.RegisterLinkedLabel.Name = "RegisterLinkedLabel";
+            this.RegisterLinkedLabel.Size = new System.Drawing.Size(182, 13);
+            this.RegisterLinkedLabel.TabIndex = 8;
+            this.RegisterLinkedLabel.TabStop = true;
+            this.RegisterLinkedLabel.Text = "¿No tienes cuenta aun? Registrate";
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(372, 478);
+            this.Controls.Add(this.RegisterLinkedLabel);
             this.Controls.Add(this.EtiquetaInfo2);
             this.Controls.Add(this.EtiquetaInfo);
             this.Controls.Add(this.pictureBox1);
@@ -234,5 +249,6 @@ namespace Dashboard
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label EtiquetaInfo;
         private System.Windows.Forms.Label EtiquetaInfo2;
+        private System.Windows.Forms.LinkLabel RegisterLinkedLabel;
     }
 }

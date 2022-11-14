@@ -14,7 +14,18 @@ namespace Dashboard
     {
         public UserControlDays()
         {
+            var ini = new INI("RanConfIniMelvin.ini");
             InitializeComponent();
+            bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+
+            if (temaOscuro == false)
+            {
+                this.BackColor = Color.FromArgb(255, 128, 0);
+            }
+            else
+            {
+                this.BackColor = Color.FromArgb(24, 30, 54);
+            }
         }
 
         private void UserControlDays_Load(object sender, EventArgs e)

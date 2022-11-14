@@ -22,10 +22,10 @@ namespace Dashboard
 
         public Egresos( string usuarioId, List<Egreso> lstEgreso, bool temaOscuro)
         {
+            InitializeComponent();
             this.usuarioId  = usuarioId;
             this.lstEgresos = lstEgreso;
 
-            InitializeComponent();
             //Muestra un tip de lo que hace al posicionar el mouse en el boton
             ToolTip tooltip = new System.Windows.Forms.ToolTip();
             tooltip.SetToolTip(botonCircular1, "Agregar egreso");
@@ -35,9 +35,10 @@ namespace Dashboard
             dataGridView.EnableHeadersVisualStyles = false;
             //Cambia el color de los bordes de las celdas
             dataGridView.GridColor = Color.FromArgb(46, 51, 73);
-            
+
             // Cambiar el tema de la aplicación
-            this.temaOscuro = temaOscuro;
+            var ini = new INI("RanConfIniMelvin.ini");
+            temaOscuro = bool.Parse(ini.Read("TemaOscuro","Tema"));
             if (temaOscuro == false)
             {
                 this.BackColor = Color.White;

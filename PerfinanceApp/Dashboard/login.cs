@@ -20,8 +20,10 @@ namespace Dashboard
         private static IMongoCollection <Usuarios> usuariosDB = database.GetCollection<Usuarios>("usuarios");
             
         public login()
-        {   
+        {
+            var ini = new INI("RanConfIniMelvin.ini");
             InitializeComponent();
+            bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
             //Bordes para el form main
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             //Bordeado de los textBox
@@ -33,6 +35,31 @@ namespace Dashboard
             btnAcceder.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(1, 1, btnAcceder.Width, btnAcceder.Height, 6, 6));
             EtiquetaInfo.Hide();
             EtiquetaInfo2.Hide();
+
+            if (temaOscuro == true)
+            {
+                //Tema oscuro
+                this.BackColor = Color.FromArgb(24, 30, 54);
+                this.btnAcceder.BackColor = Color.FromArgb(46, 51, 73);
+                this.textContra.BackColor = Color.FromArgb(24, 30, 100);
+                this.textUsuario.BackColor = Color.FromArgb(24, 30, 100);
+                this.label1.BackColor = Color.FromArgb(24, 30, 54);
+                this.label1.ForeColor = Color.White;
+                button2.ForeColor = Color.White;
+                button3.ForeColor = Color.White;
+            }
+            else
+            {
+                //tema claro
+                this.BackColor = Color.FromArgb(220, 220, 220);
+                this.btnAcceder.BackColor = Color.FromArgb(236, 124, 38);
+                this.textContra.BackColor = Color.FromArgb(255, 164, 32);
+                this.textUsuario.BackColor = Color.FromArgb(255, 164, 32);
+                this.label1.BackColor = Color.FromArgb(220, 220, 220);
+                this.label1.ForeColor = Color.Black;
+                button2.ForeColor = Color.Black;
+                button3.ForeColor = Color.Black;
+            }
         }
 
         //------------------------------- Propiedades del bordeado del form ------------------------------------
@@ -64,9 +91,7 @@ namespace Dashboard
 
         //----------------------------- Metodo del boton "Acceder" ------------------------------------------------------
         private void btnAcceder_Click(object sender, EventArgs e)
-        {
-            // (El pa) Hacer mejoras en el login ( Visuales )  
-
+        { 
             String email = textUsuario.Text;
             String contraseña = textContra.Text;
 
@@ -103,7 +128,7 @@ namespace Dashboard
         {
             if (textUsuario.Text == "") {
                 textUsuario.Text = "USUARIO";
-                textUsuario.ForeColor = Color.FromArgb(64,64,64);
+                textUsuario.ForeColor = Color.FromArgb(140,140,140);
             }
             EtiquetaInfo.Hide();
             EtiquetaInfo2.Hide();
@@ -124,7 +149,7 @@ namespace Dashboard
             if (textContra.Text == "")
             {
                 textContra.Text = "CONTRASEÑA";
-                textContra.ForeColor = Color.FromArgb(64, 64, 64);
+                textContra.ForeColor = Color.FromArgb(140, 140, 140);
                 textContra.UseSystemPasswordChar = false;
             }
             EtiquetaInfo.Hide();
@@ -154,7 +179,16 @@ namespace Dashboard
         }
         private void buttonCloseDisapointed(object sender, EventArgs e)
         {
-            button2.ForeColor = Color.White;  //Al quitar el mouse vuelve al color blanco
+            var ini = new INI("RanConfIniMelvin.ini");
+            bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+            if (temaOscuro == false)
+            {
+                button2.ForeColor = Color.Black;
+            }
+            else
+            {
+                button2.ForeColor = Color.White;
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -169,12 +203,48 @@ namespace Dashboard
         }
         private void buttonMinimizeDisapointed(object sender, EventArgs e)
         {
-            button3.ForeColor = Color.White;
+            var ini = new INI("RanConfIniMelvin.ini");
+            bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+            if (temaOscuro == false)
+            {
+                button3.ForeColor = Color.Black;
+            }
+            else
+            {
+                button3.ForeColor = Color.White;
+            }
         }
         private void button3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;  //Evento para el boton '-' (Minimiza el form main)
         }
+
         //---------------------------------------------------------------------------------------------------------------
+        private void btnAcceder_MouseEnter(object sender, EventArgs e)
+        {
+            var ini = new INI("RanConfIniMelvin.ini");
+            bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+            if (temaOscuro == false)
+            {
+                btnAcceder.BackColor = Color.FromArgb(255,128,0);
+            }
+            else
+            {
+                btnAcceder.BackColor = Color.FromArgb(46, 51, 90) ;
+            }
+        }
+        private void btnAcceder_MouseLeave(object sender, EventArgs e)
+        {
+            var ini = new INI("RanConfIniMelvin.ini");
+            bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
+            if (temaOscuro == false)
+            {
+                btnAcceder.BackColor = Color.FromArgb(236, 124, 38);
+            }
+            else
+            {
+                btnAcceder.BackColor = Color.FromArgb(46, 51, 73);
+            }
+        }
     }
 }
