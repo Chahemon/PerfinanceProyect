@@ -190,6 +190,9 @@ namespace Dashboard
         //------------------------------------ Evento del boton inicio -------------------------------------------------
         private void btnInicio_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "";
+            labelTItulo.Text = "Inicio";
+
             var ini = new INI("RanConfIniMelvin.ini");
             temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
 
@@ -201,7 +204,7 @@ namespace Dashboard
 
             this.panelControlador.Visible = true;
             abrirFormHija(new Inicio(lstEgresos, lstIngresos, temaOscuro, usuarioId, tamLetra) );
-            labelTItulo.Text = "Inicio";
+            
             panNav.Height = btnInicio.Height;
             panNav.Top = btnInicio.Top;
             panNav.Left = btnInicio.Left;
@@ -222,11 +225,14 @@ namespace Dashboard
         //------------------------------------ Evento del boton Ingresos -----------------------------------------------
         private void btnIngresos_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "";
+            labelTItulo.Text = "Ingresos";
+
             var ini = new INI("RanConfIniMelvin.ini");
             temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
 
             this.panelControlador.Visible = true;
-            labelTItulo.Text = "Ingresos";
+            
             IMongoCollection<Ingreso> ingresosDB = database.GetCollection<Ingreso>("ingresos");
             List<Ingreso> lstIngresos = ingresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
@@ -251,11 +257,14 @@ namespace Dashboard
         //---------------------------------------- Evento del boton Egresos --------------------------------------------
         private void btnEgresos_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "";
+            labelTItulo.Text = "Egresos";
+
             var ini = new INI("RanConfIniMelvin.ini");
             temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
 
             this.panelControlador.Visible = true;
-            labelTItulo.Text = "Egresos";
+            
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
@@ -280,11 +289,12 @@ namespace Dashboard
         //---------------------------------------- Evento del boton Analisis -------------------------------------------
         private void btnAnalisis_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "";
+            labelTItulo.Text = "Analisis";
             var ini = new INI("RanConfIniMelvin.ini");
             temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
 
             this.panelControlador.Visible = true;
-            labelTItulo.Text = "Analisis";
             IMongoCollection<Egreso> egresosDB = database.GetCollection<Egreso>("egresos");
             List<Egreso> lstEgresos = egresosDB.Find(d => d.UsuarioId == this.usuarioId).ToList();
 
@@ -313,11 +323,13 @@ namespace Dashboard
         //----------------------------------------- Evento del boton Calendario ----------------------------------------
         private void btnCalendario_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "";
+            labelTItulo.Text = "Calendario";
+
             var ini = new INI("RanConfIniMelvin.ini");
             temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
 
             this.panelControlador.Visible = true;
-            labelTItulo.Text = "Calendario";
 
             abrirFormHija(new Calendario( this.usuarioId, temaOscuro, tamLetra));
             panNav.Height = btnCalendario.Height;
@@ -340,10 +352,11 @@ namespace Dashboard
         //----------------------------------------- Evento del boton Opciones ------------------------------------------
         private void btnOpciones_Click(object sender, EventArgs e)
         {
+            labelTItulo.Text = "";
+            labelTItulo.Text = "Opciones";
+
             var ini = new INI("RanConfIniMelvin.ini");
             temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
-
-            labelTItulo.Text = "Opciones";
 
             //abrirFormHija(new Opciones( ref this.temaOscuro ));
             this.panelControlador.Visible = false;
@@ -593,8 +606,12 @@ namespace Dashboard
         //---------------------------------- Evento para el boton cerrar sesion -----------------------------------------
         private void btnCloseSession_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            login log = new login();
+            log.ShowDialog();
+            this.Close();
+        } 
 
-        }
         //---------------------------------------------------------------------------------------------------------------
 
         //--------------------------------------------------------------------------------------------------------------- 

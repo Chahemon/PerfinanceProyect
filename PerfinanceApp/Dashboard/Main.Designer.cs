@@ -45,11 +45,11 @@ namespace Dashboard
             this.labelTItulo = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.panelControlador = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.BotonCambiarTema = new CustomControls.Controls.ToggleButton();
             this.btnCloseSession = new System.Windows.Forms.Button();
+            this.panelControlador = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -270,13 +270,6 @@ namespace Dashboard
             this.label3.TabIndex = 6;
             this.label3.Text = "Cambiar tema de la aplicacion";
             // 
-            // panelControlador
-            // 
-            this.panelControlador.Location = new System.Drawing.Point(200, 47);
-            this.panelControlador.Name = "panelControlador";
-            this.panelControlador.Size = new System.Drawing.Size(747, 513);
-            this.panelControlador.TabIndex = 8;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -337,6 +330,13 @@ namespace Dashboard
             this.btnCloseSession.MouseEnter += new System.EventHandler(this.btnCloseSession_MouseEnter);
             this.btnCloseSession.MouseLeave += new System.EventHandler(this.btnCloseSession_MouseLeave);
             // 
+            // panelControlador
+            // 
+            this.panelControlador.Location = new System.Drawing.Point(200, 47);
+            this.panelControlador.Name = "panelControlador";
+            this.panelControlador.Size = new System.Drawing.Size(747, 513);
+            this.panelControlador.TabIndex = 8;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,10 +386,10 @@ namespace Dashboard
         private System.Windows.Forms.Button button1;
         private CustomControls.Controls.ToggleButton BotonCambiarTema;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panelControlador;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCloseSession;
+        private System.Windows.Forms.Panel panelControlador;
     }
 }
 
