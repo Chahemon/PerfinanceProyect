@@ -116,9 +116,10 @@
             chartArea2.Name = "ChartArea1";
             this.graficpastel.ChartAreas.Add(chartArea2);
             this.graficpastel.Cursor = System.Windows.Forms.Cursors.Arrow;
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
-            legend2.ForeColor = System.Drawing.Color.Gainsboro;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.ForeColor = System.Drawing.Color.Snow;
             legend2.Name = "Legend1";
+            legend2.TitleBackColor = System.Drawing.Color.White;
             this.graficpastel.Legends.Add(legend2);
             this.graficpastel.Location = new System.Drawing.Point(0, 0);
             this.graficpastel.Name = "graficpastel";
@@ -137,6 +138,10 @@
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.LabelBackColor = System.Drawing.Color.Transparent;
+            series2.LabelBorderColor = System.Drawing.Color.Transparent;
+            series2.LabelForeColor = System.Drawing.Color.Transparent;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             series2.YValuesPerPoint = 4;

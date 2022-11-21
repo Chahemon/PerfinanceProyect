@@ -39,6 +39,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.labelMA = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // flowLayoutPanelDayContenedor
@@ -159,12 +161,36 @@
             this.labelMA.TabIndex = 10;
             this.labelMA.Text = "Month Year";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.label8.Location = new System.Drawing.Point(376, 473);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 32);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "$1982";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(210, 479);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 25);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Balance Mensual";
+            // 
             // Calendario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.ClientSize = new System.Drawing.Size(747, 513);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.labelMA);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -198,5 +224,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelMA;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

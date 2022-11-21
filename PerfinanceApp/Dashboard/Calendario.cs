@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
@@ -161,16 +162,25 @@ namespace Dashboard
                 if (lstEgresosUsuario[i].CreatedAt.Month == now.Month && lstEgresosUsuario[i].CreatedAt.Year == now.Year)
                     lstEgresosMes.Add(lstEgresosUsuario[i]);
 
-
-            
-            for ( int j = 0; j < lstIngresosMes.Count; j++ )
+            float totalIngresos = 0;
+            for (int j = 0; j < lstIngresosMes.Count; j++)
+            {
                 ingresosDias[lstIngresosMes[j].CreatedAt.Day - 1] += lstIngresosMes[j].Valor;
-                
+                totalIngresos += lstIngresosMes[j].Valor;
+            }
 
+            float totalEgresos = 0;
             for (int j = 0; j < lstEgresosMes.Count; j++)
+            {
                 egresosDias[lstEgresosMes[j].CreatedAt.Day - 1] += lstEgresosMes[j].Valor;
+                totalEgresos += lstEgresosMes[j].Valor;
+            }
 
-
+            label8.Text = "";
+            if ((totalIngresos - totalEgresos) < 0)
+                label8.Text = "-" + (totalIngresos - totalEgresos).ToString().Replace('-', '$');
+            else
+                label8.Text = "+$" + (totalIngresos - totalEgresos).ToString();
 
             for ( int i = 1; i <= days; i++ )
             {
@@ -236,14 +246,25 @@ namespace Dashboard
                 if (lstEgresosUsuario[i].CreatedAt.Month == month && lstEgresosUsuario[i].CreatedAt.Year == year)
                     lstEgresosMes.Add(lstEgresosUsuario[i]);
 
-
-
+            float totalIngresos = 0;
             for (int j = 0; j < lstIngresosMes.Count; j++)
+            {
                 ingresosDias[lstIngresosMes[j].CreatedAt.Day - 1] += lstIngresosMes[j].Valor;
+                totalIngresos += lstIngresosMes[j].Valor;
+            }
 
-
+            float totalEgresos = 0;
             for (int j = 0; j < lstEgresosMes.Count; j++)
+            {
                 egresosDias[lstEgresosMes[j].CreatedAt.Day - 1] += lstEgresosMes[j].Valor;
+                totalEgresos += lstEgresosMes[j].Valor;
+            }
+
+            label8.Text = "";
+            if((totalIngresos - totalEgresos) < 0 )
+                label8.Text = "-" + (totalIngresos - totalEgresos).ToString().Replace('-', '$');
+            else
+                label8.Text = "+$" + (totalIngresos - totalEgresos).ToString();
 
 
             for (int i = 1; i <= days; i++)
@@ -309,13 +330,23 @@ namespace Dashboard
                     lstEgresosMes.Add(lstEgresosUsuario[i]);
 
 
-
-            for (int j = 0; j < lstIngresosMes.Count; j++)
+            float totalIngresos = 0;
+            for (int j = 0; j < lstIngresosMes.Count; j++) { 
                 ingresosDias[lstIngresosMes[j].CreatedAt.Day - 1] += lstIngresosMes[j].Valor;
+                totalIngresos += lstIngresosMes[j].Valor;
+            }
 
-
-            for (int j = 0; j < lstEgresosMes.Count; j++)
+            float totalEgresos = 0;
+            for (int j = 0; j < lstEgresosMes.Count; j++) { 
                 egresosDias[lstEgresosMes[j].CreatedAt.Day - 1] += lstEgresosMes[j].Valor;
+                totalEgresos += lstEgresosMes[j].Valor;
+            }
+
+            label8.Text = "";
+            if ((totalIngresos - totalEgresos) < 0)
+                label8.Text = "-" + (totalIngresos - totalEgresos).ToString().Replace('-', '$');
+            else
+                label8.Text = "+$" + (totalIngresos - totalEgresos).ToString();
 
             for (int i = 1; i <= days; i++)
             {
@@ -323,6 +354,8 @@ namespace Dashboard
                 ucdays.days(i, ingresosDias[i - 1] - egresosDias[i - 1]);
                 flowLayoutPanelDayContenedor.Controls.Add(ucdays);
             }
+
+            
         }
         //---------------------------------------------------------------------------------------------------------------
     }

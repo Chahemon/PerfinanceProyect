@@ -109,8 +109,8 @@ namespace Dashboard
             float[] lstValores = { nComida, nSalud, nEducacion, nTransporte, nEntretenimiento, nImpuestos,
                                    nServicios, nCuidado_Personal, nOtro };
 
-            graficpastel.Series["Series1"].Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            graficpastel.Series["Series1"].LabelForeColor = System.Drawing.Color.Gainsboro;
+            graficpastel.Series["Series1"].Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            graficpastel.Series["Series1"].LabelForeColor = System.Drawing.Color.White;
 
             for (int i = 0; i < lstCategorias.Length; i++)
             {
