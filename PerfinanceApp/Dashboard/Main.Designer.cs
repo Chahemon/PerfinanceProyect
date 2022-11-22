@@ -205,7 +205,7 @@ namespace Dashboard
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(161)))), ((int)(((byte)(176)))));
             this.label2.Location = new System.Drawing.Point(6, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 12);
+            this.label2.Size = new System.Drawing.Size(177, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "User data";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -216,7 +216,7 @@ namespace Dashboard
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label1.Location = new System.Drawing.Point(3, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 16);
+            this.label1.Size = new System.Drawing.Size(180, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "User name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

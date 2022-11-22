@@ -240,19 +240,19 @@ namespace Dashboard
         private void cuentaPlaceholder_mouseEnter(object sender, EventArgs e)
         {
             //Condicional para el comboBox de "Cuenta"
-            if (comboBoxCuenta.Text == "-- SELECCIONE UNA --")
+            if (comboBoxCuentaEgreso.Text == "-- SELECCIONE UNA --")
             {
-                comboBoxCuenta.Text = "";
-                comboBoxCuenta.ForeColor = Color.White;
+                comboBoxCuentaEgreso.Text = "";
+                comboBoxCuentaEgreso.ForeColor = Color.White;
             }
         }
         private void cuentaPlaceholder_mouseLeave(object sender, EventArgs e)
         {
             //Condicion para comboBox llamado "comboBoxCuenta"
-            if (comboBoxCuenta.Text == "")
+            if (comboBoxCuentaEgreso.Text == "")
             {
-                comboBoxCuenta.Text = "-- SELECCIONE UNA --";
-                comboBoxCuenta.ForeColor = Color.Silver;
+                comboBoxCuentaEgreso.Text = "-- SELECCIONE UNA --";
+                comboBoxCuentaEgreso.ForeColor = Color.Silver;
             }
         }
         //----------------------------------------------------------------------------------------------------------------

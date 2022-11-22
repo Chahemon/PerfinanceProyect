@@ -3,7 +3,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-// Change this to match your program's normal namespace
+//Ini file powered by levmin team!
+//Don't modify this class (at your own risk D:)
 namespace Dashboard
 {
     class INI
@@ -49,4 +50,5 @@ namespace Dashboard
             return Read(Key, Section).Length > 0;
         }
     }
+    //tengo hambre...
 }

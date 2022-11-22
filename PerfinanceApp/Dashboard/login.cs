@@ -23,6 +23,19 @@ namespace Dashboard
         {
             var ini = new INI("RanConfIniMelvin.ini");
             InitializeComponent();
+            //Carga el usuario anterior, en caso de que se haya guardado uno
+            bool checkedBox = bool.Parse(ini.Read("Checked", "LastUserSaved"));
+            LastLoggedUser.Checked = checkedBox;
+            if (LastLoggedUser.Checked == true)
+            {
+                string usr = ini.Read("User", "LastUser");
+                textUsuario.Text = usr;
+                textUsuario.ForeColor = Color.White;
+                string psw = ini.Read("Pass", "LastUser");
+                textContra.Text = psw;
+                textContra.UseSystemPasswordChar = true;
+                textContra.ForeColor = Color.White;
+            }
             bool temaOscuro = bool.Parse(ini.Read("TemaOscuro", "Tema"));
             //Bordes para el form main
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
@@ -36,6 +49,7 @@ namespace Dashboard
             EtiquetaInfo.Hide();
             EtiquetaInfo2.Hide();
 
+            //Condiciones para los temas
             if (temaOscuro == true)
             {
                 //Tema oscuro
@@ -126,7 +140,7 @@ namespace Dashboard
 
         private void textUsuario_Leave(object sender, EventArgs e)
         {
-            if (textUsuario.Text == "") {
+            if (textUsuario.Text == "" && LastLoggedUser.Checked == false) {
                 textUsuario.Text = "USUARIO";
                 textUsuario.ForeColor = Color.FromArgb(140,140,140);
             }
@@ -146,7 +160,7 @@ namespace Dashboard
 
         private void textContra_Leave(object sender, EventArgs e)
         {
-            if (textContra.Text == "")
+            if (textContra.Text == "" && LastLoggedUser.Checked == false)
             {
                 textContra.Text = "CONTRASEÑA";
                 textContra.ForeColor = Color.FromArgb(140, 140, 140);
@@ -171,6 +185,12 @@ namespace Dashboard
             }
         }
         //---------------------------------------------------------------------------------------------------------------
+
+        private void water()
+        {
+            //string water = " is here!! ";
+            //string boo = " ~( -.- ~) ";
+        }
 
         //----------------------------- Eventos para el boton de cierre del form ----------------------------------------
         private void buttonClosePointed(object sender, EventArgs e)
@@ -218,8 +238,8 @@ namespace Dashboard
         {
             this.WindowState = FormWindowState.Minimized;  //Evento para el boton '-' (Minimiza el form main)
         }
-
         //---------------------------------------------------------------------------------------------------------------
+
         private void btnAcceder_MouseEnter(object sender, EventArgs e)
         {
             var ini = new INI("RanConfIniMelvin.ini");
@@ -244,6 +264,28 @@ namespace Dashboard
             else
             {
                 btnAcceder.BackColor = Color.FromArgb(46, 51, 73);
+            }
+        }
+
+        private void LastLoggedUser_CheckedChanged(object sender, EventArgs e)
+        {
+            var ini = new INI("RanConfIniMelvin.ini");
+            if ( LastLoggedUser.Checked == true && textContra.Text != "CONTRASEÑA" && textUsuario.Text != "USUARIO" )
+            {
+                var usr = textUsuario.Text;
+                var psw = textContra.Text;
+                ini.Write("User", usr, "LastUser");
+                ini.Write("Pass", psw, "LastUser");
+                //Guarda el estado del checkbox, si lo marcas permanecera asi 
+                ini.Write("Checked", "true", "LastUserSaved");
+            } 
+            if ( LastLoggedUser.Checked == false )
+            {
+                //Si desmarcas el checkbox este permanecera asi
+                ini.Write("Checked", "false", "LastUserSaved");
+                //No queremos usuarios guardados, asi que matamos este ;p
+                ini.Write("User", "", "LastUser");
+                ini.Write("Pass", "", "LastUser");
             }
         }
     }

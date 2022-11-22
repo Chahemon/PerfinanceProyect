@@ -42,6 +42,7 @@ namespace Dashboard
             this.EtiquetaInfo = new System.Windows.Forms.Label();
             this.EtiquetaInfo2 = new System.Windows.Forms.Label();
             this.RegisterLinkedLabel = new System.Windows.Forms.LinkLabel();
+            this.LastLoggedUser = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -85,7 +86,7 @@ namespace Dashboard
             this.btnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcceder.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcceder.ForeColor = System.Drawing.Color.LightGray;
-            this.btnAcceder.Location = new System.Drawing.Point(77, 397);
+            this.btnAcceder.Location = new System.Drawing.Point(77, 415);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(219, 37);
             this.btnAcceder.TabIndex = 1;
@@ -112,7 +113,7 @@ namespace Dashboard
             this.recoverPasswordLabel.AutoSize = true;
             this.recoverPasswordLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recoverPasswordLabel.LinkColor = System.Drawing.Color.DimGray;
-            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 351);
+            this.recoverPasswordLabel.Location = new System.Drawing.Point(177, 374);
             this.recoverPasswordLabel.Name = "recoverPasswordLabel";
             this.recoverPasswordLabel.Size = new System.Drawing.Size(119, 13);
             this.recoverPasswordLabel.TabIndex = 4;
@@ -200,12 +201,27 @@ namespace Dashboard
             this.RegisterLinkedLabel.AutoSize = true;
             this.RegisterLinkedLabel.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegisterLinkedLabel.LinkColor = System.Drawing.Color.DimGray;
-            this.RegisterLinkedLabel.Location = new System.Drawing.Point(111, 372);
+            this.RegisterLinkedLabel.Location = new System.Drawing.Point(114, 393);
             this.RegisterLinkedLabel.Name = "RegisterLinkedLabel";
             this.RegisterLinkedLabel.Size = new System.Drawing.Size(182, 13);
             this.RegisterLinkedLabel.TabIndex = 8;
             this.RegisterLinkedLabel.TabStop = true;
             this.RegisterLinkedLabel.Text = "¿No tienes cuenta aun? Registrate";
+            // 
+            // LastLoggedUser
+            // 
+            this.LastLoggedUser.AutoSize = true;
+            this.LastLoggedUser.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.LastLoggedUser.FlatAppearance.BorderSize = 0;
+            this.LastLoggedUser.Font = new System.Drawing.Font("Nirmala UI", 8.25F);
+            this.LastLoggedUser.ForeColor = System.Drawing.Color.DimGray;
+            this.LastLoggedUser.Location = new System.Drawing.Point(182, 354);
+            this.LastLoggedUser.Name = "LastLoggedUser";
+            this.LastLoggedUser.Size = new System.Drawing.Size(114, 17);
+            this.LastLoggedUser.TabIndex = 9;
+            this.LastLoggedUser.Text = "Recordar usuario";
+            this.LastLoggedUser.UseVisualStyleBackColor = true;
+            this.LastLoggedUser.CheckedChanged += new System.EventHandler(this.LastLoggedUser_CheckedChanged);
             // 
             // login
             // 
@@ -213,6 +229,7 @@ namespace Dashboard
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(372, 478);
+            this.Controls.Add(this.LastLoggedUser);
             this.Controls.Add(this.RegisterLinkedLabel);
             this.Controls.Add(this.EtiquetaInfo2);
             this.Controls.Add(this.EtiquetaInfo);
@@ -250,5 +267,6 @@ namespace Dashboard
         private System.Windows.Forms.Label EtiquetaInfo;
         private System.Windows.Forms.Label EtiquetaInfo2;
         private System.Windows.Forms.LinkLabel RegisterLinkedLabel;
+        private System.Windows.Forms.CheckBox LastLoggedUser;
     }
 }

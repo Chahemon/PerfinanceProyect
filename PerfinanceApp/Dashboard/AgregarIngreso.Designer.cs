@@ -103,7 +103,7 @@ namespace Dashboard
             // 
             this.txtBoxCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.txtBoxCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxCantidad.ForeColor = System.Drawing.Color.Silver;
+            this.txtBoxCantidad.ForeColor = System.Drawing.Color.White;
             this.txtBoxCantidad.Location = new System.Drawing.Point(17, 118);
             this.txtBoxCantidad.Name = "txtBoxCantidad";
             this.txtBoxCantidad.Size = new System.Drawing.Size(100, 20);
@@ -157,7 +157,7 @@ namespace Dashboard
             // 
             this.txtBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.txtBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxDescripcion.ForeColor = System.Drawing.Color.Silver;
+            this.txtBoxDescripcion.ForeColor = System.Drawing.Color.White;
             this.txtBoxDescripcion.Location = new System.Drawing.Point(17, 165);
             this.txtBoxDescripcion.Name = "txtBoxDescripcion";
             this.txtBoxDescripcion.Size = new System.Drawing.Size(100, 20);

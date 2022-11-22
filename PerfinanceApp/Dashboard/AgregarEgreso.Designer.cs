@@ -142,7 +142,7 @@
             // 
             this.txtBoxCantidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.txtBoxCantidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxCantidad.ForeColor = System.Drawing.Color.Silver;
+            this.txtBoxCantidad.ForeColor = System.Drawing.Color.White;
             this.txtBoxCantidad.Location = new System.Drawing.Point(16, 118);
             this.txtBoxCantidad.Name = "txtBoxCantidad";
             this.txtBoxCantidad.Size = new System.Drawing.Size(100, 20);
@@ -153,7 +153,7 @@
             // 
             this.txtBoxDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.txtBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxDescripcion.ForeColor = System.Drawing.Color.Silver;
+            this.txtBoxDescripcion.ForeColor = System.Drawing.Color.White;
             this.txtBoxDescripcion.Location = new System.Drawing.Point(16, 166);
             this.txtBoxDescripcion.Name = "txtBoxDescripcion";
             this.txtBoxDescripcion.Size = new System.Drawing.Size(100, 20);
@@ -229,6 +229,9 @@
             this.comboBoxCuentaEgreso.Size = new System.Drawing.Size(200, 21);
             this.comboBoxCuentaEgreso.TabIndex = 12;
             this.comboBoxCuentaEgreso.Text = "-- SELECCIONE UNA --";
+            this.comboBoxCuentaEgreso.Enter += new System.EventHandler(this.cuentaPlaceholder_mouseEnter);
+            this.comboBoxCuentaEgreso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxCuenta_KeyPress);
+            this.comboBoxCuentaEgreso.Leave += new System.EventHandler(this.cuentaPlaceholder_mouseLeave);
             // 
             // label6
             // 
