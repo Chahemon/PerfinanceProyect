@@ -267,6 +267,7 @@ namespace Dashboard
             }
         }
 
+        //------------------------------------- Evento para el checkBox "Recordar Usuario" -----------------------------------
         private void LastLoggedUser_CheckedChanged(object sender, EventArgs e)
         {
             var ini = new INI("RanConfIniMelvin.ini");
@@ -288,5 +289,18 @@ namespace Dashboard
                 ini.Write("Pass", "", "LastUser");
             }
         }
+        //-------------------------------------------------------------------------------------------------------------------
+
+        // ------------------ Eventos para los linkLabel del login (te redireccionan a nuestra pagina!!! :D) ------------------
+        private void recoverPasswordLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://perfinance.levmin.tech/olvide-password");
+        }
+
+        private void RegisterLinkedLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://perfinance.levmin.tech/registrar");
+        }
+        //------------------------------------------------------------------------------------------------------------------
     }
 }

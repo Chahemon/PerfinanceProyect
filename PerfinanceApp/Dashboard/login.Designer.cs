@@ -119,6 +119,7 @@ namespace Dashboard
             this.recoverPasswordLabel.TabIndex = 4;
             this.recoverPasswordLabel.TabStop = true;
             this.recoverPasswordLabel.Text = "Recuperar contraseña";
+            this.recoverPasswordLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.recoverPasswordLabel_LinkClicked);
             this.recoverPasswordLabel.Click += new System.EventHandler(this.recoverPasswordLabel_Click);
             // 
             // panel2
@@ -207,6 +208,7 @@ namespace Dashboard
             this.RegisterLinkedLabel.TabIndex = 8;
             this.RegisterLinkedLabel.TabStop = true;
             this.RegisterLinkedLabel.Text = "¿No tienes cuenta aun? Registrate";
+            this.RegisterLinkedLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RegisterLinkedLabel_LinkClicked);
             // 
             // LastLoggedUser
             // 
